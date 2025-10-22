@@ -1,0 +1,1 @@
+This is a multi-page static website for Flo Sisterlocks Eldoret. Replace placeholder images in assets/images with client photos. Use index.html as entry point.

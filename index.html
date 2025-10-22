@@ -1,0 +1,179 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flo Sisterlocks</title>
+  <meta name="description" content="Flo Sisterlocks Eldoret - Specialist Sisterlocks studio in Eldoret, Kenya. Installation, retie, maintenance, nails & styling.">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+ <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body{background:#000;color:#fff;}
+    .backdrop-blur-md {
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px); /* For Safari support */
+    }
+  </style>
+</head>
+<body class="antialiased leading-relaxed pt-16">
+
+
+<header class="bg-black/70 text-white fixed top-0 left-0 w-full z-50">
+  <div class="container mx-auto px-6 py-3 flex items-center justify-between">
+    <!-- Logo and Site Title -->
+    <a href="index.html" class="flex items-center gap-3">
+      <img src="assets/images/logo.jpg" alt="Flo Sisterlocks Logo" class="h-10 w-10 rounded-full object-cover border-white border">
+      <span class="font-bold text-xl">Flo Sisterlocks</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav id="desktop-menu" class="hidden md:flex gap-6 items-center">
+      <a href="index.html" class="hover:underline">Home</a>
+      <a href="services.html" class="hover:underline">Services</a>
+      <a href="gallery.html" class="hover:underline">Gallery</a>
+      <a href="contact.html" class="hover:underline">Contact</a>
+      <a href="https://wa.me/254721530120" target="_blank" class="bg-white text-black px-4 py-2 rounded">Book</a>
+    </nav>
+
+    <!-- Hamburger Icon for Mobile -->
+    <button id="menu-btn" class="block md:hidden text-white focus:outline-none">
+      <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" 
+           viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+              d="M4 6h16M4 12h16m0 6H4"/>
+      </svg>
+      <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" 
+           viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+              d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->  
+  <nav id="mobile-menu" class="hidden flex-col bg-black text-white text-center md:hidden transition-all duration-300 ease-in-out opacity-0 invisible">
+    <a href="index.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Home</a>
+    <a href="services.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Services</a>
+    <a href="gallery.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Gallery</a>
+    <a href="contact.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Contact</a>
+    <a href="https://wa.me/254721530120" target="_blank" class="py-3 hover:text-amber-400">Book on WhatsApp</a>
+  </nav>
+</header>
+
+<main>
+  <!-- Hero -->
+<section class="relative flex flex-col items-center justify-center text-center h-screen overflow-hidden w-full">
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
+    <source src="https://res.cloudinary.com/dh5hssddg/video/upload/v1761135357/flo_hero_section_video_xax0s4.mp4" type="video/mp4">
+  </video>
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black/70 to-black/90"></div>
+
+  <div data-aos="fade-up" class="relative z-10 px-6">
+  
+  <h1 class="text-4xl md:text-6xl font-extrabold font-display text-white">
+    Flo Sisterlocks
+  </h1>
+
+  <p class=" font-sans text-gray-200 text-lg md:text-xl max-w-2xl mx-auto font-body">
+    Eldoret's specialist Sisterlocks studio — precision installations, expert maintenance, and beautiful styling.
+  </p>
+
+  <div class="font-sans mt-8 flex flex-wrap justify-center gap-4">
+    <a href="contact.html"
+        class="bg-white text-black px-6 py-3 rounded-md font-semibold font-body shadow-md hover:shadow-lg transition-shadow duration-300">
+        Book Consultation
+    </a>
+    <a href="gallery.html"
+        class="border border-white px-6 py-3 rounded-md font-semibold font-body hover:bg-white hover:text-black transition-colors duration-300">
+        View Gallery
+    </a>
+  </div>
+</div>
+
+    <div class="mt-8 text-sm text-gray-400">Open: Mon - Sat | By Appointment Only</div>
+  </div>
+
+  <!-- Scroll Down Arrow -->
+  <a href="#services" class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce">
+    <svg class="w-8 h-8 text-white" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+      <path d="M19 9l-7 7-7-7"></path>
+    </svg>
+  </a>
+</section>
+
+  <div class="container mx-auto px-6">
+    <!-- Services preview -->
+    <section id="services" class="py-8">
+      <h2 class="text-2xl font-bold" data-aos="fade-up">Our Services</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+        <div class="p-6 bg-white/5 rounded" data-aos="zoom-in">
+          <h3 class="font-semibold">Sisterlocks Installation</h3>
+          <p class="mt-2 text-sm text-gray-300">Precision grid installations. Starting from KES 18,000</p>
+        </div>
+        <div class="p-6 bg-white/5 rounded" data-aos="zoom-in" data-aos-delay="100">
+          <h3 class="font-semibold">Retightening / Maintenance</h3>
+          <p class="mt-2 text-sm text-gray-300">Root reties and maintenance. Starting from KES 1,500</p>
+        </div>
+        <div class="p-6 bg-white/5 rounded" data-aos="zoom-in" data-aos-delay="200">
+          <h3 class="font-semibold">Nails & Beauty</h3>
+          <p class="mt-2 text-sm text-gray-300">All types of nails: gel, acrylic, mani/pedi. Starting from KES 800</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="py-8" data-aos="fade-up">
+      <h2 class="text-2xl font-bold">About Flo</h2>
+      <p class="mt-3 text-gray-300">Flo Sisterlocks Eldoret is a specialist loctician studio located in Eldoret, offering professional Sisterlocks installation, maintenance and beauty services. We focus on healthy hair, precision and client comfort.</p>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-8">
+      <h2 class="text-2xl font-bold" data-aos="fade-up">What Clients Say</h2>
+      <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 bg-white/5 rounded" data-aos="flip-left">“Flo truly transformed my hair — expert work and great vibe!” — A. Mwangi</div>
+        <div class="p-6 bg-white/5 rounded" data-aos="flip-left" data-aos-delay="80">“Professional and patient — my Sisterlocks look amazing.” — J. Njeri</div>
+        <div class="p-6 bg-white/5 rounded" data-aos="flip-left" data-aos-delay="160">“Best maintenance service in Eldoret.” — K. Wanjiru</div>
+      </div>
+    </section>
+  </div>
+</main>
+
+
+<footer class="bg-black text-white mt-12">
+  <div class="container mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div>
+      <h3 class="font-semibold">Flo Sisterlocks Eldoret</h3>
+      <p class="text-sm mt-2">E.T Centre, Ronald Ngala Street, opposite Hotel Comfy, Eldoret</p>
+      <p class="text-sm mt-1">Phone: <a href="tel:+254721530120" class="underline">0721 530120</a></p>
+    </div>
+    <div>
+      <h4 class="font-semibold">Quick Links</h4>
+      <ul class="mt-2 text-sm">
+        <li><a href="services.html" class="underline">Services</a></li>
+        <li><a href="gallery.html" class="underline">Gallery</a></li>
+        <li><a href="contact.html" class="underline">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-semibold">Follow Us</h4>
+      <ul class="mt-2 text-sm">
+        <li><a href="https://instagram.com/sisterlocksbyflo" target="_blank" class="underline">@sisterlocksbyflo</a></li>
+        <li><a href="https://facebook.com/Sisterlocksbyflo" target="_blank" class="underline">Sisterlocksbyflo</a></li>
+        <li><a href="https://tiktok.com/@Sisterlocksbyflo" target="_blank" class="underline">@Sisterlocksbyflo</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="text-center text-xs py-4 border-t border-white/10">© Flo Sisterlocks Eldoret — All rights reserved.</div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="main.js"></script>
+</body>
+
+</body>
+</html>
