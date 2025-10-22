@@ -62,48 +62,47 @@
   </nav>
 </header>
 
+
+
 <main>
   <!-- Hero -->
-<section class="relative flex flex-col items-center justify-center text-center h-screen overflow-hidden w-full">
+<section class="relative h-screen flex items-center justify-center overflow-hidden text-center">
   <!-- Background Video -->
-  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
+  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
     <source src="https://res.cloudinary.com/dh5hssddg/video/upload/v1761135357/flo_hero_section_video_xax0s4.mp4" type="video/mp4">
   </video>
-  <!-- Overlay -->
-  <div class="absolute inset-0 bg-gradient-to-b from-black/70 to-black/90"></div>
 
-  <div data-aos="fade-up" class="relative z-10 px-6">
-  
-  <h1 class="text-4xl md:text-6xl font-extrabold font-display text-white">
-    Flo Sisterlocks
-  </h1>
+  <!-- Dark Overlay -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/90 z-10"></div>
 
-  <p class=" font-sans text-gray-200 text-lg md:text-xl max-w-2xl mx-auto font-body">
-    Eldoret's specialist Sisterlocks studio — precision installations, expert maintenance, and beautiful styling.
-  </p>
-
-  <div class="font-sans mt-8 flex flex-wrap justify-center gap-4">
-    <a href="contact.html"
-        class="bg-white text-black px-6 py-3 rounded-md font-semibold font-body shadow-md hover:shadow-lg transition-shadow duration-300">
+  <!-- Content -->
+  <div class="relative z-20 px-6 text-white -mt-24 md:-mt-32 lg:-mt-40">
+    <h1 class="text-4xl md:text-6xl font-extrabold font-display text-amber-400 mb-4 animate-fadeInDown">
+      Flo Sisterlocks
+    </h1>
+    <p class="font-body text-xl md:text-2xl max-w-2xl mx-auto text-black font-bold animate-float">
+      Eldoret's specialist Sisterlocks studio — precision installations, expert maintenance, and beautiful styling.
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-4">
+      <a href="contact.html"
+        class="bg-white text-black px-6 py-3 rounded-md font-semibold font-body shadow-md hover:shadow-lg transition-shadow duration-300 animate-fadeInDelay1">
         Book Consultation
-    </a>
-    <a href="gallery.html"
-        class="border border-white px-6 py-3 rounded-md font-semibold font-body hover:bg-white hover:text-black transition-colors duration-300">
+      </a>
+      <a href="gallery.html"
+        class="border border-white px-6 py-3 rounded-md font-semibold font-body hover:bg-white hover:text-black transition-colors duration-300 animate-fadeInDelay2">
         View Gallery
-    </a>
-  </div>
-</div>
-
-    <div class="mt-8 text-sm text-gray-400">Open: Mon - Sat | By Appointment Only</div>
+      </a>
+    </div>
   </div>
 
   <!-- Scroll Down Arrow -->
   <a href="#services" class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce">
     <svg class="w-8 h-8 text-white" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-      <path d="M19 9l-7 7-7-7"></path>
+      <path d="M19 9l-7 7-7-7" />
     </svg>
   </a>
 </section>
+
 
   <div class="container mx-auto px-6">
     <!-- Services preview -->
