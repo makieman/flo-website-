@@ -1,3 +1,40 @@
+// Theme Toggle
+const themeToggleBtn = document.getElementById('theme-toggle');
+const mobileThemeToggleBtn = document.getElementById('mobile-theme-toggle');
+const darkIcon = document.getElementById('theme-toggle-dark-icon');
+const lightIcon = document.getElementById('theme-toggle-light-icon');
+const mobileDarkIcon = document.getElementById('mobile-theme-toggle-dark-icon');
+const mobileLightIcon = document.getElementById('mobile-theme-toggle-light-icon');
+
+const updateIcons = (isLight) => {
+  if (isLight) {
+    darkIcon.classList.remove('hidden');
+    lightIcon.classList.add('hidden');
+    mobileDarkIcon.classList.remove('hidden');
+    mobileLightIcon.classList.add('hidden');
+  } else {
+    darkIcon.classList.add('hidden');
+    lightIcon.classList.remove('hidden');
+    mobileDarkIcon.classList.add('hidden');
+    mobileLightIcon.classList.remove('hidden');
+  }
+};
+
+const toggleTheme = () => {
+  const isLight = document.body.classList.toggle('light');
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  updateIcons(isLight);
+};
+
+if (localStorage.getItem('theme') === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+  document.body.classList.add('light');
+  updateIcons(true);
+} else {
+  updateIcons(false);
+}
+
+themeToggleBtn.addEventListener('click', toggleTheme);
+mobileThemeToggleBtn.addEventListener('click', toggleTheme);
 
 // Mobile menu toggle
 const menuBtn = document.getElementById('menu-btn');
@@ -86,6 +123,68 @@ if (servicesSection) {
       }, 100); // Debounce to avoid performance issues
     });
   }
+}
+
+// Testimonial Carousel
+const testimonialCarousel = document.querySelector('#testimonials');
+if (testimonialCarousel) {
+  const track = testimonialCarousel.querySelector('.testimonial-carousel-track');
+  const cards = Array.from(track.children);
+  const nextButton = testimonialCarousel.querySelector('.testimonial-nav-btn.next');
+  const prevButton = testimonialCarousel.querySelector('.testimonial-nav-btn.prev');
+  const pagination = testimonialCarousel.querySelector('.testimonial-pagination');
+
+  let cardWidth = cards[0].getBoundingClientRect().width;
+  let cardsToShow = 1;
+
+  const updateCardsToShow = () => {
+    if (window.innerWidth >= 1024) {
+      cardsToShow = 3;
+    } else if (window.innerWidth >= 768) {
+      cardsToShow = 2;
+    } else {
+      cardsToShow = 1;
+    }
+    cardWidth = track.scrollWidth / cards.length;
+  };
+
+  updateCardsToShow();
+  window.addEventListener('resize', updateCardsToShow);
+
+  // Create pagination dots
+  const totalPages = Math.ceil(cards.length / cardsToShow);
+  for (let i = 0; i < totalPages; i++) {
+    const dot = document.createElement('button');
+    dot.classList.add('dot');
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => moveToPage(i));
+    pagination.appendChild(dot);
+  }
+  const dots = Array.from(pagination.children);
+
+  let currentPage = 0;
+
+  const moveToPage = (pageIndex) => {
+    if (pageIndex < 0 || pageIndex >= totalPages) return;
+    const scrollAmount = pageIndex * cardWidth * cardsToShow;
+    track.style.transform = `translateX(-${scrollAmount}px)`;
+    currentPage = pageIndex;
+    updateDots();
+  };
+
+  const updateDots = () => {
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentPage);
+    });
+  };
+
+  nextButton.addEventListener('click', () => {
+    moveToPage(currentPage + 1);
+  });
+
+  prevButton.addEventListener('click', () => {
+    moveToPage(currentPage - 1);
+  });
 }
 
 // -------------------

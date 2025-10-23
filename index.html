@@ -9,13 +9,9 @@
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <style>
-    body{background:#000;color:#fff;}
-    .backdrop-blur-md {
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px); /* For Safari support */
-    }
-  </style>
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 </head>
 <body class="antialiased leading-relaxed pt-16">
 
@@ -34,7 +30,18 @@
       <a href="services.html" class="hover:underline">Services</a>
       <a href="gallery.html" class="hover:underline">Gallery</a>
       <a href="contact.html" class="hover:underline">Contact</a>
-      <a href="https://wa.me/254721530120" target="_blank" class="bg-white text-black px-4 py-2 rounded">Book</a>
+      <a href="https://wa.me/254721530120" target="_blank" class="bg-amber-500 text-black px-4 py-2 rounded hover:bg-amber-400 transition-colors">Book</a>
+      <!-- Theme Toggle -->
+      <button id="theme-toggle" class="w-10 h-10 rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors">
+        <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+        </svg>
+        <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20">
+          <path
+            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM10 16a1 1 0 011 1v1a1 1-0 11-2 0v-1a1 1 0 011-1zM3.05 4.54a1 1 0 00-1.414 1.414l.707.707a1 1 0 001.414-1.414l-.707-.707zM16.95 4.54a1 1 0 011.414 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 010-1.414zM12.293 15.707a1 1 0 01-1.414 0l-.707-.707a1 1 0 011.414-1.414l.707.707a1 1 0 010 1.414zM4.54 16.95a1 1 0 01-1.414-1.414l.707-.707a1 1 0 111.414 1.414l-.707.707a1 1 0 01-1.414 0z"
+            clip-rule="evenodd" fill-rule="evenodd"></path>
+        </svg>
+      </button>
     </nav>
 
     <!-- Hamburger Icon for Mobile -->
@@ -58,7 +65,18 @@
     <a href="services.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Services</a>
     <a href="gallery.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Gallery</a>
     <a href="contact.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Contact</a>
-    <a href="https://wa.me/254721530120" target="_blank" class="py-3 hover:text-amber-400">Book on WhatsApp</a>
+    <a href="https://wa.me/254721530120" target="_blank" class="py-3 border-b border-gray-800 hover:text-amber-400">Book on WhatsApp</a>
+    <!-- Mobile Theme Toggle -->
+    <div class="py-3 flex justify-center">
+      <button id="mobile-theme-toggle" class="w-10 h-10 rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors">
+        <svg id="mobile-theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001-0 1010.586 10.586z"></path>
+        </svg>
+        <svg id="mobile-theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM10 16a1 1 0 011 1v1a1 1-0 11-2 0v-1a1 1 0 011-1zM3.05 4.54a1 1 0 00-1.414 1.414l.707.707a1 1 0 001.414-1.414l-.707-.707zM16.95 4.54a1 1 0 011.414 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 010-1.414zM12.293 15.707a1 1 0 01-1.414 0l-.707-.707a1 1 0 011.414-1.414l.707.707a1 1 0 010 1.414zM4.54 16.95a1 1 0 01-1.414-1.414l.707-.707a1 1 0 111.414 1.414l-.707.707a1 1 0 01-1.414 0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+        </svg>
+      </button>
+    </div>
   </nav>
 </header>
 
@@ -84,12 +102,11 @@
       Eldoret's specialist Sisterlocks studio — precision installations, expert maintenance, and beautiful styling.
     </p>
     <div class="mt-8 flex flex-wrap justify-center gap-4">
-      <a href="contact.html"
-        class="bg-white text-black px-6 py-3 rounded-md font-semibold font-body shadow-md hover:shadow-lg transition-shadow duration-300 animate-fadeInDelay1">
+      <a href="contact.html" class="cta-button-primary animate-fadeInDelay1">
         Book Consultation
       </a>
       <a href="gallery.html"
-        class="border border-white px-6 py-3 rounded-md font-semibold font-body hover:bg-white hover:text-black transition-colors duration-300 animate-fadeInDelay2">
+        class="cta-button-secondary animate-fadeInDelay2">
         View Gallery
       </a>
     </div>
@@ -327,47 +344,143 @@
     </section>
 
     <!-- Testimonials -->
-    <section class="py-8">
-      <h2 class="text-2xl font-bold font-display" data-aos="fade-up">What Clients Say</h2>
-      <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="p-6 bg-white/5 rounded" data-aos="flip-left">“Flo truly transformed my hair — expert work and
-          great vibe!” — A. Mwangi</div>
-        <div class="p-6 bg-white/5 rounded" data-aos="flip-left" data-aos-delay="80">“Professional and patient — my
-          Sisterlocks look amazing.” — J. Njeri</div>
-        <div class="p-6 bg-white/5 rounded" data-aos="flip-left" data-aos-delay="160">“Best maintenance service in
-          Eldoret.” — K. Wanjiru</div>
+    <section id="testimonials" class="py-16 sm:py-24">
+      <div class="container mx-auto px-6">
+        <!-- Section Header -->
+        <div class="text-center mb-12" data-aos="fade-up">
+          <h2 class="text-3xl md:text-4xl font-bold font-display">What Our Clients Say</h2>
+          <p class="text-gray-400 mt-2">Real stories from our happy clients.</p>
+        </div>
+
+        <!-- Carousel Container -->
+        <div class="relative">
+          <!-- Carousel Wrapper -->
+          <div class="testimonial-carousel-wrapper">
+            <div class="testimonial-carousel-track">
+              <!-- Testimonial 1 -->
+              <div class="testimonial-card">
+                <p class="testimonial-text">“Flo truly transformed my hair — expert work and a great vibe! I've never been happier with my Sisterlocks.”</p>
+                <div class="testimonial-author">- A. Mwangi</div>
+                <div class="testimonial-rating">★★★★★</div>
+              </div>
+              <!-- Testimonial 2 -->
+              <div class="testimonial-card">
+                <p class="testimonial-text">“Professional and patient from start to finish. My Sisterlocks look amazing, and the maintenance is top-notch.”</p>
+                <div class="testimonial-author">- J. Njeri</div>
+                <div class="testimonial-rating">★★★★★</div>
+              </div>
+              <!-- Testimonial 3 -->
+              <div class="testimonial-card">
+                <p class="testimonial-text">“By far the best maintenance service in Eldoret. Flo is meticulous and always ensures my hair is healthy and neat.”</p>
+                <div class="testimonial-author">- K. Wanjiru</div>
+                <div class="testimonial-rating">★★★★★</div>
+              </div>
+               <!-- Testimonial 4 -->
+              <div class="testimonial-card">
+                <p class="testimonial-text">“I was nervous about getting Sisterlocks, but the consultation was so informative. The result is beyond my expectations!”</p>
+                <div class="testimonial-author">- L. Achieng</div>
+                <div class="testimonial-rating">★★★★★</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+          <button class="testimonial-nav-btn prev">‹</button>
+          <button class="testimonial-nav-btn next">›</button>
+        </div>
+
+        <!-- Pagination -->
+        <div class="testimonial-pagination"></div>
       </div>
     </section>
   </div>
 </main>
 
+<!-- Location + Footer Section -->
+<section class="bg-gradient-to-b from-black via-gray-900 to-black text-white">
+  <div class="container mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
-<footer class="bg-black text-white mt-12">
-  <div class="container mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-6">
-    <div>
-      <h3 class="font-semibold">Flo Sisterlocks Eldoret</h3>
-      <p class="text-sm mt-2">E.T Centre, Ronald Ngala Street, opposite Hotel Comfy, Eldoret</p>
-      <p class="text-sm mt-1">Phone: <a href="tel:+254721530120" class="underline">0721 530120</a></p>
+    <!-- Google Map -->
+    <div data-aos="fade-up">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 font-display">Find Us</h2>
+      <p class="text-gray-300 mb-6">Visit Flo Sisterlocks Eldoret at E.T Centre, Ronald Ngala Street, opposite Hotel
+        Comfy.</p>
+      <div
+        class="w-full h-64 md:h-96 rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-[1.02] duration-300">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.6564625729015!2d35.277208500000015!3d0.5160946000000061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x17810135d93c5cd7%3A0x24851e618b8551d2!2sFlo%20Sisterlocks%2C%20Eldoret!5e0!3m2!1sen!2ske!4v1761207628771!5m2!1sen!2ske"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <a href="https://wa.me/254721530120" target="_blank"
+        class="mt-6 inline-block bg-amber-500 text-black font-semibold px-6 py-3 rounded-md hover:bg-amber-400 hover:scale-105 transition transform duration-300 shadow-lg hover:shadow-xl animate-float">
+        Book Now
+      </a>
     </div>
-    <div>
-      <h4 class="font-semibold">Quick Links</h4>
-      <ul class="mt-2 text-sm">
-        <li><a href="services.html" class="underline">Services</a></li>
-        <li><a href="gallery.html" class="underline">Gallery</a></li>
-        <li><a href="contact.html" class="underline">Contact</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4 class="font-semibold">Follow Us</h4>
-      <ul class="mt-2 text-sm">
-        <li><a href="https://instagram.com/sisterlocksbyflo" target="_blank" class="underline">@sisterlocksbyflo</a></li>
-        <li><a href="https://facebook.com/Sisterlocksbyflo" target="_blank" class="underline">Sisterlocksbyflo</a></li>
-        <li><a href="https://tiktok.com/@Sisterlocksbyflo" target="_blank" class="underline">@Sisterlocksbyflo</a></li>
-      </ul>
+
+    <!-- Footer Info -->
+    <div class="flex flex-col justify-between space-y-10 lg:space-y-0 lg:pl-8">
+      <!-- Address -->
+      <div data-aos="fade-up" data-aos-delay="100">
+        <h3 class="font-semibold text-xl mb-2 font-display">Flo Sisterlocks Eldoret</h3>
+        <p class="text-gray-300 text-sm">E.T Centre, Ronald Ngala Street, opposite Hotel Comfy, Eldoret</p>
+        <p class="text-gray-300 text-sm mt-1">Phone: <a href="tel:+254721530120"
+            class="underline hover:text-amber-400 transition">0721 530120</a></p>
+      </div>
+
+      <!-- Quick Links -->
+      <div data-aos="fade-up" data-aos-delay="200">
+        <h4 class="font-semibold text-lg mb-3 font-display">Quick Links</h4>
+        <div class="flex flex-wrap gap-3">
+          <a href="index.html"
+            class="bg-sky-500 hover:bg-sky-600 text-white font-semibold px-4 py-2 rounded transition transform hover:scale-105 shadow-md hover:shadow-lg text-center animate-float">
+            Home
+          </a>
+          <a href="services.html"
+            class="bg-amber-500 hover:bg-amber-600 text-white font-semibold px-4 py-2 rounded transition transform hover:scale-105 shadow-md hover:shadow-lg text-center animate-float delay-100">
+            Services
+          </a>
+          <a href="gallery.html"
+            class="bg-purple-500 hover:bg-purple-600 text-white font-semibold px-4 py-2 rounded transition transform hover:scale-105 shadow-md hover:shadow-lg text-center animate-float delay-200">
+            Gallery
+          </a>
+          <a href="contact.html"
+            class="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-4 py-2 rounded transition transform hover:scale-105 shadow-md hover:shadow-lg text-center animate-float delay-300">
+            Contact
+          </a>
+          <a href="https://wa.me/254721530120" target="_blank"
+            class="bg-rose-500 hover:bg-rose-600 text-white font-semibold px-4 py-2 rounded transition transform hover:scale-105 shadow-md hover:shadow-lg text-center animate-float delay-400">
+            Book Now
+          </a>
+        </div>
+      </div>
+
+      <!-- Social Media -->
+      <div data-aos="fade-up" data-aos-delay="300">
+        <h4 class="font-semibold text-lg mb-3 font-display">Follow Us</h4>
+        <div class="flex gap-8 text-3xl">
+          <a href="https://instagram.com/sisterlocksbyflo" target="_blank"
+            class="social-icon instagram-icon transform hover:scale-125 transition duration-300 animate-bounce">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://facebook.com/Sisterlocksbyflo" target="_blank"
+            class="social-icon facebook-icon transform hover:scale-125 transition duration-300 animate-bounce delay-100">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="https://tiktok.com/@Sisterlocksbyflo" target="_blank"
+            class="social-icon tiktok-icon transform hover:scale-125 transition duration-300 animate-bounce delay-200">
+            <i class="fab fa-tiktok"></i>
+          </a>
+        </div>
+      </div>
+
     </div>
   </div>
-  <div class="text-center text-xs py-4 border-t border-white/10">© Flo Sisterlocks Eldoret — All rights reserved.</div>
-</footer>
+
+  <!-- Copyright -->
+  <div class="text-center text-xs py-4 border-t border-gray-700 text-gray-400">© Flo Sisterlocks Eldoret — All rights
+    reserved.</div>
+</section>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="main.js"></script>
