@@ -461,6 +461,8 @@ a[aria-label="Scroll to services"] svg {
   margin-bottom: 3rem;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+  /* Add scroll snapping for a smoother mobile experience */
+  scroll-snap-type: x mandatory;
   /* Hide scrollbar for Firefox */
   scrollbar-width: none;
 }
@@ -484,6 +486,8 @@ a[aria-label="Scroll to services"] svg {
   cursor: pointer;
   animation: slideInFromRight 0.8s ease-out forwards;
   opacity: 0;
+  /* Align each card to the start of the container when snapping */
+  scroll-snap-align: start;
 }
 
 .flip-card:nth-child(1) {
@@ -502,7 +506,7 @@ a[aria-label="Scroll to services"] svg {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.8s;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transform-style: preserve-3d;
 }
 
@@ -538,7 +542,7 @@ a[aria-label="Scroll to services"] svg {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s ease;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .flip-card:hover .card-image {
@@ -841,11 +845,32 @@ a[aria-label="Scroll to services"] svg {
   overflow: hidden;
   width: 100%;
   position: relative;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  scroll-snap-type: x mandatory; /* Enable scroll snapping */
+}
+
+.testimonial-carousel-wrapper::-webkit-scrollbar {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  display: none;
+}
+
+.testimonial-carousel-wrapper {
+  /* Hide scrollbar for Firefox */
+  scrollbar-width: none;
 }
 
 .testimonial-carousel-track {
-  display: flex;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;  
+}
+
+.testimonial-carousel-wrapper:hover .testimonial-carousel-track {
+  animation-play-state: paused;
+}
+
+.testimonial-carousel-wrapper:hover {
+  overflow-x: scroll;
 }
 
 .testimonial-card {
@@ -856,6 +881,7 @@ a[aria-label="Scroll to services"] svg {
   border: 1px solid var(--card-border);
   border-radius: 1rem;
   text-align: center;
+  scroll-snap-align: center; /* Snap cards to the center */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -934,29 +960,56 @@ a[aria-label="Scroll to services"] svg {
   right: -20px;
 }
 
-/* Pagination */
 .testimonial-pagination {
   display: flex;
   justify-content: center;
-  gap: 0.5rem;
+  align-items: center;
+  gap: 0.75rem; /* 12px */
   margin-top: 2rem;
+  position: relative;
+  z-index: 10;
 }
 
-.testimonial-pagination .dot {
+.testimonial-pagination .pagination-dot {
   width: 10px;
   height: 10px;
-  border-radius: 50%;
+  border-radius: 9999px;
   background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
   transition: all 0.3s ease;
+  transform: scale(0.8);
 }
 
-.testimonial-pagination .dot.active {
+.testimonial-pagination .pagination-dot:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.testimonial-pagination .pagination-dot.active {
   background: #fff;
   transform: scale(1.2);
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.scroll-animation {
+  animation: scroll 5s linear infinite;
 }
 @font-face {
   font-family: 'RetroFont';
   src: url('/assets/images/RetroBritish-DemoVersion-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'roboto';
+  src: url('/assets/images/roboto/Roboto-Bold.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }

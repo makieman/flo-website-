@@ -201,63 +201,57 @@ if (servicesSection) {
 // Testimonial Carousel
 const testimonialCarousel = document.querySelector('#testimonials');
 if (testimonialCarousel) {
+  const wrapper = testimonialCarousel.querySelector('.testimonial-carousel-wrapper');
   const track = testimonialCarousel.querySelector('.testimonial-carousel-track');
-  const cards = Array.from(track.children);
-  const nextButton = testimonialCarousel.querySelector('.testimonial-nav-btn.next');
-  const prevButton = testimonialCarousel.querySelector('.testimonial-nav-btn.prev');
-  const pagination = testimonialCarousel.querySelector('.testimonial-pagination');
+  const paginationContainer = testimonialCarousel.querySelector('.testimonial-pagination');
 
-  let cardWidth = cards[0].getBoundingClientRect().width;
-  let cardsToShow = 1;
-
-  const updateCardsToShow = () => {
-    if (window.innerWidth >= 1024) {
-      cardsToShow = 3;
-    } else if (window.innerWidth >= 768) {
-      cardsToShow = 2;
-    } else {
-      cardsToShow = 1;
-    }
-    cardWidth = track.scrollWidth / cards.length;
-  };
-
-  updateCardsToShow();
-  window.addEventListener('resize', updateCardsToShow);
-
-  // Create pagination dots
-  const totalPages = Math.ceil(cards.length / cardsToShow);
-  for (let i = 0; i < totalPages; i++) {
-    const dot = document.createElement('button');
-    dot.classList.add('dot');
-    if (i === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => moveToPage(i));
-    pagination.appendChild(dot);
-  }
-  const dots = Array.from(pagination.children);
-
-  let currentPage = 0;
-
-  const moveToPage = (pageIndex) => {
-    if (pageIndex < 0 || pageIndex >= totalPages) return;
-    const scrollAmount = pageIndex * cardWidth * cardsToShow;
-    track.style.transform = `translateX(-${scrollAmount}px)`;
-    currentPage = pageIndex;
-    updateDots();
-  };
-
-  const updateDots = () => {
-    dots.forEach((dot, index) => {
-      dot.classList.toggle('active', index === currentPage);
+  if (wrapper && track && paginationContainer) {
+    // Clone cards for seamless looping
+    const originalCards = Array.from(track.children);
+    const cardsToClone = Array.from(track.children);
+    cardsToClone.forEach(card => {
+      track.appendChild(card.cloneNode(true));
     });
-  };
 
-  nextButton.addEventListener('click', () => {
-    moveToPage(currentPage + 1);
-  });
+    // 1. Create pagination dots
+    const cards = originalCards; // Use original cards for dot count
+    cards.forEach(card => {
+      const dot = document.createElement('div');
+      dot.classList.add('pagination-dot');
+      paginationContainer.appendChild(dot);
+    });
+    const dots = paginationContainer.querySelectorAll('.pagination-dot');
+    if (dots.length > 0) dots[0].classList.add('active');
 
-  prevButton.addEventListener('click', () => {
-    moveToPage(currentPage - 1);
-  });
+    // 2. Handle dot clicks
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        const cardWidth = cards[0].offsetWidth;
+        const gap = parseInt(window.getComputedStyle(track).gap, 10) || 32; // 2rem
+
+        wrapper.scrollTo({
+          left: index * (cardWidth + gap),
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // 3. Update active dot on scroll
+    let scrollTimeout;
+    wrapper.addEventListener('scroll', () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const cardWidth = cards[0].offsetWidth;
+        const gap = parseInt(window.getComputedStyle(track).gap, 10) || 32;
+        const scrollLeft = wrapper.scrollLeft;
+        const activeIndex = Math.round(scrollLeft / (cardWidth + gap));
+
+        dots.forEach((dot, index) => dot.classList.toggle('active', index === activeIndex));
+      }, 100);
+    });
+
+    track.classList.add('scroll-animation');
+  }
 }
 
 // -------------------
