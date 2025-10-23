@@ -498,28 +498,6 @@
   function flipCard(card) {
     card.classList.toggle('flipped');
   }
-
-  // Optional: Add touch swipe support for better mobile experience
-  let startX = 0;
-  const scrollContainer = document.querySelector('.services-scroll-wrapper');
-
-  if (scrollContainer) {
-    scrollContainer.addEventListener('touchstart', (e) => {
-      startX = e.touches[0].pageX;
-    });
-
-    scrollContainer.addEventListener('touchmove', (e) => {
-      if (!startX) return;
-      const currentX = e.touches[0].pageX;
-      const diff = startX - currentX;
-      scrollContainer.scrollLeft += diff;
-      startX = currentX;
-    });
-
-    scrollContainer.addEventListener('touchend', () => {
-      startX = 0;
-    });
-  }
 </script>
 </body>
 

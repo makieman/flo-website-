@@ -1001,6 +1001,13 @@ a[aria-label="Scroll to services"] svg {
 .scroll-animation {
   animation: scroll 5s linear infinite;
 }
+
+/* Disable auto-scroll on touch devices for a better manual scroll experience */
+@media (max-width: 1023px) {
+  .scroll-animation {
+    animation: none;
+  }
+}
 @font-face {
   font-family: 'RetroFont';
   src: url('/assets/images/RetroBritish-DemoVersion-Regular.ttf') format('truetype');
