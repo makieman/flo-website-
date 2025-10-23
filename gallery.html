@@ -7,6 +7,7 @@
   <title>Gallery — Flo Sisterlocks Eldoret</title>
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <style>
     body{background:#000;color:#fff;}
     .backdrop-blur-md {
@@ -21,7 +22,7 @@
   <div class="container mx-auto px-6 py-3 flex items-center justify-between">
     <!-- Logo and Site Title -->
     <a href="index.html" class="flex items-center gap-3">
-      <img src="assets/images/logo.jpg" alt="Flo Sisterlocks Logo" class="h-10 w-10 rounded-full object-cover border-white border">
+      <img src="assets/images/logo.jpg" alt="Flo Sisterlocks Logo" class="h-10 w-10 rounded-full object-cover border-white border-2">
       <span class="font-bold text-xl">Flo Sisterlocks</span>
     </a>
 
@@ -29,7 +30,7 @@
     <nav id="desktop-menu" class="hidden md:flex gap-6 items-center">
       <a href="index.html" class="hover:underline">Home</a>
       <a href="services.html" class="hover:underline">Services</a>
-      <a href="gallery.html" class="hover:underline">Gallery</a>
+      <a href="gallery.html" class="hover:underline">Portfolio</a>
       <a href="contact.html" class="hover:underline">Contact</a>
       <a href="https://wa.me/254721530120" target="_blank" class="bg-white text-black px-4 py-2 rounded">Book</a>
     </nav>
@@ -59,18 +60,50 @@
   </nav>
 </header>
 
-<main class="container mx-auto px-6 py-12">
-  <h1 class="text-3xl font-bold" data-aos="fade-up">Gallery</h1>
-  <p class="text-gray-300 mt-2" data-aos="fade-up" data-aos-delay="80">Placeholder gallery — replace images with your studio photos.</p>
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-    <!-- Placeholder images from Unsplash -->
-    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=60" alt="gallery1" class="rounded" data-aos="zoom-in"/>
-    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=60" alt="gallery2" class="rounded" data-aos="zoom-in" data-aos-delay="80"/>
-    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=60" alt="gallery3" class="rounded" data-aos="zoom-in" data-aos-delay="160"/>
-    <img src="https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?auto=format&fit=crop&w=800&q=60" alt="gallery4" class="rounded" data-aos="zoom-in" data-aos-delay="240"/>
-  </div>
+<main class="py-16 sm:py-24">
+  <div class="container mx-auto px-6">
+    <!-- Section Header -->
+    <div class="text-center mb-12" data-aos="fade-up">
+      <h1 class="text-4xl md:text-5xl font-bold font-display">Portfolio</h1>
+      <p class="text-gray-400 mt-3 text-lg">A showcase of our craft and client transformations.</p>
+    </div>
 
-  <div class="mt-8 text-gray-400 text-sm">Tip: Replace these with your real before & after photos for best results.</div>
+    <!-- Masonry-style Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="grid gap-4">
+        <div data-aos="zoom-in">
+          <img class="h-auto max-w-full rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer" src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200951/client_image_2_ksrlew.jpg" alt="Sisterlocks close-up">
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="100">
+          <img class="h-auto max-w-full rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer" src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761213862/service_skelletos_e6jcfs.jpg" alt="Skeletos nails design">
+        </div>
+      </div>
+      <div class="grid gap-4">
+        <div data-aos="zoom-in" data-aos-delay="200">
+          <img class="h-auto max-w-full rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer" src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761213903/service_1_q6xmnf.jpg" alt="Sisterlocks styling">
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="300">
+          <img class="h-auto max-w-full rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer" src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761213885/service_lemonade_ba0l6h.jpg" alt="Lemonade braids">
+        </div>
+      </div>
+      <div class="grid gap-4">
+        <div data-aos="zoom-in" data-aos-delay="400">
+          <img class="h-auto max-w-full rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer" src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761214158/3f79f1d7-9809-446b-9e1d-fa95ea5709e8_wojwfo.jpg" alt="Hair dying service">
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="500">
+          <img class="h-auto max-w-full rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer" src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200951/client_image_5_erwabh.jpg" alt="Full head of Sisterlocks">
+        </div>
+      </div>
+      <div class="grid gap-4">
+        <div data-aos="zoom-in" data-aos-delay="600">
+          <img class="h-auto max-w-full rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer" src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761213900/service_dreadlock_crtgta.jpg" alt="Dreadlock installation">
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="700">
+          <img class="h-auto max-w-full rounded-lg shadow-lg transition-transform duration-300 hover:scale-105 cursor-pointer" src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200952/flo_image_2_v4ndle.jpg" alt="Client smiling">
+        </div>
+      </div>
+    </div>
+  </div>
 </main>
 
 <footer class="bg-black text-white mt-12">

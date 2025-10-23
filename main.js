@@ -7,34 +7,59 @@ const mobileDarkIcon = document.getElementById('mobile-theme-toggle-dark-icon');
 const mobileLightIcon = document.getElementById('mobile-theme-toggle-light-icon');
 
 const updateIcons = (isLight) => {
+  // Use optional chaining to avoid runtime errors if icons are missing
   if (isLight) {
-    darkIcon.classList.remove('hidden');
-    lightIcon.classList.add('hidden');
-    mobileDarkIcon.classList.remove('hidden');
-    mobileLightIcon.classList.add('hidden');
+    darkIcon?.classList.remove('hidden');
+    lightIcon?.classList.add('hidden');
+    mobileDarkIcon?.classList.remove('hidden');
+    mobileLightIcon?.classList.add('hidden');
   } else {
-    darkIcon.classList.add('hidden');
-    lightIcon.classList.remove('hidden');
-    mobileDarkIcon.classList.add('hidden');
-    mobileLightIcon.classList.remove('hidden');
+    darkIcon?.classList.add('hidden');
+    lightIcon?.classList.remove('hidden');
+    mobileDarkIcon?.classList.add('hidden');
+    mobileLightIcon?.classList.remove('hidden');
   }
 };
 
-const toggleTheme = () => {
-  const isLight = document.body.classList.toggle('light');
-  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+const applyTheme = (isLight) => {
+  if (isLight) document.body.classList.add('light');
+  else document.body.classList.remove('light');
   updateIcons(isLight);
 };
 
-if (localStorage.getItem('theme') === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
-  document.body.classList.add('light');
-  updateIcons(true);
+const toggleTheme = () => {
+  const isLight = !document.body.classList.contains('light');
+  applyTheme(isLight);
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+};
+
+// Initialize theme: prefer saved choice, otherwise follow system preference.
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'light') {
+  applyTheme(true);
+} else if (savedTheme === 'dark') {
+  applyTheme(false);
+} else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+  applyTheme(true);
 } else {
-  updateIcons(false);
+  applyTheme(false);
 }
 
-themeToggleBtn.addEventListener('click', toggleTheme);
-mobileThemeToggleBtn.addEventListener('click', toggleTheme);
+// If user hasn't chosen, listen to system preference changes and adapt automatically
+if (!savedTheme && window.matchMedia) {
+  const mq = window.matchMedia('(prefers-color-scheme: light)');
+  const mqHandler = (e) => {
+    applyTheme(e.matches);
+  };
+  if (typeof mq.addEventListener === 'function') {
+    mq.addEventListener('change', mqHandler);
+  } else if (typeof mq.addListener === 'function') {
+    mq.addListener(mqHandler);
+  }
+}
+
+if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
+if (mobileThemeToggleBtn) mobileThemeToggleBtn.addEventListener('click', toggleTheme);
 
 // Mobile menu toggle
 const menuBtn = document.getElementById('menu-btn');
@@ -64,6 +89,54 @@ if (menuBtn && mobileMenu && hamburgerIcon && closeIcon) {
       hamburgerIcon.classList.remove('hidden');
       closeIcon.classList.add('hidden');
     });
+  });
+}
+
+// Smooth-scroll for in-page anchors (data-smooth-scroll)
+document.querySelectorAll('a[data-smooth-scroll]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+    if (!href || !href.startsWith('#')) return;
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// Booking modal logic
+const openBookingBtn = document.getElementById('open-booking');
+const bookingModal = document.getElementById('booking-modal');
+const closeBookingBtn = document.getElementById('close-booking');
+
+if (openBookingBtn && bookingModal) {
+  const showModal = () => {
+    bookingModal.classList.remove('hidden');
+    // trap focus minimally by focusing close button
+    const closeBtn = bookingModal.querySelector('#close-booking');
+    if (closeBtn) closeBtn.focus();
+  };
+
+  const hideModal = () => {
+    bookingModal.classList.add('hidden');
+    openBookingBtn.focus();
+  };
+
+  openBookingBtn.addEventListener('click', showModal);
+
+  if (closeBookingBtn) closeBookingBtn.addEventListener('click', hideModal);
+
+  // Close when clicking overlay
+  bookingModal.querySelectorAll('[data-close-modal]').forEach(el => {
+    el.addEventListener('click', hideModal);
+  });
+
+  // Close on Esc
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !bookingModal.classList.contains('hidden')) {
+      hideModal();
+    }
   });
 }
 

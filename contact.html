@@ -20,6 +20,18 @@
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
     }
+    #mobile-menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 80%;
+      max-width: 300px;
+      background-color: #111;
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+      z-index: 50;
+    }
   </style>
 </head>
 <body class="antialiased pt-16">
@@ -152,29 +164,11 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Scripts at the end of the body -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    // Initialize AOS
-    AOS.init({ duration: 700, once: true });
-
-    // Booking form WhatsApp redirect
-    document.getElementById('bookingForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const name = document.getElementById('name').value || 'Client';
-      const phone = document.getElementById('phone').value || '';
-      const service = document.getElementById('service').value;
-      const date = document.getElementById('date').value || 'ASAP';
-      const message = encodeURIComponent(
-        `Hello Flo, my name is ${name}. I am interested in ${service}. Preferred date: ${date}. Phone: ${phone}`
-      );
-      const wa = 'https://wa.me/254721530120?text=' + message;
-      window.open(wa, '_blank');
-      document.getElementById('formMsg').classList.remove('hidden');
-    });
-  </script>
-
-  <!-- Your main.js file -->
   <script src="main.js"></script>
+  <script>
+    AOS.init({ duration: 700, once: true });
+  </script>
 </body>
 </html>

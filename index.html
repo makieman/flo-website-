@@ -12,6 +12,8 @@
   <!-- Font Awesome for social icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <!-- Improved hero font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;700&family=Sora:wght@700;800&display=swap" rel="stylesheet">
 </head>
 <body class="antialiased leading-relaxed pt-16">
 
@@ -84,41 +86,55 @@
 
 <main>
   <!-- Hero -->
-<section class="relative h-screen flex items-center justify-center overflow-hidden text-center">
+<section class="relative h-screen flex items-center justify-center overflow-hidden text-center" aria-labelledby="hero-heading">
   <!-- Background Video -->
-  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0" aria-hidden="true">
     <source src="https://res.cloudinary.com/dh5hssddg/video/upload/v1761135357/flo_hero_section_video_xax0s4.mp4" type="video/mp4">
   </video>
 
-  <!-- Dark Overlay -->
-  <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/90 z-10"></div>
+  <!-- Dark Overlay: full-section dimmer -->
+  <div class="absolute inset-0 hero-overlay z-10" aria-hidden="true"></div>
 
-  <!-- Content -->
-  <div class="relative z-20 px-6 text-white text-center md:textmt-24 md:-mt-32 lg:-mt-40">
-    <h1 class="text-4xl md:text-6xl font-extrabold font-display text-white mb-4 animate-fadeInDown">
+  <!-- Content: glass panel -->
+  <div class="relative z-20 px-6 w-full max-w-4xl text-center">
+    <h1 id="hero-heading" class="text-4xl md:text-6xl font-extrabold font-playfair text-white mb-4 leading-tight animate-fadeInDown">
       Flo Sisterlocks
     </h1>
-    <p class=" font-mono text-center-xl md:text-2xl max-w-2xl mx-auto text-white  animate-float">
+    <p class="font-body text-lg md:text-2xl max-w-2xl mx-auto text-gray-100 animate-float">
       Eldoret's specialist Sisterlocks studio — precision installations, expert maintenance, and beautiful styling.
     </p>
+
     <div class="mt-8 flex flex-wrap justify-center gap-4">
-      <a href="contact.html" class="cta-button-primary animate-fadeInDelay1">
+      <button id="open-booking" type="button" class="cta-button-primary animate-fadeInDelay1 focus-visible:ring focus-visible:ring-amber-400/40">
         Book Consultation
-      </a>
-      <a href="gallery.html"
-        class="cta-button-secondary animate-fadeInDelay2">
+      </button>
+      <a href="gallery.html" class="cta-button-secondary animate-fadeInDelay2 focus-visible:ring focus-visible:ring-white/20">
         View Gallery
       </a>
     </div>
   </div>
 
   <!-- Scroll Down Arrow -->
-  <a href="#services" class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce">
+  <a href="#services" data-smooth-scroll class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce" aria-label="Scroll to services">
     <svg class="w-8 h-8 text-white" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
       <path d="M19 9l-7 7-7-7" />
     </svg>
   </a>
 </section>
+
+<!-- Booking Modal -->
+<div id="booking-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="booking-modal-title">
+  <div class="modal-overlay" data-close-modal></div>
+  <div class="modal-panel">
+    <button class="modal-close" id="close-booking" aria-label="Close booking dialog">×</button>
+    <h3 id="booking-modal-title" class="font-display">Book a Consultation</h3>
+    <p class="text-muted">Choose how you'd like to proceed.</p>
+    <div class="mt-4 flex gap-3 flex-col sm:flex-row">
+      <a href="https://wa.me/254721530120?text=I'm%20interested%20in%20a%20consultation" target="_blank" class="back-cta-button">Open WhatsApp</a>
+      <a href="contact.html" class="cta-button-secondary">Visit Contact Page</a>
+    </div>
+  </div>
+</div>
 
 
   <!-- ============================================ -->
@@ -413,7 +429,7 @@
           referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <a href="https://wa.me/254721530120" target="_blank"
-        class="mt-6 inline-block bg-amber-500 text-black font-semibold px-6 py-3 rounded-md hover:bg-amber-400 hover:scale-105 transition transform duration-300 shadow-lg hover:shadow-xl animate-float">
+        class="mt-6 inline-block bg-pink-600 text-black font-semibold px-6 py-3 rounded-md hover:bg-amber-400 hover:scale-105 transition transform duration-300 shadow-lg hover:shadow-xl animate-float">
         Book Now
       </a>
     </div>
@@ -429,36 +445,32 @@
       </div>
 
       <!-- Quick Links -->
-      <div data-aos="fade-up" data-aos-delay="200">
+      <div data-aos="fade-up" data-aos-delay="200" class="lg:mt-12 py-6 lg:py-10">
         <h4 class="font-semibold text-lg mb-3 font-display">Quick Links</h4>
         <div class="flex flex-wrap gap-3">
           <a href="index.html"
-            class="bg-sky-500 hover:bg-sky-600 text-white font-semibold px-4 py-2 rounded transition transform hover:scale-105 shadow-md hover:shadow-lg text-center animate-float">
+            class=" bg-pink-500 hover:bg-pink-600 text-white font-semibold px-4 py-2 rounded transition transform hover:scale-105 shadow-md hover:shadow-lg text-center animate-float">
             Home
           </a>
           <a href="services.html"
-            class="bg-amber-500 hover:bg-amber-600 text-white font-semibold px-4 py-2 rounded transition transform hover:scale-105 shadow-md hover:shadow-lg text-center animate-float delay-100">
+            class="bg-pink-500 hover:bg-pink-600 text-white font-semibold px-4 py-2 rounded transition transform hover:scale-105 shadow-md hover:shadow-lg text-center animate-float delay-100">
             Services
           </a>
           <a href="gallery.html"
-            class="bg-purple-500 hover:bg-purple-600 text-white font-semibold px-4 py-2 rounded transition transform hover:scale-105 shadow-md hover:shadow-lg text-center animate-float delay-200">
+            class="bg-pink-500 hover:bg-pink-600 text-white font-semibold px-4 py-2 rounded transition transform hover:scale-105 shadow-md hover:shadow-lg text-center animate-float delay-200">
             Gallery
           </a>
           <a href="contact.html"
-            class="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-4 py-2 rounded transition transform hover:scale-105 shadow-md hover:shadow-lg text-center animate-float delay-300">
+            class="bg-pink-500 hover:bg-pink-600 text-white font-semibold px-4 py-2 rounded transition transform hover:scale-105 shadow-md hover:shadow-lg text-center animate-float delay-300">
             Contact
-          </a>
-          <a href="https://wa.me/254721530120" target="_blank"
-            class="bg-rose-500 hover:bg-rose-600 text-white font-semibold px-4 py-2 rounded transition transform hover:scale-105 shadow-md hover:shadow-lg text-center animate-float delay-400">
-            Book Now
           </a>
         </div>
       </div>
 
       <!-- Social Media -->
-      <div data-aos="fade-up" data-aos-delay="300">
+      <div data-aos="fade-up" data-aos-delay="300" class="py-6 lg:py-10 text-center">
         <h4 class="font-semibold text-lg mb-3 font-display">Follow Us</h4>
-        <div class="flex gap-8 text-3xl">
+        <div class="flex justify-center gap-10 text-4xl">
           <a href="https://instagram.com/sisterlocksbyflo" target="_blank"
             class="social-icon instagram-icon transform hover:scale-125 transition duration-300 animate-bounce">
             <i class="fab fa-instagram"></i>

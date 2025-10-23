@@ -4,6 +4,7 @@
   --text-muted-color: #9ca3af; /* gray-400 */
   --header-bg: rgba(0, 0, 0, 0.7);
   --card-bg: rgba(255, 255, 255, 0.03);
+  --accent-pink: #E1306C;
   --card-border: rgba(251, 191, 36, 0.1);
   --amber-400: #fbbf24;
   --amber-500: #f59e0b;
@@ -13,6 +14,18 @@
   --cta-secondary-border: #fff;
   --cta-secondary-hover-bg: #fff;
   --cta-secondary-hover-text: #000;
+  /* Component-level theming */
+  --overlay-start: rgba(0,0,0,0.4);
+  --overlay-end: rgba(0,0,0,0.75);
+  --panel-bg: linear-gradient(180deg, rgba(0,0,0,0.48), rgba(0,0,0,0.36));
+  --panel-border: rgba(255,255,255,0.06);
+  --modal-bg: rgba(255,255,255,0.02);
+  --modal-border: rgba(255,255,255,0.06);
+  --mobile-menu-bg: #111111;
+  --mobile-menu-border: rgba(255,255,255,0.08);
+  --hero-text-color: rgba(255,255,255,0.92);
+  --modal-overlay: rgba(0,0,0,0.45);
+  --mobile-menu-hover-bg: rgba(255,255,255,0.03);
 }
 
 body.light {
@@ -27,6 +40,19 @@ body.light {
   --cta-secondary-border: #1f2937;
   --cta-secondary-hover-bg: #1f2937;
   --cta-secondary-hover-text: #fff;
+  /* Light theme overrides for components */
+  --overlay-start: rgba(255,255,255,0.6);
+  --overlay-end: rgba(255,255,255,0.5);
+  --panel-bg: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.98));
+  --panel-border: rgba(0,0,0,0.06);
+  --modal-bg: #ffffff;
+  --modal-border: rgba(0,0,0,0.06);
+  --mobile-menu-bg: #ffffff;
+  --mobile-menu-border: rgba(0,0,0,0.06);
+  --about-bg: #ffffff;
+  --hero-text-color: #111827;
+  --modal-overlay: rgba(0,0,0,0.18);
+  --mobile-menu-hover-bg: rgba(0,0,0,0.03);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Sora:wght@700;800&display=swap');
@@ -34,6 +60,9 @@ body.light {
 /* Custom Font Classes */
 .font-display {
   font-family: 'Sora', ui-sans-serif, system-ui, sans-serif;
+}
+.font-playfair {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
 }
 .font-body {
   font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
@@ -89,7 +118,7 @@ body.menu-open::after {
   bottom: 0;
   width: 80%;
   max-width: 300px;
-  background-color: #111; /* Stays dark for contrast */
+  background-color: var(--mobile-menu-bg); /* Theme-aware mobile menu */
   transform: translateX(100%);
   transition: transform 0.3s ease-in-out;
   z-index: 50;
@@ -101,13 +130,13 @@ body.menu-open::after {
   display: block;
   width: 100%;
   padding: 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--mobile-menu-border);
   transition: all 0.3s ease;
 }
 
 #mobile-menu a:hover {
   color: var(--amber-400);
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--mobile-menu-hover-bg);
 }
 
 body.menu-open #mobile-menu {
@@ -125,6 +154,33 @@ body.menu-open #mobile-menu {
 
 .animate-fadeInDown {
   animation: fadeInDown 0.6s ease-out forwards;
+}
+
+/* Hero entrance: subtle fade + scale */
+@keyframes heroEnter {
+  0% { opacity: 0; transform: translateY(8px) scale(.98); }
+  60% { opacity: 1; transform: translateY(0) scale(1.02); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+  .hero-panel { animation: heroEnter 700ms cubic-bezier(.2,.9,.2,1) both; }
+
+/* Stronger overlay for legibility */
+.hero-overlay {
+  background: linear-gradient(180deg, var(--overlay-start) 0%, var(--overlay-end) 100%);
+}
+
+/* Slightly stronger contrast for panel on top of heavy video */
+.hero-panel {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+}
+
+/* Typographic adjustments */
+.hero-panel h1 { letter-spacing: -0.5px; }
+.hero-panel p { color: var(--hero-text-color); }
+
+@media (min-width: 1024px) {
+  .hero-panel h1 { font-size: 3.8rem; }
 }
 
 /* Paragraph fades in from below */
@@ -211,6 +267,125 @@ body.menu-open #mobile-menu {
   color: var(--cta-secondary-hover-text);
 }
 
+/* HERO PANEL */
+.hero-panel {
+  display: block;
+  text-align: center;
+  border-radius: 1rem;
+  box-shadow: 0 12px 50px rgba(0,0,0,0.6);
+  border: 1px solid var(--panel-border);
+}
+
+/* Improve CTA styles with subtle elevation and hover */
+.cta-button-primary {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 0.875rem;
+  padding-bottom: 0.875rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+}
+.cta-button-primary:hover,
+.cta-button-primary:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.5);
+}
+
+/* small micro-animations for icons and links */
+.micro-tilt {
+  transition: transform 0.28s ease;
+}
+.micro-tilt:hover { transform: translateY(-4px) rotate(-0.5deg); }
+
+/* Modal styles */
+.modal.hidden { display: none; }
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+}
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--modal-overlay);
+  backdrop-filter: blur(4px);
+}
+.modal-panel {
+  position: relative;
+  z-index: 70;
+  background: var(--modal-bg);
+  border: 1px solid var(--modal-border);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  width: 90%;
+  max-width: 520px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  text-align: center;
+}
+.modal-close {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+/* Use prefer-reduced-motion to reduce animations if user prefers */
+@media (prefers-reduced-motion: reduce) {
+  .hero-panel, .animate-fadeInDown, .animate-fadeInDelay1, .animate-fadeInDelay2 { animation: none !important; }
+}
+
+/* Smooth scroll support for browsers that support CSS smooth scrolling */
+html { scroll-behavior: smooth; }
+
+.cta-button-secondary {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 0.875rem;
+  padding-bottom: 0.875rem;
+  border-radius: 0.75rem;
+}
+.cta-button-secondary:hover,
+.cta-button-secondary:focus {
+  transform: translateY(-2px);
+}
+
+/* Focus styles for accessibility */
+.cta-button-primary:focus-visible,
+.cta-button-secondary:focus-visible,
+.back-cta-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(245,158,11,0.12);
+}
+
+/* Scroll arrow tweak */
+a[aria-label="Scroll to services"] svg {
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.6));
+}
+
+/* Responsive hero tweaks */
+@media (max-width: 768px) {
+  .hero-panel {
+    padding: 1.25rem;
+    margin-top: -2rem;
+  }
+
+  .hero-panel h1 {
+    font-size: 1.75rem;
+  }
+
+  .hero-panel p {
+    font-size: 1rem;
+  }
+}
+
 /* Full page services section */
 #services {
   min-height: 100vh;
@@ -253,7 +428,7 @@ body.menu-open #mobile-menu {
   font-size: 3rem;
   font-weight: 800;
   text-transform: uppercase;
-  background: linear-gradient(135deg, var(--text-color) 0%, var(--amber-400) 100%);
+  background: linear-gradient(135deg, var(--text-color) 0%, #cccccc 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -269,7 +444,7 @@ body.menu-open #mobile-menu {
 }
 
 .scroll-hint {
-  color: var(--amber-400);
+  color: var(--text-muted-color);
   font-size: 0.875rem;
   display: flex;
   align-items: center;
@@ -389,7 +564,7 @@ body.menu-open #mobile-menu {
 }
 
 .card-price {
-  color: var(--amber-400);
+  color: #fff;
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 1rem;
@@ -399,7 +574,7 @@ body.menu-open #mobile-menu {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--amber-400);
+  color: var(--text-muted-color);
   font-size: 0.875rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -437,12 +612,12 @@ body.menu-open #mobile-menu {
 }
 
 .back-content::-webkit-scrollbar-thumb {
-  background: var(--amber-400);
+  background: #555;
   border-radius: 10px;
 }
 
 .back-title {
-  color: var(--amber-400);
+  color: #fff;
   font-size: 1.75rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -457,7 +632,7 @@ body.menu-open #mobile-menu {
 }
 
 .back-features-title {
-  color: var(--amber-400);
+  color: #fff;
   font-size: 1.125rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
@@ -481,7 +656,7 @@ body.menu-open #mobile-menu {
 
 .back-features-list li::before {
   content: '✓'; 
-  color: var(--amber-400);
+  color: #fff;
   font-weight: bold;
   font-size: 1rem;
   flex-shrink: 0;
@@ -496,8 +671,8 @@ body.menu-open #mobile-menu {
   display: block;
   width: 100%;
   padding: 0.875rem;
-  background: linear-gradient(135deg, var(--amber-400), var(--amber-500));
-  color: var(--bg-color);
+  background: #fff;
+  color: #000;
   font-weight: 700;
   font-size: 1rem;
   border-radius: 0.75rem;
@@ -506,12 +681,12 @@ body.menu-open #mobile-menu {
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 1px;
-  box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
 }
 
 .back-cta-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(251, 191, 36, 0.5);
+  background: #e5e5e5;
 }
 
 .flip-back-indicator {
@@ -536,8 +711,8 @@ body.menu-open #mobile-menu {
   gap: 0.75rem;
   padding: 1rem 2.5rem;
   background: transparent;
-    border: 2px solid var(--amber-400);
-    color: var(--amber-400);
+    border: 2px solid #fff;
+    color: #fff;
   font-weight: 700;
   font-size: 1.125rem;
   border-radius: 3rem;
@@ -545,14 +720,14 @@ body.menu-open #mobile-menu {
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: all 0.4s ease;
-  box-shadow: 0 4px 15px rgba(251, 191, 36, 0.2);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
 }
 
 .more-services-button:hover {
-  background: linear-gradient(135deg, var(--amber-400), var(--amber-500));
-  color: var(--bg-color);
+  background: #fff;
+  color: #000;
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(251, 191, 36, 0.4);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
 }
 
 .arrow-icon {
@@ -586,11 +761,11 @@ body.menu-open #mobile-menu {
 }
 
 .pagination-dot:hover {
-  background-color: rgba(251, 191, 36, 0.7);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .pagination-dot.active {
-  background-color: var(--amber-400);
+  background-color: #fff;
   transform: scale(1.2);
 }
 
@@ -718,7 +893,7 @@ body.menu-open #mobile-menu {
 
 .testimonial-rating {
   margin-top: 0.5rem;
-  color: var(--amber-400);
+  color: #fff;
   font-size: 1.25rem;
 }
 
@@ -747,8 +922,8 @@ body.menu-open #mobile-menu {
 }
 
 .testimonial-nav-btn:hover {
-  background: var(--amber-400);
-  color: var(--bg-color);
+  background: #fff;
+  color: #000;
 }
 
 .testimonial-nav-btn.prev {
@@ -776,6 +951,6 @@ body.menu-open #mobile-menu {
 }
 
 .testimonial-pagination .dot.active {
-  background: var(--amber-400);
+  background: #fff;
   transform: scale(1.2);
 }
