@@ -7,13 +7,13 @@ module.exports = {
       fontFamily: {
         // --- CHOOSE YOUR OPTION ---
 
-        // == Option 1: Elegant & Premium ==
-        'display': ['"Playfair Display"', ...defaultTheme.fontFamily.serif],
-        'body': ['Lato', ...defaultTheme.fontFamily.sans],
+        // == Option 1: Elegant & Premium (Commented Out) ==
+        // 'display': ['"Playfair Display"', ...defaultTheme.fontFamily.serif],
+        // 'body': ['Lato', ...defaultTheme.fontFamily.sans],
 
         // == Option 2: Modern & Stylish (The "Yarnity" approach) ==
-        // 'display': ['Syne', ...defaultTheme.fontFamily.sans],
-        // 'body': ['Inter', ...defaultTheme.fontFamily.sans],
+        'display': ['Sora', ...defaultTheme.fontFamily.sans],
+        'body': ['Inter', ...defaultTheme.fontFamily.sans],
 
         // == Option 3: Refined & Personal ==
         // 'display': ['"Cormorant Garamond"', ...defaultTheme.fontFamily.serif],

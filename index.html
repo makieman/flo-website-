@@ -53,7 +53,7 @@
   </div>
 
   <!-- Mobile Menu -->  
-  <nav id="mobile-menu" class="hidden flex-col bg-black text-white text-center md:hidden transition-all duration-300 ease-in-out opacity-0 invisible">
+  <nav id="mobile-menu" class="md:hidden">
     <a href="index.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Home</a>
     <a href="services.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Services</a>
     <a href="gallery.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Gallery</a>
@@ -76,11 +76,11 @@
   <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/90 z-10"></div>
 
   <!-- Content -->
-  <div class="relative z-20 px-6 text-white -mt-24 md:-mt-32 lg:-mt-40">
-    <h1 class="text-4xl md:text-6xl font-extrabold font-display text-amber-400 mb-4 animate-fadeInDown">
+  <div class="relative z-20 px-6 text-white text-center md:textmt-24 md:-mt-32 lg:-mt-40">
+    <h1 class="text-4xl md:text-6xl font-extrabold font-display text-white mb-4 animate-fadeInDown">
       Flo Sisterlocks
     </h1>
-    <p class="font-body text-xl md:text-2xl max-w-2xl mx-auto text-black font-bold animate-float">
+    <p class=" font-mono text-center-xl md:text-2xl max-w-2xl mx-auto text-white  animate-float">
       Eldoret's specialist Sisterlocks studio — precision installations, expert maintenance, and beautiful styling.
     </p>
     <div class="mt-8 flex flex-wrap justify-center gap-4">
@@ -104,39 +104,238 @@
 </section>
 
 
+  <!-- ============================================ -->
+  <!-- SERVICES SECTION CODE - HORIZONTAL SCROLL WITH FLIP CARDS --> 
+  <section id="services">
+    <div class="services-container">
+      <div class="section-title">
+        <h2 class="font-display">Our Services</h2>
+        <p class="section-subtitle">Tap any card to see details</p>
+        <p class="scroll-hint">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+          Scroll horizontally to explore
+        </p>
+      </div>
+
+      <div class="services-scroll-wrapper">
+        <div class="services-row">
+
+          <!-- Card 1: Sisterlocks Installation -->
+          <div class="flip-card" onclick="flipCard(this)">
+            <div class="flip-card-inner">
+              <!-- Front -->
+              <div class="flip-card-front">
+                <div class="card-image-container">
+                  <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200951/client_image_5_erwabh.jpg"
+                    class="card-image" alt="Sisterlocks Installation">
+                  <div class="card-overlay">
+                    <h3 class="card-title font-display">Sisterlocks Installation</h3>
+                    <p class="card-price">From KES 18,000</p>
+                    <span class="flip-indicator">
+                      Tap to learn more
+                      <svg class="flip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2" />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <!-- Back -->
+              <div class="flip-card-back">
+                <div class="back-content">
+                  <h3 class="back-title font-display">Sisterlocks Installation</h3>
+                  <p class="back-description">
+                    Transform your natural hair journey with our expert Sisterlocks installation. Our certified technique
+                    ensures precision and beautiful, long-lasting results.
+                  </p>
+
+                  <h4 class="back-features-title">What's Included:</h4>
+                  <ul class="back-features-list">
+                    <li>Consultation & hair assessment</li>
+                    <li>Precision grid mapping</li>
+                    <li>Complete installation (6-12 hours)</li>
+                    <li>Aftercare instructions</li>
+                    <li>Product recommendations</li>
+                    <li>Follow-up guidance</li>
+                  </ul>
+                </div>
+
+                <div class="back-cta">
+                  <a href="https://wa.me/254721530120?text=I'm interested in Sisterlocks Installation"
+                    class="back-cta-button" onclick="event.stopPropagation()">
+                    Book Now
+                  </a>
+                  <span class="flip-back-indicator">Tap again to flip back</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Retightening & Maintenance -->
+          <div class="flip-card" onclick="flipCard(this)">
+            <div class="flip-card-inner">
+              <!-- Front -->
+              <div class="flip-card-front">
+                <div class="card-image-container">
+                  <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200951/client_image_2_ksrlew.jpg"
+                    class="card-image" alt="Retightening & Maintenance">
+                  <div class="card-overlay">
+                    <h3 class="card-title font-display">Retightening & Maintenance</h3>
+                    <p class="card-price">From KES 1,500</p>
+                    <span class="flip-indicator">
+                      Tap to learn more
+                      <svg class="flip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2" />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <!-- Back -->
+              <div class="flip-card-back">
+                <div class="back-content">
+                  <h3 class="back-title font-display">Retightening & Maintenance</h3>
+                  <p class="back-description">
+                    Keep your Sisterlocks fresh and healthy with our expert maintenance services. Our gentle technique
+                    preserves lock integrity.
+                  </p>
+
+                  <h4 class="back-features-title">Service Options:</h4>
+                  <ul class="back-features-list">
+                    <li>Full head retightening</li>
+                    <li>Partial maintenance sessions</li>
+                    <li>Deep conditioning treatments</li>
+                    <li>Lock repair & reinforcement</li>
+                    <li>Scalp care & analysis</li>
+                    <li>Style consultation</li>
+                  </ul>
+                </div>
+
+                <div class="back-cta">
+                  <a href="https://wa.me/254721530120?text=I need Retightening/Maintenance service"
+                    class="back-cta-button" onclick="event.stopPropagation()">
+                    Schedule Service
+                  </a>
+                  <span class="flip-back-indicator">Tap again to flip back</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Nails & Beauty -->
+          <div class="flip-card" onclick="flipCard(this)">
+            <div class="flip-card-inner">
+              <!-- Front -->
+              <div class="flip-card-front">
+                <div class="card-image-container">
+                  <img
+                    src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200951/Black_don_t_crack_%EF%B8%8F_xvkuqu.jpg"
+                    class="card-image" alt="Nails & Beauty">
+                  <div class="card-overlay">
+                    <h3 class="card-title font-display">Nails & Beauty</h3>
+                    <p class="card-price">From KES 800</p>
+                    <span class="flip-indicator">
+                      Tap to learn more
+                      <svg class="flip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2" />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <!-- Back -->
+              <div class="flip-card-back">
+                <div class="back-content">
+                  <h3 class="back-title font-display">Nails & Beauty</h3>
+                  <p class="back-description">
+                    Complete nail care services for a polished look. From classic elegance to creative designs with
+                    premium products.
+                  </p>
+
+                  <h4 class="back-features-title">Available Services:</h4>
+                  <ul class="back-features-list">
+                    <li>Gel nails (French, colors, ombré)</li>
+                    <li>Acrylic extensions & overlays</li>
+                    <li>Luxury manicure & pedicure</li>
+                    <li>Custom nail art & designs</li>
+                    <li>Nail health treatments</li>
+                    <li>Special occasion styling</li>
+                  </ul>
+                </div>
+
+                <div class="back-cta">
+                  <a href="https://wa.me/254721530120?text=I'm interested in Nail services" class="back-cta-button"
+                    onclick="event.stopPropagation()">
+                    Book Appointment
+                  </a>
+                  <span class="flip-back-indicator">Tap again to flip back</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    <!-- Pagination Bullets -->
+    <div class="service-pagination"></div>
+
+      <!-- More Services Button -->
+      <div class="more-services-section">
+        <a href="services.html" class="more-services-button">
+          View All Services
+          <svg class="arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
   <div class="container mx-auto px-6">
-    <!-- Services preview -->
-    <section id="services" class="py-8">
-      <h2 class="text-2xl font-bold" data-aos="fade-up">Our Services</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-        <div class="p-6 bg-white/5 rounded" data-aos="zoom-in">
-          <h3 class="font-semibold">Sisterlocks Installation</h3>
-          <p class="mt-2 text-sm text-gray-300">Precision grid installations. Starting from KES 18,000</p>
+    <!-- About -->
+    <section class="py-16 bg-black/90 text-white relative overflow-hidden">
+      <div class="container mx-auto px-6 flex flex-col-reverse md:flex-row items-center gap-8 relative">
+
+        <!-- Text -->
+        <div class="md:w-1/2 text-center md:text-left bg-black/50 p-6 rounded-lg backdrop-blur-md z-10" data-aos="fade-right">
+          <h2 class="text-3xl md:text-5xl font-bold font-display mb-4">About Flo</h2>
+          <p class="text-gray-300 text-base md:text-lg leading-relaxed">
+            Flo Sisterlocks Eldoret is a specialist loctician studio in Eldoret, offering
+            professional Sisterlocks installation, maintenance, and beauty services.
+            We focus on healthy hair, precision, and client comfort, ensuring every visit is
+            a luxurious experience.
+          </p>
+          <a href="contact.html"
+            class="mt-6 inline-block bg-amber-500 text-black font-semibold px-6 py-3 rounded-md hover:bg-amber-400 transition-colors">
+            Book a Consultation
+          </a>
         </div>
-        <div class="p-6 bg-white/5 rounded" data-aos="zoom-in" data-aos-delay="100">
-          <h3 class="font-semibold">Retightening / Maintenance</h3>
-          <p class="mt-2 text-sm text-gray-300">Root reties and maintenance. Starting from KES 1,500</p>
-        </div>
-        <div class="p-6 bg-white/5 rounded" data-aos="zoom-in" data-aos-delay="200">
-          <h3 class="font-semibold">Nails & Beauty</h3>
-          <p class="mt-2 text-sm text-gray-300">All types of nails: gel, acrylic, mani/pedi. Starting from KES 800</p>
+
+        <!-- Image -->
+        <div class="md:w-1/2 relative" data-aos="fade-left">
+          <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200952/flo_image_2_v4ndle.jpg" alt="About Flo Sisterlocks"
+            class="w-full h-64 md:h-auto object-cover rounded-lg shadow-2xl transform md:translate-y-0 -translate-y-8 md:rounded-lg">
+          <!-- Optional floating gradient behind image -->
+          <div class="absolute -top-6 -left-6 w-40 h-40 bg-amber-500/20 rounded-full blur-3xl md:hidden"></div>
         </div>
       </div>
     </section>
 
-    <!-- About -->
-    <section class="py-8" data-aos="fade-up">
-      <h2 class="text-2xl font-bold">About Flo</h2>
-      <p class="mt-3 text-gray-300">Flo Sisterlocks Eldoret is a specialist loctician studio located in Eldoret, offering professional Sisterlocks installation, maintenance and beauty services. We focus on healthy hair, precision and client comfort.</p>
-    </section>
-
     <!-- Testimonials -->
     <section class="py-8">
-      <h2 class="text-2xl font-bold" data-aos="fade-up">What Clients Say</h2>
+      <h2 class="text-2xl font-bold font-display" data-aos="fade-up">What Clients Say</h2>
       <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="p-6 bg-white/5 rounded" data-aos="flip-left">“Flo truly transformed my hair — expert work and great vibe!” — A. Mwangi</div>
-        <div class="p-6 bg-white/5 rounded" data-aos="flip-left" data-aos-delay="80">“Professional and patient — my Sisterlocks look amazing.” — J. Njeri</div>
-        <div class="p-6 bg-white/5 rounded" data-aos="flip-left" data-aos-delay="160">“Best maintenance service in Eldoret.” — K. Wanjiru</div>
+        <div class="p-6 bg-white/5 rounded" data-aos="flip-left">“Flo truly transformed my hair — expert work and
+          great vibe!” — A. Mwangi</div>
+        <div class="p-6 bg-white/5 rounded" data-aos="flip-left" data-aos-delay="80">“Professional and patient — my
+          Sisterlocks look amazing.” — J. Njeri</div>
+        <div class="p-6 bg-white/5 rounded" data-aos="flip-left" data-aos-delay="160">“Best maintenance service in
+          Eldoret.” — K. Wanjiru</div>
       </div>
     </section>
   </div>
@@ -172,6 +371,33 @@
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="main.js"></script>
+<script>
+  function flipCard(card) {
+    card.classList.toggle('flipped');
+  }
+
+  // Optional: Add touch swipe support for better mobile experience
+  let startX = 0;
+  const scrollContainer = document.querySelector('.services-scroll-wrapper');
+
+  if (scrollContainer) {
+    scrollContainer.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].pageX;
+    });
+
+    scrollContainer.addEventListener('touchmove', (e) => {
+      if (!startX) return;
+      const currentX = e.touches[0].pageX;
+      const diff = startX - currentX;
+      scrollContainer.scrollLeft += diff;
+      startX = currentX;
+    });
+
+    scrollContainer.addEventListener('touchend', () => {
+      startX = 0;
+    });
+  }
+</script>
 </body>
 
 </body>
