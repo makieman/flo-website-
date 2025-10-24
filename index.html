@@ -8,8 +8,7 @@
   <meta name="description" content="Flo Sisterlocks Eldoret - Specialist Sisterlocks studio in Eldoret, Kenya. Installation, retie, maintenance, nails & styling.">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = {
-      darkMode: 'class',
+    tailwind.config = {      
       theme: {
         extend: {
           colors: {
@@ -53,17 +52,6 @@
       <a href="gallery.html" class="hover:underline">Gallery</a>
       <a href="contact.html" class="hover:underline">Contact</a>
       <a href="https://wa.me/254721530120" target="_blank" class="bg-amber-500 text-black px-4 py-2 rounded hover:bg-amber-400 transition-colors">Book</a>
-  <!-- Theme Toggle (removed dark variant) -->
-  <button id="theme-toggle" class="w-10 h-10 rounded-lg flex items-center justify-center hover:bg-gray-200 transition-colors">
-        <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-        </svg>
-        <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20">
-          <path
-            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM10 16a1 1 0 011 1v1a1 1-0 11-2 0v-1a1 1 0 011-1zM3.05 4.54a1 1 0 00-1.414 1.414l.707.707a1 1 0 001.414-1.414l-.707-.707zM16.95 4.54a1 1 0 011.414 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 010-1.414zM12.293 15.707a1 1 0 01-1.414 0l-.707-.707a1 1 0 011.414-1.414l.707.707a1 1 0 010 1.414zM4.54 16.95a1 1 0 01-1.414-1.414l.707-.707a1 1 0 111.414 1.414l-.707.707a1 1 0 01-1.414 0z"
-            clip-rule="evenodd" fill-rule="evenodd"></path>
-        </svg>
-      </button>
     </nav>
 
     <!-- Hamburger Icon for Mobile -->
@@ -348,7 +336,7 @@
   <!-- ============================================ -->
   <!-- ABOUT SECTION -->
   <!-- ============================================ -->
-  <section id="about" class="bg-white">
+  <section id="about" class="bg-amber-50">
     <div class="container mx-auto text-center">
 
       <!-- Section Header -->
@@ -388,8 +376,8 @@
           </div>
       </div>
 
-      <!-- Section 2: Why Choose Us -->
-      <div class="mb-20" data-aos="fade-up" data-aos-duration="800">
+  <!-- Section 2: Why Choose Us -->
+  <div class="mb-20 services-pattern" data-aos="fade-up" data-aos-duration="800">
           <h3 class="text-3xl font-bold font-display text-center mb-10" data-aos="fade-up">Why Choose Flo Sisterlocks?</h3>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
@@ -439,7 +427,7 @@
 
 
   <!-- Testimonials -->
-  <section id="testimonials" class="bg-amber-50">
+  <section id="testimonials" class="bg-amber-50 py-16">
     <div class="container mx-auto">
       <!-- Section Header -->
         <div class="text-center mb-12" data-aos="fade-up">
@@ -450,31 +438,31 @@
         <!-- Carousel Container -->
         <div class="relative">
           <!-- Carousel Wrapper -->
-          <div class="testimonial-carousel-wrapper">
+          <div class="testimonial-carousel-wrapper" style="mask-image: none; -webkit-mask-image: none;">
             <div class="testimonial-carousel-track">
               <!-- Testimonial 1 -->
-              <div class="testimonial-card">
-                <p class="testimonial-text">“Flo truly transformed my hair — expert work and a great vibe! I've never been happier with my Sisterlocks.”</p>
-                <div class="testimonial-author">- A. Mwangi</div>
-                <div class="testimonial-rating">★★★★★</div>
+              <div class="testimonial-card feature-card shadow-none">
+                <p class="testimonial-text text-gray-300">“Flo truly transformed my hair — expert work and a great vibe! I've never been happier with my Sisterlocks.”</p>
+                <div class="testimonial-author text-white">- A. Mwangi</div>
+                <div class="testimonial-rating text-amber-400">★★★★★</div>
               </div>
               <!-- Testimonial 2 -->
-              <div class="testimonial-card">
-                <p class="testimonial-text">“Professional and patient from start to finish. My Sisterlocks look amazing, and the maintenance is top-notch.”</p>
-                <div class="testimonial-author">- J. Njeri</div>
-                <div class="testimonial-rating">★★★★★</div>
+              <div class="testimonial-card feature-card shadow-none">
+                <p class="testimonial-text text-gray-300">“Professional and patient from start to finish. My Sisterlocks look amazing, and the maintenance is top-notch.”</p>
+                <div class="testimonial-author text-white">- J. Njeri</div>
+                <div class="testimonial-rating text-amber-400">★★★★★</div>
               </div>
               <!-- Testimonial 3 -->
-              <div class="testimonial-card">
-                <p class="testimonial-text">“By far the best maintenance service in Eldoret. Flo is meticulous and always ensures my hair is healthy and neat.”</p>
-                <div class="testimonial-author">- K. Wanjiru</div>
-                <div class="testimonial-rating">★★★★★</div>
+              <div class="testimonial-card feature-card shadow-none">
+                <p class="testimonial-text text-gray-300">“By far the best maintenance service in Eldoret. Flo is meticulous and always ensures my hair is healthy and neat.”</p>
+                <div class="testimonial-author text-white">- K. Wanjiru</div>
+                <div class="testimonial-rating text-amber-400">★★★★★</div>
               </div>
                <!-- Testimonial 4 -->
-              <div class="testimonial-card">
-                <p class="testimonial-text">“I was nervous about getting Sisterlocks, but the consultation was so informative. The result is beyond my expectations!”</p>
-                <div class="testimonial-author">- L. Achieng</div>
-                <div class="testimonial-rating">★★★★★</div>
+              <div class="testimonial-card feature-card shadow-none">
+                <p class="testimonial-text text-gray-300">“I was nervous about getting Sisterlocks, but the consultation was so informative. The result is beyond my expectations!”</p>
+                <div class="testimonial-author text-white">- L. Achieng</div>
+                <div class="testimonial-rating text-amber-400">★★★★★</div>
               </div>
             </div>
           </div>

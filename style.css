@@ -121,9 +121,6 @@ body.menu-open::after {
   flex-direction: column;
   padding-top: 0; /* Remove top padding to allow close button to be at the very top */
 }
-.dark #mobile-menu {
-  background-color: var(--mobile-menu-bg); /* Dark mode: #111111 */
-}
 
 
 #mobile-menu a {
@@ -500,7 +497,9 @@ a[aria-label="Scroll to services"] svg {
 }
 
 /* Animated background pattern */
-#services::before {
+/* Animated background pattern used by services and other sections */
+#services::before,
+.services-pattern::before {
   content: '';
   position: absolute;
   top: 0;
@@ -511,6 +510,12 @@ a[aria-label="Scroll to services"] svg {
     radial-gradient(circle at 20% 50%, rgba(251, 191, 36, 0.05) 0%, transparent 50%),
     radial-gradient(circle at 80% 80%, rgba(251, 191, 36, 0.05) 0%, transparent 50%);
   pointer-events: none;
+  z-index: 0;
+}
+
+.services-pattern {
+  position: relative;
+  overflow: hidden; /* ensure the pseudo element doesn't overflow */
 }
 
 .services-container {
