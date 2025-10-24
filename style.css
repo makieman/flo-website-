@@ -1124,17 +1124,3 @@ a[aria-label="Scroll to services"] svg {
   0%, 100% { box-shadow: 0 0 10px rgba(251, 191, 36, 0.1); transform: scale(1); }
   50% { box-shadow: 0 0 25px rgba(251, 191, 36, 0.25); transform: scale(1.02); }
 }
-
-/* Theme Toggle Animation */
-.theme-toggle-animate svg {
-  animation: spin 0.3s ease-in-out;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg) scale(0.8);
-  }
-  to {
-    transform: rotate(360deg) scale(1);
-  }
-}
