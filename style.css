@@ -113,42 +113,101 @@ body.menu-open::after {
   bottom: 0;
   width: 80%;
   max-width: 300px;
-  background-color: #fff; /* Light mode bg */
+  background-color: #f9fafb; /* Light mode: gray-50 */
   transform: translateX(100%);
-  transition: transform 0.3s ease-in-out;
-  z-index: 50;
+  transition: transform 0.28s cubic-bezier(.2,.9,.2,1);
+  z-index: 60; /* sit above header */
   display: flex;
   flex-direction: column;
   padding-top: 0; /* Remove top padding to allow close button to be at the very top */
 }
 .dark #mobile-menu {
-  background-color: var(--mobile-menu-bg); /* dark mode bg */
+  background-color: var(--mobile-menu-bg); /* Dark mode: #111111 */
 }
+
 
 #mobile-menu a {
   display: block;
   width: 100%;
   padding: 1rem;
   border-bottom: 1px solid #e5e7eb; /* gray-200 */
-  color: #374151; /* gray-700 */
+  color: #0f172a; /* slate-900 for consistency */
   transition: all 0.3s ease;
 }
-.dark #mobile-menu a {
-  border-bottom-color: var(--mobile-menu-border);
-  color: #d1d5db; /* gray-300 */
-}
+
 
 #mobile-menu a:hover {
-  background: #f3f4f6; /* gray-100 */
+  background: linear-gradient(90deg, rgba(245,158,11,0.06), rgba(251,191,36,0.04));
+  color: #111827;
 }
-.dark #mobile-menu a:hover {
-  color: var(--amber-400);
-  background: var(--mobile-menu-hover-bg);
-}
+
 
 body.menu-open #mobile-menu {
   transform: translateX(0);
 }
+
+/* Prevent body scroll when mobile menu is open */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* Close button inside mobile menu */
+#mobile-menu button#mobile-menu-close-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.1rem;
+  padding: 0.75rem;
+  margin-left: auto;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  color: var(--amber-500);
+}
+
+/* Make menu links use CTA accent color for hover focus and match CTAs */
+#mobile-menu a:focus,
+#mobile-menu a:hover {
+  outline: none;
+  box-shadow: none;
+  color: #92400e; /* darker amber */
+}
+
+/* Header visual consistency */
+header.fixed {
+  z-index: 50; /* ensure header sits under the mobile menu */
+  background: rgba(255,255,255,0.92);
+  color: #0f172a;
+  backdrop-filter: blur(6px);
+}
+
+/* Desktop nav color consistency */
+nav#desktop-menu a { color: #0f172a; }
+nav#desktop-menu a:hover { color: #92400e; }
+
+/* Make hamburger easier to tap */
+#menu-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+/* Ensure icons inside the menu button are visible and animate slightly */
+#menu-btn svg { transition: transform 160ms ease; }
+#menu-btn:active svg { transform: scale(.95); }
+
+/* Header visual consistency */
+header.fixed {
+  z-index: 50; /* ensure header sits under the mobile menu */
+  background: rgba(255,255,255,0.92);
+  color: #0f172a;
+  backdrop-filter: blur(6px);
+}
+
+/* Desktop nav color consistency */
+nav#desktop-menu a { color: #0f172a; }
+nav#desktop-menu a:hover { color: #92400e; }
+
 
 @keyframes float {
   0%, 100% { transform: translateY(0); } 
@@ -492,12 +551,7 @@ a[aria-label="Scroll to services"] svg {
   gap: 0.5rem;
   animation: pulse 2s infinite;
 }
-.dark .section-title h2 {
-  background: linear-gradient(135deg, var(--text-color) 0%, #cccccc 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+/* removed legacy .dark styles */
 
 /* Horizontal scroll container */
 .services-scroll-wrapper {
@@ -645,10 +699,7 @@ a[aria-label="Scroll to services"] svg {
   justify-content: space-between;
   border: 1px solid #e5e7eb; /* gray-200 */
 }
-.dark .flip-card-back {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-  border-color: var(--card-border);
-}
+/* removed legacy .dark styles */
 
 .back-content {
   flex: 1;
@@ -701,9 +752,7 @@ a[aria-label="Scroll to services"] svg {
   font-size: 0.875rem;
   border-bottom: 1px solid #e5e7eb; /* gray-200 */
 }
-.dark .back-features-list li {
-  border-bottom-color: var(--card-border);
-}
+/* removed legacy .dark styles */
 
 .back-features-list li::before {
   content: '✓'; 
@@ -733,18 +782,13 @@ a[aria-label="Scroll to services"] svg {
   letter-spacing: 1px;
   box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
 }
-.dark .back-cta-button {
-  background: #fff;
-  color: #000;
-}
+/* removed legacy .dark styles */
 
 .back-cta-button:hover {
   transform: translateY(-2px);
   background: #374151; /* gray-700 */
 }
-.dark .back-cta-button:hover {
-  background: #e5e5e5;
-}
+/* removed legacy .dark styles */
 .flip-back-indicator {
   display: block;
   text-align: center;
@@ -778,21 +822,14 @@ a[aria-label="Scroll to services"] svg {
   transition: all 0.4s ease;
   box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
 }
-.dark .more-services-button {
-  background: transparent;
-  border: 2px solid #fff;
-  color: #fff;
-}
+/* removed legacy .dark styles */
 
 .more-services-button:hover {
   background: #374151; /* gray-700 */
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
 }
-.dark .more-services-button:hover {
-  background: #fff;
-  color: #000;
-}
+/* removed legacy .dark styles */
 
 .arrow-icon {
   transition: transform 0.3s ease;
@@ -823,24 +860,18 @@ a[aria-label="Scroll to services"] svg {
   transition: all 0.3s ease;
   transform: scale(0.8);
 }
-.dark .pagination-dot {
-  background-color: rgba(255, 255, 255, 0.2);
-}
+/* removed legacy .dark styles */
 
 .pagination-dot:hover {
   background-color: rgba(0, 0, 0, 0.4);
 }
-.dark .pagination-dot:hover {
-  background-color: rgba(255, 255, 255, 0.5);
-}
+/* removed legacy .dark styles */
 
 .pagination-dot.active {
   background-color: #000;
   transform: scale(1.2);
 }
-.dark .pagination-dot.active {
-  background-color: #fff;
-}
+/* removed legacy .dark styles */
 
 @keyframes slideInFromRight {
   from {
@@ -1095,9 +1126,7 @@ a[aria-label="Scroll to services"] svg {
   font-style: italic;
   color: var(--text-muted-color);
 }
-.dark .mission-quote {
-  text-shadow: 0 0 15px rgba(251, 191, 36, 0.2);
-}
+/* removed legacy dark-mode mission-quote rule */
 
 .mission-signature-new {
   display: block;
@@ -1116,10 +1145,7 @@ a[aria-label="Scroll to services"] svg {
   text-align: center;
   transition: transform 0.3s ease, background 0.3s ease;
 }
-.dark .feature-card {
-  background: rgba(255, 255, 255, 0.02);
-  border-color: rgba(255, 255, 255, 0.08);
-}
+/* removed legacy dark-mode feature-card rule */
 
 .feature-card:hover {
   transform: translateY(-5px);
@@ -1132,9 +1158,7 @@ a[aria-label="Scroll to services"] svg {
   }
 }
 
-.dark .feature-card:hover {
-  background: rgba(255, 255, 255, 0.05);
-}
+/* removed legacy dark-mode feature-card hover rule */
 
 .stats-grid {
   display: grid;
@@ -1149,11 +1173,7 @@ a[aria-label="Scroll to services"] svg {
   border-radius: 1rem;
   border: 1px solid rgba(245, 158, 11, 0.2);
 }
-.dark .stat-item {
-  background: rgba(251, 191, 36, 0.05);
-  border-color: rgba(251, 191, 36, 0.2);
-  animation: pulse-glow 3s infinite ease-in-out;
-}
+/* removed legacy dark-mode stat-item rule */
 
 .stat-number {
   font-size: 3rem;
@@ -1186,10 +1206,7 @@ a[aria-label="Scroll to services"] svg {
   flex-direction: column;
   align-items: flex-start;
 }
-.dark .credential-card {
-  background: rgba(255, 255, 255, 0.02);
-  border-color: rgba(255, 255, 255, 0.08);
-}
+/* removed legacy dark-mode credential-card rule */
 
 @keyframes pulse-glow {
   0%, 100% { box-shadow: 0 0 10px rgba(251, 191, 36, 0.1); transform: scale(1); }

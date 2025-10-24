@@ -318,64 +318,7 @@ function initializeAll() {
 // Call the initialization function when the script loads
 initializeAll();
 
-// Mobile menu toggle
-const menuBtn = document.getElementById('menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-const hamburgerIcon = document.getElementById('hamburger-icon');
-const closeIcon = document.getElementById('close-icon');
-const mobileMenuCloseBtn = document.getElementById('mobile-menu-close-btn');
-
-const openMobileMenu = () => {
-  document.body.classList.add('menu-open');
-  if (hamburgerIcon) hamburgerIcon.classList.add('hidden');
-  if (closeIcon) closeIcon.classList.remove('hidden');
-};
-
-const closeMobileMenu = () => {
-  document.body.classList.remove('menu-open');
-  if (hamburgerIcon) hamburgerIcon.classList.remove('hidden');
-  if (closeIcon) closeIcon.classList.add('hidden');
-};
-
-if (menuBtn && mobileMenu) {
-  menuBtn.addEventListener('click', (e) => {
-    e.stopPropagation(); // Prevent the body click listener from firing immediately
-    if (document.body.classList.contains('menu-open')) {
-      closeMobileMenu();
-    } else {
-      openMobileMenu();
-    }
-  });
-
-  if (mobileMenuCloseBtn) {
-    mobileMenuCloseBtn.addEventListener('click', closeMobileMenu);
-  }
-  
-  // Close menu when a link is clicked
-  document.querySelectorAll('#mobile-menu a').forEach(link => {
-    link.addEventListener('click', closeMobileMenu);
-  });
-
-  // Close menu when clicking outside on the overlay
-  document.body.addEventListener('click', (e) => {
-    if (document.body.classList.contains('menu-open') && !mobileMenu.contains(e.target)) {
-      closeMobileMenu();
-    }
-  });
-}
-
-// Smooth-scroll for in-page anchors (data-smooth-scroll)
-document.querySelectorAll('a[data-smooth-scroll]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    const href = this.getAttribute('href');
-    if (!href || !href.startsWith('#')) return;
-    e.preventDefault();
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-});
+// Mobile menu handled by initMobileMenu() on DOMContentLoaded
 
 // Booking modal logic
 const openBookingBtn = document.getElementById('open-booking');
