@@ -379,11 +379,11 @@ section.bg-gray-100 .text-gray-300 { color: #cbd5e1; }
 
 /* Buttons */
 .cta-button-primary {
-  @apply bg-amber-500 text-black px-6 py-3 rounded-lg font-semibold hover:bg-amber-400 transition-colors duration-300 dark:bg-amber-400 dark:hover:bg-amber-300 dark:text-black;
+  @apply bg-amber-500 text-black px-6 py-3 rounded-lg font-semibold hover:bg-amber-400 transition-colors duration-300;
 }
 
 .cta-button-secondary {
-  @apply border border-gray-800 text-gray-800 px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-300 dark:border-white dark:text-white dark:hover:bg-white/10;
+  @apply border border-gray-800 text-gray-800 px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-300;
 }
 
 /* HERO PANEL */
@@ -1138,19 +1138,31 @@ a[aria-label="Scroll to services"] svg {
 }
 
 .feature-card {
-  background: #fff;
-  border: 1px solid #e5e7eb; /* gray-200 */
+  /* Darker, higher-contrast panel for better readability */
+  background: #0b1220; /* deep slate for strong contrast */
+  color: #e6eef6; /* light text */
+  border: 1px solid rgba(255,255,255,0.03);
   padding: 2rem;
   border-radius: 1rem;
   text-align: center;
-  transition: transform 0.3s ease, background 0.3s ease;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.28s ease;
+  box-shadow: 0 12px 40px rgba(2,6,23,0.55);
 }
 /* removed legacy dark-mode feature-card rule */
 
-.feature-card:hover {
+.feature-card:hover,
+.feature-card:focus,
+.feature-card:focus-within,
+.feature-card:active {
   transform: translateY(-5px);
-  background: #f9fafb; /* gray-50 */
+  /* keep the same color family but darken slightly for the highlight state */
+  background-color: #061017; /* slightly darker deep slate */
+  box-shadow: 0 22px 60px rgba(2,6,23,0.66);
+  outline: none;
 }
+
+.feature-card h4 { color: #ffffff; }
+.feature-card p { color: #cbd5e1; }
 
 @media (min-width: 768px) {
   .stats-grid {
