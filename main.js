@@ -1,94 +1,84 @@
 // Theme Toggle
 const themeToggleBtn = document.getElementById('theme-toggle');
-const mobileThemeToggleBtn = document.getElementById('mobile-theme-toggle');
-const darkIcon = document.getElementById('theme-toggle-dark-icon');
-const lightIcon = document.getElementById('theme-toggle-light-icon');
-const mobileDarkIcon = document.getElementById('mobile-theme-toggle-dark-icon');
-const mobileLightIcon = document.getElementById('mobile-theme-toggle-light-icon');
+const darkIcon = document.getElementById('theme-toggle-dark-icon'); // Moon
+const lightIcon = document.getElementById('theme-toggle-light-icon'); // Sun
 
-const updateIcons = (isLight) => {
-  // Use optional chaining to avoid runtime errors if icons are missing
-  if (isLight) {
-    darkIcon?.classList.remove('hidden');
-    lightIcon?.classList.add('hidden');
-    mobileDarkIcon?.classList.remove('hidden');
-    mobileLightIcon?.classList.add('hidden');
-  } else {
-    darkIcon?.classList.add('hidden');
+const updateThemeIcons = (isDark) => {
+  if (isDark) {
     lightIcon?.classList.remove('hidden');
-    mobileDarkIcon?.classList.add('hidden');
-    mobileLightIcon?.classList.remove('hidden');
+    darkIcon?.classList.add('hidden');
+  } else {
+    lightIcon?.classList.add('hidden');
+    darkIcon?.classList.remove('hidden');
   }
 };
 
-const applyTheme = (isLight) => {
-  if (isLight) document.body.classList.add('light');
-  else document.body.classList.remove('light');
-  updateIcons(isLight);
-};
-
-const toggleTheme = () => {
-  const isLight = !document.body.classList.contains('light');
-  applyTheme(isLight);
-  localStorage.setItem('theme', isLight ? 'light' : 'dark');
-};
-
-// Initialize theme: prefer saved choice, otherwise follow system preference.
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'light') {
-  applyTheme(true);
-} else if (savedTheme === 'dark') {
-  applyTheme(false);
-} else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-  applyTheme(true);
+// Apply saved theme on load
+if (localStorage.getItem('color-theme') === 'dark' || 
+    (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+  document.documentElement.classList.add('dark');
+  updateThemeIcons(true);
 } else {
-  applyTheme(false);
+  document.documentElement.classList.remove('dark');
+  updateThemeIcons(false);
 }
 
-// If user hasn't chosen, listen to system preference changes and adapt automatically
-if (!savedTheme && window.matchMedia) {
-  const mq = window.matchMedia('(prefers-color-scheme: light)');
-  const mqHandler = (e) => {
-    applyTheme(e.matches);
-  };
-  if (typeof mq.addEventListener === 'function') {
-    mq.addEventListener('change', mqHandler);
-  } else if (typeof mq.addListener === 'function') {
-    mq.addListener(mqHandler);
-  }
+// Toggle theme
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener('click', () => {
+    const isDark = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('color-theme', isDark ? 'dark' : 'light');
+    updateThemeIcons(isDark);
+    
+    // Add animation class
+    themeToggleBtn.classList.add('theme-toggle-animate');
+    setTimeout(() => themeToggleBtn.classList.remove('theme-toggle-animate'), 300);
+  });
 }
-
-if (themeToggleBtn) themeToggleBtn.addEventListener('click', toggleTheme);
-if (mobileThemeToggleBtn) mobileThemeToggleBtn.addEventListener('click', toggleTheme);
 
 // Mobile menu toggle
 const menuBtn = document.getElementById('menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 const hamburgerIcon = document.getElementById('hamburger-icon');
 const closeIcon = document.getElementById('close-icon');
+const mobileMenuCloseBtn = document.getElementById('mobile-menu-close-btn');
 
-if (menuBtn && mobileMenu && hamburgerIcon && closeIcon) {
-  menuBtn.addEventListener('click', () => {
-    const isOpen = document.body.classList.contains('menu-open');
+const openMobileMenu = () => {
+  document.body.classList.add('menu-open');
+  if (hamburgerIcon) hamburgerIcon.classList.add('hidden');
+  if (closeIcon) closeIcon.classList.remove('hidden');
+};
 
-    if (!isOpen) {
-      document.body.classList.add('menu-open');
-      hamburgerIcon.classList.add('hidden');
-      closeIcon.classList.remove('hidden');
+const closeMobileMenu = () => {
+  document.body.classList.remove('menu-open');
+  if (hamburgerIcon) hamburgerIcon.classList.remove('hidden');
+  if (closeIcon) closeIcon.classList.add('hidden');
+};
+
+if (menuBtn && mobileMenu) {
+  menuBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent the body click listener from firing immediately
+    if (document.body.classList.contains('menu-open')) {
+      closeMobileMenu();
     } else {
-      document.body.classList.remove('menu-open');
-      hamburgerIcon.classList.remove('hidden');
-      closeIcon.classList.add('hidden');
+      openMobileMenu();
     }
   });
 
+  if (mobileMenuCloseBtn) {
+    mobileMenuCloseBtn.addEventListener('click', closeMobileMenu);
+  }
+  
   // Close menu when a link is clicked
   document.querySelectorAll('#mobile-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-      document.body.classList.remove('menu-open');
-      hamburgerIcon.classList.remove('hidden');
-      closeIcon.classList.add('hidden');
-    });
+    link.addEventListener('click', closeMobileMenu);
+  });
+
+  // Close menu when clicking outside on the overlay
+  document.body.addEventListener('click', (e) => {
+    if (document.body.classList.contains('menu-open') && !mobileMenu.contains(e.target)) {
+      closeMobileMenu();
+    }
   });
 }
 
@@ -284,4 +274,58 @@ if (bookingForm) {
 
     document.getElementById('formMsg').classList.remove('hidden');
   });
+}
+
+// -------------------
+// Stats Counter Animation
+// -------------------
+const statsSection = document.getElementById('stats-section');
+
+const animateCounters = () => {
+  const counters = document.querySelectorAll('.stat-number');
+  const decimalCounters = document.querySelectorAll('.stat-number-decimal');
+  const speed = 200; // The lower the faster
+
+  counters.forEach(counter => {
+    const updateCount = () => {
+      const target = +counter.getAttribute('data-target');
+      const count = +counter.innerText;
+      const inc = Math.max(Math.ceil(target / speed), 1);
+
+      if (count < target) {
+        counter.innerText = Math.min(count + inc, target);
+        setTimeout(updateCount, 10);
+      } else {
+        counter.innerText = target + '+';
+      }
+    };
+    updateCount();
+  });
+
+  decimalCounters.forEach(counter => {
+    const updateCount = () => {
+      const target = +counter.getAttribute('data-target');
+      const count = +counter.innerText;
+      const inc = target / speed;
+
+      if (count < target) {
+        counter.innerText = (count + inc).toFixed(1);
+        setTimeout(updateCount, 15);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    updateCount();
+  });
+};
+
+const observer = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting) {
+    animateCounters();
+    observer.disconnect(); // Animate only once
+  }
+}, { threshold: 0.5 });
+
+if (statsSection) {
+  observer.observe(statsSection);
 }

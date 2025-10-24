@@ -28,33 +28,6 @@
   --mobile-menu-hover-bg: rgba(255,255,255,0.03);
 }
 
-body.light {
-  --bg-color: #f9fafb; /* gray-50 */
-  --text-color: #1f2937; /* gray-800 */
-  --text-muted-color: #4b5563; /* gray-600 */
-  --header-bg: rgba(255, 255, 255, 0.7);
-  --card-bg: #fff;
-  --card-border: rgba(0, 0, 0, 0.05);
-  --cta-primary-bg: #1f2937;
-  --cta-primary-text: #fff;
-  --cta-secondary-border: #1f2937;
-  --cta-secondary-hover-bg: #1f2937;
-  --cta-secondary-hover-text: #fff;
-  /* Light theme overrides for components */
-  --overlay-start: rgba(255,255,255,0.6);
-  --overlay-end: rgba(255,255,255,0.5);
-  --panel-bg: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.98));
-  --panel-border: rgba(0,0,0,0.06);
-  --modal-bg: #ffffff;
-  --modal-border: rgba(0,0,0,0.06);
-  --mobile-menu-bg: #ffffff;
-  --mobile-menu-border: rgba(0,0,0,0.06);
-  --about-bg: #ffffff;
-  --hero-text-color: #111827;
-  --modal-overlay: rgba(0,0,0,0.18);
-  --mobile-menu-hover-bg: rgba(0,0,0,0.03);
-}
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Sora:wght@700;800&display=swap');
 
 /* Custom Font Classes */
@@ -64,16 +37,42 @@ body.light {
 .font-playfair {
   font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
 }
+.font-greatvibes {
+  font-family: 'Great Vibes', cursive;
+}
 .font-body {
   font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  /* background-color: var(--bg-color);
+  color: var(--text-color); */
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Standardized Section Padding */
+section {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  section {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  section {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
 @keyframes fadeInDown {
   from {
     opacity: 0;
@@ -83,11 +82,6 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-header {
-  background-color: var(--header-bg);
-  backdrop-filter: blur(8px);
 }
 
 /* Mobile menu layout fix */
@@ -118,23 +112,35 @@ body.menu-open::after {
   bottom: 0;
   width: 80%;
   max-width: 300px;
-  background-color: var(--mobile-menu-bg); /* Theme-aware mobile menu */
+  background-color: #fff; /* Light mode bg */
   transform: translateX(100%);
   transition: transform 0.3s ease-in-out;
   z-index: 50;
   display: flex;
   flex-direction: column;
+  padding-top: 0; /* Remove top padding to allow close button to be at the very top */
+}
+.dark #mobile-menu {
+  background-color: var(--mobile-menu-bg); /* dark mode bg */
 }
 
 #mobile-menu a {
   display: block;
   width: 100%;
   padding: 1rem;
-  border-bottom: 1px solid var(--mobile-menu-border);
+  border-bottom: 1px solid #e5e7eb; /* gray-200 */
+  color: #374151; /* gray-700 */
   transition: all 0.3s ease;
+}
+.dark #mobile-menu a {
+  border-bottom-color: var(--mobile-menu-border);
+  color: #d1d5db; /* gray-300 */
 }
 
 #mobile-menu a:hover {
+  background: #f3f4f6; /* gray-100 */
+}
+.dark #mobile-menu a:hover {
   color: var(--amber-400);
   background: var(--mobile-menu-hover-bg);
 }
@@ -241,30 +247,13 @@ body.menu-open #mobile-menu {
   animation-delay: 0.2s;
 }
 
+/* Buttons */
 .cta-button-primary {
-  background-color: var(--cta-primary-bg);
-  color: var(--cta-primary-text);
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  border-radius: 0.375rem;
-  font-weight: 600;
-  box-shadow: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.1);
-  transition: box-shadow 0.3s ease;
+  @apply bg-amber-500 text-black px-6 py-3 rounded-lg font-semibold hover:bg-amber-400 transition-colors duration-300 dark:bg-amber-400 dark:hover:bg-amber-300 dark:text-black;
 }
 
 .cta-button-secondary {
-  border: 1px solid var(--cta-secondary-border);
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.375rem;
-  font-weight: 600;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.cta-button-secondary:hover {
-  background-color: var(--cta-secondary-hover-bg);
-  color: var(--cta-secondary-hover-text);
+  @apply border border-gray-800 text-gray-800 px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-300 dark:border-white dark:text-white dark:hover:bg-white/10;
 }
 
 /* HERO PANEL */
@@ -277,15 +266,6 @@ body.menu-open #mobile-menu {
 }
 
 /* Improve CTA styles with subtle elevation and hover */
-.cta-button-primary {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-  padding-top: 0.875rem;
-  padding-bottom: 0.875rem;
-  border-radius: 0.75rem;
-  font-size: 1rem;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
-}
 .cta-button-primary:hover,
 .cta-button-primary:focus {
   transform: translateY(-3px);
@@ -345,13 +325,6 @@ body.menu-open #mobile-menu {
 /* Smooth scroll support for browsers that support CSS smooth scrolling */
 html { scroll-behavior: smooth; }
 
-.cta-button-secondary {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-  padding-top: 0.875rem;
-  padding-bottom: 0.875rem;
-  border-radius: 0.75rem;
-}
 .cta-button-secondary:hover,
 .cta-button-secondary:focus {
   transform: translateY(-2px);
@@ -389,8 +362,6 @@ a[aria-label="Scroll to services"] svg {
 /* Full page services section */
 #services {
   min-height: 100vh;
-  padding: 5rem 0 3rem;
-  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
   position: relative;
   overflow: hidden;
   display: flex;
@@ -428,7 +399,7 @@ a[aria-label="Scroll to services"] svg {
   font-size: 3rem;
   font-weight: 800;
   text-transform: uppercase;
-  background: linear-gradient(135deg, var(--text-color) 0%, #cccccc 100%);
+  background: linear-gradient(135deg, #1f2937 0%, #4b5563 100%); /* gray-800 to gray-600 */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -438,19 +409,23 @@ a[aria-label="Scroll to services"] svg {
 }
 
 .section-subtitle {
-  color: var(--text-muted-color);
   font-size: 1.125rem;
   margin-bottom: 0.5rem;
 }
 
 .scroll-hint {
-  color: var(--text-muted-color);
   font-size: 0.875rem;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   animation: pulse 2s infinite;
+}
+.dark .section-title h2 {
+  background: linear-gradient(135deg, var(--text-color) 0%, #cccccc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Horizontal scroll container */
@@ -527,7 +502,7 @@ a[aria-label="Scroll to services"] svg {
 
 /* Front of card */
 .flip-card-front {
-  background: var(--card-bg);
+  background: #fff;
   display: flex;
   flex-direction: column;
 }
@@ -556,7 +531,6 @@ a[aria-label="Scroll to services"] svg {
   right: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);
   padding: 2rem;
-  color: var(--text-color);
 }
 
 .card-title {
@@ -564,7 +538,6 @@ a[aria-label="Scroll to services"] svg {
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
-  color: var(--text-color);
 }
 
 .card-price {
@@ -578,7 +551,7 @@ a[aria-label="Scroll to services"] svg {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--text-muted-color);
+  color: #d1d5db; /* gray-300 */
   font-size: 0.875rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -593,13 +566,17 @@ a[aria-label="Scroll to services"] svg {
 
 /* Back of card */
 .flip-card-back {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  background: #f9fafb; /* gray-50 */
   transform: rotateY(180deg);
   padding: 2.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid var(--card-border);
+  border: 1px solid #e5e7eb; /* gray-200 */
+}
+.dark .flip-card-back {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border-color: var(--card-border);
 }
 
 .back-content {
@@ -621,7 +598,6 @@ a[aria-label="Scroll to services"] svg {
 }
 
 .back-title {
-  color: #fff;
   font-size: 1.75rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -629,14 +605,12 @@ a[aria-label="Scroll to services"] svg {
 }
 
 .back-description {
-  color: var(--text-muted-color);
   line-height: 1.6;
   margin-bottom: 1.5rem;
   font-size: 0.95rem;
 }
 
 .back-features-title {
-  color: #fff;
   font-size: 1.125rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
@@ -650,17 +624,18 @@ a[aria-label="Scroll to services"] svg {
 
 .back-features-list li {
   padding: 0.5rem 0;
-  color: var(--text-muted-color);
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
   font-size: 0.875rem;
-  border-bottom: 1px solid var(--card-border);
+  border-bottom: 1px solid #e5e7eb; /* gray-200 */
+}
+.dark .back-features-list li {
+  border-bottom-color: var(--card-border);
 }
 
 .back-features-list li::before {
   content: '✓'; 
-  color: #fff;
   font-weight: bold;
   font-size: 1rem;
   flex-shrink: 0;
@@ -675,8 +650,8 @@ a[aria-label="Scroll to services"] svg {
   display: block;
   width: 100%;
   padding: 0.875rem;
-  background: #fff;
-  color: #000;
+  background: #1f2937; /* gray-800 */
+  color: #fff;
   font-weight: 700;
   font-size: 1rem;
   border-radius: 0.75rem;
@@ -687,12 +662,18 @@ a[aria-label="Scroll to services"] svg {
   letter-spacing: 1px;
   box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
 }
+.dark .back-cta-button {
+  background: #fff;
+  color: #000;
+}
 
 .back-cta-button:hover {
   transform: translateY(-2px);
+  background: #374151; /* gray-700 */
+}
+.dark .back-cta-button:hover {
   background: #e5e5e5;
 }
-
 .flip-back-indicator {
   display: block;
   text-align: center;
@@ -714,9 +695,9 @@ a[aria-label="Scroll to services"] svg {
   align-items: center;
   gap: 0.75rem;
   padding: 1rem 2.5rem;
-  background: transparent;
-    border: 2px solid #fff;
-    color: #fff;
+  background: #1f2937; /* gray-800 */
+  border: 2px solid transparent;
+  color: #fff;
   font-weight: 700;
   font-size: 1.125rem;
   border-radius: 3rem;
@@ -726,12 +707,20 @@ a[aria-label="Scroll to services"] svg {
   transition: all 0.4s ease;
   box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
 }
+.dark .more-services-button {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
 
 .more-services-button:hover {
-  background: #fff;
-  color: #000;
+  background: #374151; /* gray-700 */
   transform: translateY(-3px);
   box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+}
+.dark .more-services-button:hover {
+  background: #fff;
+  color: #000;
 }
 
 .arrow-icon {
@@ -758,19 +747,28 @@ a[aria-label="Scroll to services"] svg {
   width: 10px;
   height: 10px;
   border-radius: 9999px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: all 0.3s ease;
   transform: scale(0.8);
 }
+.dark .pagination-dot {
+  background-color: rgba(255, 255, 255, 0.2);
+}
 
 .pagination-dot:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.dark .pagination-dot:hover {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
 .pagination-dot.active {
-  background-color: #fff;
+  background-color: #000;
   transform: scale(1.2);
+}
+.dark .pagination-dot.active {
+  background-color: #fff;
 }
 
 @keyframes slideInFromRight {
@@ -837,10 +835,6 @@ a[aria-label="Scroll to services"] svg {
 }
 
 /* Testimonials Section */
-#testimonials {
-  background-color: var(--bg-color);
-}
-
 .testimonial-carousel-wrapper {
   overflow: hidden;
   width: 100%;
@@ -876,9 +870,9 @@ a[aria-label="Scroll to services"] svg {
 .testimonial-card {
   flex: 0 0 100%;
   padding: 2rem;
-  margin: 0 1rem;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
+  margin: 0 1rem;  
+  background: #FDE7EA; /* Light baby pink */
+  border: 1px solid rgba(225, 48, 108, 0.1); /* Soft pink border */
   border-radius: 1rem;
   text-align: center;
   scroll-snap-align: center; /* Snap cards to the center */
@@ -903,7 +897,7 @@ a[aria-label="Scroll to services"] svg {
 .testimonial-text {
   font-size: 1.125rem;
   line-height: 1.7;
-  color: var(--text-muted-color);
+  color: #5c2c35; /* Darker pinkish text for readability */
   font-style: italic;
   flex-grow: 1;
   display: flex;
@@ -914,7 +908,7 @@ a[aria-label="Scroll to services"] svg {
 .testimonial-author {
   margin-top: 1.5rem;
   font-weight: 600;
-  color: var(--text-color);
+  color: #1f2937; /* Dark text for readability */
 }
 
 .testimonial-rating {
@@ -1019,4 +1013,128 @@ a[aria-label="Scroll to services"] svg {
   src: url('/assets/images/roboto/Roboto-Bold.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+}
+
+/* Refined Mission Quote */
+.mission-quote {
+  margin-top: 2.5rem;
+  padding-left: 1.5rem;
+  border-left: 3px solid var(--amber-400);
+  font-size: 1.75rem;
+  font-style: italic;
+  color: var(--text-muted-color);
+}
+.dark .mission-quote {
+  text-shadow: 0 0 15px rgba(251, 191, 36, 0.2);
+}
+
+.mission-signature-new {
+  display: block;
+  margin-top: 1rem;
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  color: var(--amber-400);
+  text-align: right;
+}
+
+.feature-card {
+  background: #fff;
+  border: 1px solid #e5e7eb; /* gray-200 */
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.dark .feature-card {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  background: #f9fafb; /* gray-50 */
+}
+
+@media (min-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.dark .feature-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.stat-item {
+  background: #fffbeb; /* amber-50 */
+  padding: 2rem 1rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+.dark .stat-item {
+  background: rgba(251, 191, 36, 0.05);
+  border-color: rgba(251, 191, 36, 0.2);
+  animation: pulse-glow 3s infinite ease-in-out;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 800;
+  font-family: 'Sora', sans-serif;
+  color: var(--amber-400);
+  line-height: 1;
+}
+.stat-number-decimal {
+  font-size: 3rem;
+  font-weight: 800;
+  font-family: 'Sora', sans-serif;
+  color: var(--amber-400);
+  line-height: 1;
+}
+
+.stat-label {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.credential-card {
+  background: #fff;
+  border: 1px solid #e5e7eb; /* gray-200 */
+  padding: 2rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.dark .credential-card {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 10px rgba(251, 191, 36, 0.1); transform: scale(1); }
+  50% { box-shadow: 0 0 25px rgba(251, 191, 36, 0.25); transform: scale(1.02); }
+}
+
+/* Theme Toggle Animation */
+.theme-toggle-animate svg {
+  animation: spin 0.3s ease-in-out;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg) scale(0.8);
+  }
+  to {
+    transform: rotate(360deg) scale(1);
+  }
 }
