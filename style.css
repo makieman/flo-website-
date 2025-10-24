@@ -28,7 +28,7 @@
   --mobile-menu-hover-bg: rgba(255,255,255,0.03);
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Sora:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
 /* Custom Font Classes */
 .font-display {
@@ -41,12 +41,13 @@
   font-family: 'Great Vibes', cursive;
 }
 .font-body {
-  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  font-family: 'Roboto', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
 }
 
 body {
   /* background-color: var(--bg-color);
   color: var(--text-color); */
+  font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -184,6 +185,76 @@ body.menu-open #mobile-menu {
 /* Typographic adjustments */
 .hero-panel h1 { letter-spacing: -0.5px; }
 .hero-panel p { color: var(--hero-text-color); }
+
+/* Hero specific tweaks: make heading pop and subtitle warm */
+section[aria-labelledby="hero-heading"] h1 {
+  color: #ffffff; /* strong white for hero */
+  text-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  letter-spacing: -0.6px;
+}
+
+section[aria-labelledby="hero-heading"] p {
+  color: rgba(255,235,204,0.95); /* warm, complimentary tone */
+  max-width: 52ch;
+}
+
+/* Primary CTA stronger and more visible on video */
+.cta-button-primary {
+  background: linear-gradient(90deg, #f59e0b 0%, #fbbf24 100%);
+  color: #0f172a; /* slate-900 */
+  padding: 0.9rem 1.4rem;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(245,158,11,0.22);
+  transition: transform 200ms ease, box-shadow 200ms ease, opacity 180ms ease;
+  border: none;
+}
+.cta-button-primary:hover,
+.cta-button-primary:focus {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 22px 48px rgba(245,158,11,0.30);
+  outline: none;
+}
+.cta-button-primary:focus-visible {
+  box-shadow: 0 0 0 6px rgba(245,158,11,0.12);
+}
+
+/* Secondary CTA more visible as a ghost-on-video */
+.cta-button-secondary {
+  background: rgba(255,255,255,0.12);
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 0.8rem 1.3rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+  transition: background 180ms ease, transform 180ms ease, color 180ms ease;
+}
+.cta-button-secondary:hover,
+.cta-button-secondary:focus {
+  background: #ffffff;
+  color: #0f172a;
+  transform: translateY(-3px);
+}
+
+/* Services section heading and card titles */
+#services .section-title h2,
+.card-title,
+.back-title {
+  color: #ffffff;
+  text-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
+
+/* Card front overlay ensure text contrast */
+.card-overlay { background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 50%, transparent 100%); }
+
+/* Footer: make it distinct from page background and readable */
+section.bg-gray-100 {
+  background: linear-gradient(180deg, #0b1220 0%, #0f1724 100%);
+  color: #e6eef6;
+}
+section.bg-gray-100 a { color: #ffd7a8; } /* warm link color */
+section.bg-gray-100 .bg-pink-500 { background: #fb7185; color: #0b1220; }
+section.bg-gray-100 .text-gray-300 { color: #cbd5e1; }
+
 
 @media (min-width: 1024px) {
   .hero-panel h1 { font-size: 3.8rem; }
