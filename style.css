@@ -205,6 +205,17 @@ header.fixed {
 nav#desktop-menu a { color: #0f172a; }
 nav#desktop-menu a:hover { color: #92400e; }
 
+/* Scrolled state for the header */
+header.scrolled {
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  color: #0f172a; /* slate-900 */
+}
+
+header.scrolled nav#desktop-menu a {
+  color: #0f172a;
+}
+
 
 @keyframes float {
   0%, 100% { transform: translateY(0); } 
@@ -943,7 +954,9 @@ a[aria-label="Scroll to services"] svg {
 
 /* Testimonials Section */
 .testimonial-carousel-wrapper {
-  overflow: hidden;
+  /* Default: allow horizontal scrolling for touch devices */
+  overflow-x: auto;
+  overflow-y: hidden;
   width: 100%;
   position: relative;
   -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
@@ -966,12 +979,19 @@ a[aria-label="Scroll to services"] svg {
   display: flex;  
 }
 
-.testimonial-carousel-wrapper:hover .testimonial-carousel-track {
-  animation-play-state: paused;
-}
+@media (min-width: 1024px) {
+  /* On larger screens we run the autoplay CSS animation and hide native scroll; hover reveals scroll and pauses animation */
+  .testimonial-carousel-wrapper {
+    overflow: hidden;
+  }
 
-.testimonial-carousel-wrapper:hover {
-  overflow-x: scroll;
+  .testimonial-carousel-wrapper:hover .testimonial-carousel-track {
+    animation-play-state: paused;
+  }
+
+  .testimonial-carousel-wrapper:hover {
+    overflow-x: scroll;
+  }
 }
 
 .testimonial-card {
@@ -1090,24 +1110,12 @@ a[aria-label="Scroll to services"] svg {
   transform: scale(1.2);
 }
 
-@keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.scroll-animation {
-  animation: scroll 5s linear infinite;
-}
-
 /* Disable auto-scroll on touch devices for a better manual scroll experience */
 @media (max-width: 1023px) {
   .scroll-animation {
-    animation: none;
+    animation: none !important;
   }
+  .testimonial-carousel-wrapper { overflow-x: auto; }
 }
 @font-face {
   font-family: 'RetroFont';
