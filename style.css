@@ -28,6 +28,23 @@
   --mobile-menu-hover-bg: rgba(255,255,255,0.03);
 }
 
+/* Box sizing and overflow safety for mobile
+   - prevent accidental page-wide horizontal overflow
+   - allow intended horizontal scrollers (services/testimonials) below to remain scrollable */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Ensure media/imagery do not grow past their containers */
+img, picture, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
 /* Custom Font Classes */
@@ -199,6 +216,62 @@ header.fixed {
   background: rgba(255,255,255,0.92);
   color: #0f172a;
   backdrop-filter: blur(6px);
+}
+
+/* Mobile-specific header/menu visibility improvements */
+@media (max-width: 767px) {
+  header.fixed {
+    background: #ffffff; /* solid for legibility */
+    box-shadow: 0 10px 30px rgba(2,6,23,0.12);
+    border-bottom: 1px solid rgba(15,23,42,0.06);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    z-index: 70; /* sit above most elements */
+  }
+
+  /* Emphasize the menu button on mobile */
+  #menu-btn {
+    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+    color: #0b1220; /* dark icon color for contrast */
+    padding: 0.55rem;
+    margin-left: 0.25rem;
+  }
+
+  /* Make hamburger icon and close icon more visible */
+  #menu-btn svg, #close-icon, #hamburger-icon {
+    color: #0b1220;
+    stroke: currentColor;
+  }
+
+  /* Mobile menu — make it clearly elevated and readable */
+  #mobile-menu {
+    background-color: #0b1220; /* deep slate background for contrast */
+    color: #e6eef6;
+    padding-top: 1rem;
+  }
+
+  #mobile-menu a {
+    color: #e6eef6;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    padding: 1.25rem 1rem;
+    font-weight: 600;
+    font-size: 1.05rem;
+  }
+
+  #mobile-menu a:hover {
+    background: rgba(255,255,255,0.03);
+    color: #fff;
+  }
+
+  #mobile-menu button#mobile-menu-close-btn {
+    color: #fbbf24; /* amber close button for visibility */
+  }
+
+  /* Ensure overlay is darker when menu is open on mobile */
+  body.menu-open::after {
+    background: rgba(0,0,0,0.5);
+    opacity: 1;
+  }
 }
 
 /* Desktop nav color consistency */
