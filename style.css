@@ -9,11 +9,15 @@
   --amber-400: #fbbf24;
   --amber-500: #f59e0b;
   --amber-rich: #f59e0b;
-  --cta-primary-bg: #fff;
-  --cta-primary-text: #000;
-  --cta-secondary-border: #fff;
-  --cta-secondary-hover-bg: #fff;
-  --cta-secondary-hover-text: #000;
+  /* Unified button color system */
+  --brand-amber: #f59e0b; /* primary */
+  --brand-amber-hover: #fbbf24; /* hover */
+  --brand-amber-contrast: #0f172a; /* text on amber */
+  --cta-primary-bg: var(--brand-amber);
+  --cta-primary-text: var(--brand-amber-contrast);
+  --cta-secondary-border: #111827;
+  --cta-secondary-hover-bg: #111827;
+  --cta-secondary-hover-text: #ffffff;
   /* Component-level theming */
   --overlay-start: rgba(0,0,0,0.4);
   --overlay-end: rgba(0,0,0,0.75);
@@ -74,6 +78,15 @@ section {
   padding-right: 1.5rem;
   padding-top: 4rem;
   padding-bottom: 4rem;
+}
+
+/* Global container to constrain layout width */
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 @media (min-width: 768px) {
@@ -460,13 +473,69 @@ section.bg-gray-100 .text-gray-300 { color: #cbd5e1; }
   animation-delay: 0.2s;
 }
 
-/* Buttons */
+/* Buttons: unified across site */
 .cta-button-primary {
-  @apply bg-amber-500 text-black px-6 py-3 rounded-lg font-semibold hover:bg-amber-400 transition-colors duration-300;
+  background: linear-gradient(90deg, var(--brand-amber) 0%, var(--brand-amber-hover) 100%);
+  color: var(--brand-amber-contrast);
+  padding: 0.9rem 1.4rem;
+  border-radius: 12px;
+  font-weight: 700;
+  border: none;
+  box-shadow: 0 12px 30px rgba(245,158,11,0.22);
+  transition: transform 200ms ease, box-shadow 200ms ease, opacity 180ms ease, background 180ms ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.cta-button-primary:hover,
+.cta-button-primary:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 48px rgba(245,158,11,0.30);
+  outline: none;
+}
+.cta-button-primary:disabled {
+  opacity: .6;
+  cursor: not-allowed;
 }
 
 .cta-button-secondary {
-  @apply border border-gray-800 text-gray-800 px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors duration-300;
+  background: transparent;
+  color: #111827;
+  border: 1px solid var(--cta-secondary-border);
+  padding: 0.8rem 1.3rem;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.cta-button-secondary:hover,
+.cta-button-secondary:focus {
+  background: var(--cta-secondary-hover-bg);
+  color: var(--cta-secondary-hover-text);
+  transform: translateY(-2px);
+}
+
+/* Tertiary CTA: subtle outline for less prominent actions */
+.cta-button-tertiary {
+  background: transparent;
+  color: #374151; /* gray-700 */
+  border: 1px solid rgba(55,65,81,0.35);
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: background 160ms ease, color 160ms ease, transform 160ms ease, border-color 160ms ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.cta-button-tertiary:hover,
+.cta-button-tertiary:focus {
+  background: rgba(17,24,39,0.06); /* gray-900 at 6% */
+  color: #111827;
+  border-color: rgba(17,24,39,0.45);
+  transform: translateY(-1px);
 }
 
 /* HERO PANEL */
