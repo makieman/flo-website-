@@ -387,11 +387,13 @@ section[aria-labelledby="hero-heading"] p {
 .card-overlay { background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 50%, transparent 100%); }
 
 /* Footer: make it distinct from page background and readable */
-section.bg-gray-100 {
+section.bg-gray-100,
+footer.bg-gray-100 {
   background: linear-gradient(180deg, #0b1220 0%, #0f1724 100%);
   color: #e6eef6;
 }
-section.bg-gray-100 a { color: #ffd7a8; } /* warm link color */
+section.bg-gray-100 a,
+footer.bg-gray-100 a { color: #ffd7a8; } /* warm link color */
 section.bg-gray-100 .bg-pink-500 { background: #fb7185; color: #0b1220; }
 section.bg-gray-100 .text-gray-300 { color: #cbd5e1; }
 

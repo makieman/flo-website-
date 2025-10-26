@@ -32,7 +32,7 @@
       <a href="services.html" class="hover:underline">Services</a>
       <a href="gallery.html" class="hover:underline">Portfolio</a>
       <a href="contact.html" class="hover:underline">Contact</a>
-      <a href="https://wa.me/254721530120" target="_blank" class="bg-white text-black px-4 py-2 rounded">Book</a>
+      <a href="https://wa.me/254721530120" target="_blank" class="bg-amber-500 text-black px-4 py-2 rounded hover:bg-amber-400 transition-colors">Book</a>
     </nav>
 
     <!-- Hamburger Icon for Mobile -->
@@ -113,31 +113,62 @@
   </section>
 </main>
 
-<footer class="bg-black text-white mt-12">
-  <div class="container mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-6">
-    <div>
-      <h3 class="font-semibold">Flo Sisterlocks Eldoret</h3>
-      <p class="text-sm mt-2">E.T Centre, Ronald Ngala Street, opposite Hotel Comfy, Eldoret</p>
-      <p class="text-sm mt-1">Phone: <a href="tel:+254721530120" class="underline">0721 530120</a></p>
+<!-- Footer -->
+<footer class="bg-gray-100 mt-12">
+  <div class="container mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-10">
+    <!-- Address -->
+    <div data-aos="fade-up">
+      <h3 class="font-semibold text-xl mb-2 font-playfair">Flo Sisterlocks Eldoret</h3>
+      <p class="text-gray-300 text-sm">E.T Centre, Ronald Ngala Street, opposite Hotel Comfy, Eldoret</p>
+      <p class="text-gray-300 text-sm mt-1">Phone: <a href="tel:+254721530120"
+          class="underline hover:text-amber-400 transition">0721 530120</a></p>
     </div>
-    <div>
-      <h4 class="font-semibold">Quick Links</h4>
-      <ul class="mt-2 text-sm">
-        <li><a href="services.html" class="underline">Services</a></li>
-        <li><a href="gallery.html" class="underline">Gallery</a></li>
-        <li><a href="contact.html" class="underline">Contact</a></li>
-      </ul>
+
+    <!-- Quick Links -->
+    <div data-aos="fade-up" data-aos-delay="100">
+      <h4 class="font-semibold text-lg mb-3 font-playfair">Quick Links</h4>
+      <div class="flex flex-wrap gap-3">
+        <a href="index.html"
+          class=" bg-pink-500 hover:bg-pink-600 text-white font-semibold px-4 py-2 rounded transition transform hover:scale-105 shadow-md hover:shadow-lg text-center animate-float">
+          Home
+        </a>
+        <a href="services.html"
+          class="bg-pink-500 hover:bg-pink-600 text-white font-semibold px-4 py-2 rounded transition transform hover:scale-105 shadow-md hover:shadow-lg text-center animate-float delay-100">
+          Services
+        </a>
+        <a href="gallery.html"
+          class="bg-pink-500 hover:bg-pink-600 text-white font-semibold px-4 py-2 rounded transition transform hover:scale-105 shadow-md hover:shadow-lg text-center animate-float delay-200">
+          Gallery
+        </a>
+        <a href="contact.html"
+          class="bg-pink-500 hover:bg-pink-600 text-white font-semibold px-4 py-2 rounded transition transform hover:scale-105 shadow-md hover:shadow-lg text-center animate-float delay-300">
+          Contact
+        </a>
+      </div>
     </div>
-    <div>
-      <h4 class="font-semibold">Follow Us</h4>
-      <ul class="mt-2 text-sm">
-        <li><a href="https://instagram.com/sisterlocksbyflo" target="_blank" class="underline">@sisterlocksbyflo</a></li>
-        <li><a href="https://facebook.com/Sisterlocksbyflo" target="_blank" class="underline">Sisterlocksbyflo</a></li>
-        <li><a href="https://tiktok.com/@Sisterlocksbyflo" target="_blank" class="underline">@Sisterlocksbyflo</a></li>
-      </ul>
+
+    <!-- Social Media -->
+    <div data-aos="fade-up" data-aos-delay="200" class="text-center">
+      <h4 class="font-semibold text-lg mb-3 font-playfair">Follow Us</h4>
+      <div class="flex justify-center gap-10 text-4xl">
+        <a href="https://instagram.com/sisterlocksbyflo" target="_blank"
+          class="social-icon instagram-icon transform hover:scale-125 transition duration-300">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://facebook.com/Sisterlocksbyflo" target="_blank"
+          class="social-icon facebook-icon transform hover:scale-125 transition duration-300">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://tiktok.com/@Sisterlocksbyflo" target="_blank"
+          class="social-icon tiktok-icon transform hover:scale-125 transition duration-300">
+          <i class="fab fa-tiktok"></i>
+        </a>
+      </div>
     </div>
   </div>
-  <div class="text-center text-xs py-4 border-t border-white/10">© Flo Sisterlocks Eldoret — All rights reserved.</div>
+  <div class="text-center text-xs py-4 border-t border-gray-700 text-gray-400">
+    © Flo Sisterlocks Eldoret — All rights reserved.
+  </div>
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
