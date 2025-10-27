@@ -153,12 +153,15 @@
 <div id="booking-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="booking-modal-title">
   <div class="modal-overlay" data-close-modal></div>
   <div class="modal-panel">
-    <button class="modal-close" id="close-booking" aria-label="Close booking dialog">×</button>
-    <h3 id="booking-modal-title" class="font-display">Book a Consultation</h3>
-    <p class="text-muted">Choose how you'd like to proceed.</p>
+    <button class="modal-close" id="close-booking" aria-label="Close booking dialog">&times;</button>
+    <h3 id="booking-modal-title" class="font-display text-2xl font-bold text-white">Book a Consultation</h3>
+    <p class="text-gray-300 mt-2">Choose how you'd like to proceed.</p>
     <div class="mt-4 flex gap-3 flex-col sm:flex-row">
-      <a href="https://wa.me/254721530120?text=I'm%20interested%20in%20a%20consultation" target="_blank" class="back-cta-button">Open WhatsApp</a>
-      <a href="contact.html" class="cta-button-secondary">Visit Contact Page</a>
+      <a href="https://wa.me/254721530120?text=I'm%20interested%20in%20a%20consultation" target="_blank" class="whatsapp-button">
+        <i class="fab fa-whatsapp"></i>
+        <span class="sr-only">Open WhatsApp</span>
+      </a>
+      <a href="contact.html" class="cta-button-secondary flex-grow ">Visit Contact Page</a>
     </div>
   </div>
 </div>

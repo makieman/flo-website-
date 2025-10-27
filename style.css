@@ -373,9 +373,9 @@ section[aria-labelledby="hero-heading"] p {
 
 /* Secondary CTA more visible as a ghost-on-video */
 .cta-button-secondary {
-  background: rgba(255,255,255,0.12);
+  background: rgba(255, 255, 255, 0.2);
   color: #ffffff;
-  border: 1px solid rgba(255,255,255,0.18);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 0.8rem 1.3rem;
   border-radius: 12px;
   box-shadow: 0 8px 30px rgba(0,0,0,0.35);
@@ -579,14 +579,14 @@ section.bg-gray-100 .text-gray-300 { color: #cbd5e1; }
 .modal-panel {
   position: relative;
   z-index: 70;
-  background: var(--modal-bg);
-  border: 1px solid var(--modal-border);
+  background: rgba(17, 24, 39, 0.75); /* Semi-transparent dark background */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Replaced var(--modal-border) */
   padding: 1.5rem;
   border-radius: 0.75rem;
   width: 90%;
   max-width: 520px;
   box-shadow: 0 20px 60px rgba(0,0,0,0.35);
-  text-align: center;
+  text-align: center;  
 }
 .modal-close {
   position: absolute;
@@ -594,9 +594,46 @@ section.bg-gray-100 .text-gray-300 { color: #cbd5e1; }
   top: 0.5rem;
   background: transparent;
   border: none;
-  color: var(--text-color);
+  color: #fff; /* Replaced var(--text-color) */
   font-size: 1.25rem;
   cursor: pointer;
+  line-height: 1;
+  padding: 0.5rem;
+}
+.whatsapp-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: #25D366; /* WhatsApp green */
+  border: 2px solid #25D366;
+  padding: 1rem;
+  border-radius: 12px;
+  font-size: 2.25rem; /* Increased icon size */
+  transition: all 200ms ease;
+  flex-shrink: 0;
+}
+
+.whatsapp-button:hover {
+  background-color: #25D366;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* For screen-reader only text */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
+
+/* Specific override for the secondary button inside the booking modal */
+.modal .cta-button-secondary {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.modal .cta-button-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
 }
 
 /* Use prefer-reduced-motion to reduce animations if user prefers */
@@ -671,6 +708,7 @@ a[aria-label="Scroll to services"] svg {
 .services-pattern {
   position: relative;
   overflow: hidden; /* ensure the pseudo element doesn't overflow */
+  border-radius: 0; /* Remove border-radius */
 }
 
 .services-container {
@@ -725,6 +763,10 @@ a[aria-label="Scroll to services"] svg {
   scroll-snap-type: x mandatory;
   /* Hide scrollbar for Firefox */
   scrollbar-width: none;
+}
+
+.services-scroll-wrapper {
+  border-radius: 1.5rem; /* 24px */
 }
 
 .services-scroll-wrapper::-webkit-scrollbar {
@@ -1107,6 +1149,7 @@ a[aria-label="Scroll to services"] svg {
   mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
   -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
   scroll-snap-type: x mandatory; /* Enable scroll snapping */
+  border-radius: 1.5rem; /* 24px */
 }
 
 .testimonial-carousel-wrapper::-webkit-scrollbar {
