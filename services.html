@@ -15,7 +15,6 @@
     body { background-color: var(--bg-color); color: var(--text-color); }
     .backdrop-blur-md { backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
     .services-hero { padding: 8rem 1.5rem 4rem; text-align: center; }
-    .service-card .carousel-container:hover .carousel-btn { opacity: 1; }
   </style>
 </head>
 <body class="antialiased overflow-x-hidden pt-16 bg-white text-gray-800">
@@ -81,96 +80,122 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       <!-- Service Card: Sisterlocks Installation -->
       <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up">
-        <div class="relative carousel-container">
-          <div class="carousel-track flex overflow-hidden">
-            <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761213903/service_1_q6xmnf.jpg" alt="Sisterlocks Installation 1" class="w-full h-64 object-cover flex-shrink-0">
-            <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200951/client_image_5_erwabh.jpg" alt="Sisterlocks Installation 2" class="w-full h-64 object-cover flex-shrink-0">
-          </div>
-          <button class="carousel-btn prev absolute top-1/2 left-2 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full opacity-0 transition-opacity"><i class="fas fa-chevron-left"></i></button>
-          <button class="carousel-btn next absolute top-1/2 right-2 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full opacity-0 transition-opacity"><i class="fas fa-chevron-right"></i></button>
+        <div class="relative" 
+             data-title="Sisterlocks Installation"
+             data-description="Transform your natural hair journey with our expert Sisterlocks installation. Our certified technique ensures precision and beautiful, long-lasting results."
+             data-features="Consultation & hair assessment|Precision grid mapping|Complete installation (6-12 hours)|Aftercare instructions & starter kit">
+          <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761213903/service_1_q6xmnf.jpg" alt="Sisterlocks Installation" class="w-full h-64 object-cover">
         </div>
         <div class="p-6">
           <h3 class="text-2xl font-bold font-playfair text-gray-900">Sisterlocks Installation</h3>
           <p class="text-gray-700 mt-2">Precision and expertise for beautiful, long-lasting results.</p>
           <p class="font-semibold text-gray-800 mt-4">From KES 18,000</p>
-          <a href="https://wa.me/254721530120?text=I'm interested in Sisterlocks Installation" target="_blank" class="cta-button-primary mt-4 w-full">Book Now</a>
+          <div class="flex gap-2 mt-4">
+            <button class="view-details-btn cta-button-secondary w-1/2">View Details</button>
+            <a href="https://wa.me/254721530120?text=I'm interested in Sisterlocks Installation" target="_blank" class="cta-button-primary w-1/2">Book Now</a>
+          </div>
         </div>
       </div>
 
       <!-- Service Card: Retightening & Maintenance -->
       <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-        <div class="relative carousel-container">
-          <div class="carousel-track flex overflow-hidden">
-            <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200951/client_image_2_ksrlew.jpg" alt="Retightening 1" class="w-full h-64 object-cover flex-shrink-0">
-            <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200952/flo_image_2_v4ndle.jpg" alt="Retightening 2" class="w-full h-64 object-cover flex-shrink-0">
-          </div>
-          <button class="carousel-btn prev absolute top-1/2 left-2 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full opacity-0 transition-opacity"><i class="fas fa-chevron-left"></i></button>
-          <button class="carousel-btn next absolute top-1/2 right-2 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full opacity-0 transition-opacity"><i class="fas fa-chevron-right"></i></button>
+        <div class="relative"
+             data-title="Retightening & Maintenance"
+             data-description="Keep your Sisterlocks fresh and healthy with our expert maintenance services. Our gentle technique preserves lock integrity."
+             data-features="Full head retightening|Partial maintenance sessions|Deep conditioning treatments|Lock repair & reinforcement"
+        >
+          <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200951/client_image_2_ksrlew.jpg" alt="Retightening" class="w-full h-64 object-cover">
         </div>
         <div class="p-6">
           <h3 class="text-2xl font-bold font-playfair text-gray-900">Retightening & Maintenance</h3>
           <p class="text-gray-700 mt-2">Keep your locks fresh and healthy with our expert maintenance.</p>
           <p class="font-semibold text-gray-800 mt-4">From KES 1,500</p>
-          <a href="https://wa.me/254721530120?text=I need a Retightening/Maintenance service" target="_blank" class="cta-button-primary mt-4 w-full">Schedule Service</a>
+          <div class="flex gap-2 mt-4">
+            <button class="view-details-btn cta-button-secondary w-1/2">View Details</button>
+            <a href="https://wa.me/254721530120?text=I need a Retightening/Maintenance service" target="_blank" class="cta-button-primary w-1/2">Schedule</a>
+          </div>
         </div>
       </div>
 
       <!-- Service Card: Nails & Beauty -->
       <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-        <div class="relative carousel-container">
-          <div class="carousel-track flex overflow-hidden">
-            <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761213862/service_skelletos_e6jcfs.jpg" alt="Nails 1" class="w-full h-64 object-cover flex-shrink-0">
-            <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200951/Black_don_t_crack_%EF%B8%8F_xvkuqu.jpg" alt="Nails 2" class="w-full h-64 object-cover flex-shrink-0">
-          </div>
-          <button class="carousel-btn prev absolute top-1/2 left-2 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full opacity-0 transition-opacity"><i class="fas fa-chevron-left"></i></button>
-          <button class="carousel-btn next absolute top-1/2 right-2 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full opacity-0 transition-opacity"><i class="fas fa-chevron-right"></i></button>
+        <div class="relative"
+             data-title="Nails & Beauty"
+             data-description="Complete nail care services for a polished look. From classic elegance to creative designs with premium products."
+             data-features="Gel nails (French, colors, ombré)|Acrylic extensions & overlays|Luxury manicure & pedicure|Custom nail art & designs"
+        >
+          <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761213862/service_skelletos_e6jcfs.jpg" alt="Nails & Beauty" class="w-full h-64 object-cover">
         </div>
         <div class="p-6">
           <h3 class="text-2xl font-bold font-playfair text-gray-900">Nails & Beauty</h3>
           <p class="text-gray-700 mt-2">Complete nail care services for a polished, elegant look.</p>
           <p class="font-semibold text-gray-800 mt-4">From KES 800</p>
-          <a href="https://wa.me/254721530120?text=I'm interested in Nail services" target="_blank" class="cta-button-primary mt-4 w-full">Book Appointment</a>
+          <div class="flex gap-2 mt-4">
+            <button class="view-details-btn cta-button-secondary w-1/2">View Details</button>
+            <a href="https://wa.me/254721530120?text=I'm interested in Nail services" target="_blank" class="cta-button-primary w-1/2">Book Now</a>
+          </div>
         </div>
       </div>
 
       <!-- Service Card: Braiding & Styling -->
       <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up">
-        <div class="relative carousel-container">
-          <div class="carousel-track flex overflow-hidden">
-            <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761213885/service_lemonade_ba0l6h.jpg" alt="Braiding 1" class="w-full h-64 object-cover flex-shrink-0">
-            <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761213900/service_dreadlock_crtgta.jpg" alt="Braiding 2" class="w-full h-64 object-cover flex-shrink-0">
-          </div>
-          <button class="carousel-btn prev absolute top-1/2 left-2 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full opacity-0 transition-opacity"><i class="fas fa-chevron-left"></i></button>
-          <button class="carousel-btn next absolute top-1/2 right-2 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full opacity-0 transition-opacity"><i class="fas fa-chevron-right"></i></button>
+        <div class="relative"
+             data-title="Braiding & Styling"
+             data-description="We offer a wide range of professional hair styling services to suit any occasion or preference."
+             data-features="Dreadlocks Installation & Retwist|Braiding (Box, Lemonade, etc.)|Twists (Senegalese, Marley)|Hair Straightening & Silk Press"
+        >
+          <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761213885/service_lemonade_ba0l6h.jpg" alt="Braiding & Styling" class="w-full h-64 object-cover">
         </div>
         <div class="p-6">
           <h3 class="text-2xl font-bold font-playfair text-gray-900">Braiding & Styling</h3>
           <p class="text-gray-700 mt-2">Creative braiding, twists, and natural hair styling.</p>
           <p class="font-semibold text-gray-800 mt-4">From KES 1,500</p>
-          <a href="https://wa.me/254721530120?text=I'm interested in Braiding services" target="_blank" class="cta-button-primary mt-4 w-full">Inquire Now</a>
+          <div class="flex gap-2 mt-4">
+            <button class="view-details-btn cta-button-secondary w-1/2">View Details</button>
+            <a href="https://wa.me/254721530120?text=I'm interested in Braiding services" target="_blank" class="cta-button-primary w-1/2">Inquire Now</a>
+          </div>
         </div>
       </div>
 
       <!-- Service Card: Hair Dying -->
       <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-        <div class="relative carousel-container">
-          <div class="carousel-track flex overflow-hidden">
-            <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761214158/3f79f1d7-9809-446b-9e1d-fa95ea5709e8_wojwfo.jpg" alt="Hair Dying 1" class="w-full h-64 object-cover flex-shrink-0">
-          </div>
-          <button class="carousel-btn prev absolute top-1/2 left-2 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full opacity-0 transition-opacity"><i class="fas fa-chevron-left"></i></button>
-          <button class="carousel-btn next absolute top-1/2 right-2 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full opacity-0 transition-opacity"><i class="fas fa-chevron-right"></i></button>
+        <div class="relative"
+             data-title="Hair Dying"
+             data-description="Refresh your look with our professional hair coloring services. We use high-quality products to achieve vibrant, long-lasting color while protecting your hair's health."
+             data-features="Full-head color|Highlights & Lowlights|Balayage & Ombré|Color correction"
+        >
+          <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761214158/3f79f1d7-9809-446b-9e1d-fa95ea5709e8_wojwfo.jpg" alt="Hair Dying" class="w-full h-64 object-cover">
         </div>
         <div class="p-6">
           <h3 class="text-2xl font-bold font-playfair text-gray-900">Hair Dying</h3>
           <p class="text-gray-700 mt-2">Vibrant, long-lasting color while protecting your hair's health.</p>
           <p class="font-semibold text-gray-800 mt-4">From KES 2,500</p>
-          <a href="https://wa.me/254721530120?text=I'm interested in Hair Dying services" target="_blank" class="cta-button-primary mt-4 w-full">Book Color Session</a>
+          <div class="flex gap-2 mt-4">
+            <button class="view-details-btn cta-button-secondary w-1/2">View Details</button>
+            <a href="https://wa.me/254721530120?text=I'm interested in Hair Dying services" target="_blank" class="cta-button-primary w-1/2">Book Color</a>
+          </div>
         </div>
       </div>
 
     </div>
   </div>
 </section>
+
+<!-- Service Details Modal -->
+<div id="service-details-modal" class="service-modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="service-modal-overlay"></div>
+  <div class="service-modal-panel">
+    <button id="close-modal-btn" class="service-modal-close" aria-label="Close dialog">&times;</button>
+    <h3 id="modal-title" class="text-3xl font-bold font-playfair text-gray-900 mb-4">Service Title</h3>
+    <p id="modal-description" class="text-gray-600 mb-6"></p>
+    <h4 class="text-xl font-semibold text-gray-800 mb-3">What's Included:</h4>
+    <ul id="modal-features" class="space-y-2 list-disc list-inside text-gray-700">
+      <!-- Features will be populated by JS -->
+    </ul>
+    <a id="modal-book-btn" href="#" target="_blank" class="cta-button-primary mt-8 w-full">Book This Service</a>
+  </div>
+</div>
+
 
 
 <!-- Packages Section -->
@@ -266,39 +291,50 @@
 <script src="main.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const carousels = document.querySelectorAll('.service-card');
+    // Modal Logic
+    const modal = document.getElementById('service-details-modal');
+    const closeModalBtn = document.getElementById('close-modal-btn');
+    const modalOverlay = modal.querySelector('.service-modal-overlay');
+    const viewDetailsBtns = document.querySelectorAll('.view-details-btn');
 
-    carousels.forEach(carousel => {
-      const track = carousel.querySelector('.carousel-track');
-      const prevBtn = carousel.querySelector('.carousel-btn.prev');
-      const nextBtn = carousel.querySelector('.carousel-btn.next');
-      const images = Array.from(track.children);
-      const imageWidth = images[0].getBoundingClientRect().width;
-      let currentIndex = 0;
+    const modalTitle = document.getElementById('modal-title');
+    const modalDescription = document.getElementById('modal-description');
+    const modalFeatures = document.getElementById('modal-features');
+    const modalBookBtn = document.getElementById('modal-book-btn');
 
-      function updateCarousel() {
-        track.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
-        track.style.transition = 'transform 0.5s ease-in-out';
-      }
+    const openModal = (card) => {
+      const carouselContainer = card.querySelector('.relative'); // Changed from .carousel-container
+      const title = carouselContainer.dataset.title;
+      const description = carouselContainer.dataset.description;
+      const features = carouselContainer.dataset.features.split('|');
+      const bookLink = card.querySelector('a.cta-button-primary').href;
 
-      if (prevBtn && nextBtn) {
-        prevBtn.addEventListener('click', () => {
-          currentIndex = (currentIndex - 1 + images.length) % images.length;
-          updateCarousel();
-        });
+      modalTitle.textContent = title;
+      modalDescription.textContent = description;
+      modalBookBtn.href = bookLink;
 
-        nextBtn.addEventListener('click', () => {
-          currentIndex = (currentIndex + 1) % images.length;
-          updateCarousel();
-        });
-      }
+      modalFeatures.innerHTML = '';
+      features.forEach(featureText => {
+        const li = document.createElement('li');
+        li.textContent = featureText;
+        modalFeatures.appendChild(li);
+      });
 
-      // Hide buttons if only one image
-      if (images.length <= 1) {
-        if(prevBtn) prevBtn.style.display = 'none';
-        if(nextBtn) nextBtn.style.display = 'none';
-      }
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden'; // Prevent background scroll
+    };
+
+    const closeModal = () => {
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    };
+
+    viewDetailsBtns.forEach(btn => {
+      btn.addEventListener('click', () => openModal(btn.closest('.service-card')));
     });
+
+    closeModalBtn.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', closeModal);
   });
 </script>
 </body>
