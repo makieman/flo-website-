@@ -9,10 +9,13 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
     body { background-color: var(--bg-color); color: var(--text-color); }
     .backdrop-blur-md { backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
     .services-hero { padding: 8rem 1.5rem 4rem; text-align: center; }
+    .service-card .carousel-container:hover .carousel-btn { opacity: 1; }
   </style>
 </head>
 <body class="antialiased overflow-x-hidden pt-16 bg-white text-gray-800">
@@ -68,312 +71,104 @@
 <!-- ============================================ -->
 <!-- SERVICES SECTION - FLIP CARDS -->
 <!-- ============================================ -->
-<section id="services">
-  <div class="services-container">
-    <div class="section-title">
-      <h2 class="font-display">Explore Our Craft</h2>
-      <p class="section-subtitle">Tap any card to see details</p>
-      <p class="scroll-hint">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M5 12h14M12 5l7 7-7 7" />
-        </svg>
-        Scroll horizontally to explore
-      </p>
+<section id="services" class="py-16 lg:py-24 bg-amber-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12" data-aos="fade-up">
+      <h2 class="text-4xl md:text-5xl font-bold font-playfair text-gray-900">Our Services</h2>
+      <p class="text-gray-600 mt-3 text-lg">Expert care for your hair and beauty needs.</p>
     </div>
 
-    <div class="services-scroll-wrapper">
-      <div class="services-row">
-
-        <!-- Card 1: New Lock Installation -->
-        <div class="flip-card" onclick="flipCard(this)">
-          <div class="flip-card-inner">
-            <!-- Front -->
-            <div class="flip-card-front">
-              <div class="card-image-container">
-                <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761213900/service_dreadlock_crtgta.jpg"
-                  class="card-image" alt="New Lock Installation">
-                <div class="card-overlay">
-                  <h3 class="card-title font-display">New Lock Installation</h3>
-                  <p class="card-price">From KES 3,500</p>
-                  <span class="flip-indicator">
-                    Tap to learn more
-                    <svg class="flip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2" />
-                    </svg>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <!-- Back -->
-            <div class="flip-card-back">
-              <div class="back-content">
-                <h3 class="back-title font-display">New Lock Installation</h3>
-                <p class="back-description">
-                  Begin your dreadlock journey with our professional installation service. We create neat, durable locks tailored to your hair type and desired look.
-                </p>
-                <h4 class="back-features-title">What's Included:</h4>
-                <ul class="back-features-list">
-                  <li>Consultation & hair analysis</li>
-                  <li>Sectioning for uniform growth</li>
-                  <li>Natural locking or extensions</li>
-                  <li>Initial styling & care advice</li>
-                </ul>
-              </div>
-              <div class="back-cta">
-                <a href="https://wa.me/254721530120?text=I'm interested in New Lock Installation" class="back-cta-button" onclick="event.stopPropagation()">Book Installation</a>
-                <span class="flip-back-indicator">Tap again to flip back</span>
-              </div>
-            </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Service Card: Sisterlocks Installation -->
+      <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up">
+        <div class="relative carousel-container">
+          <div class="carousel-track flex overflow-hidden">
+            <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761213903/service_1_q6xmnf.jpg" alt="Sisterlocks Installation 1" class="w-full h-64 object-cover flex-shrink-0">
+            <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200951/client_image_5_erwabh.jpg" alt="Sisterlocks Installation 2" class="w-full h-64 object-cover flex-shrink-0">
           </div>
+          <button class="carousel-btn prev absolute top-1/2 left-2 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full opacity-0 transition-opacity"><i class="fas fa-chevron-left"></i></button>
+          <button class="carousel-btn next absolute top-1/2 right-2 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full opacity-0 transition-opacity"><i class="fas fa-chevron-right"></i></button>
         </div>
-
-        <!-- Card 1: Sisterlocks Installation -->
-        <div class="flip-card" onclick="flipCard(this)">
-          <div class="flip-card-inner">
-            <!-- Front -->
-            <div class="flip-card-front">
-              <div class="card-image-container">
-                <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761213903/service_1_q6xmnf.jpg"
-                  class="card-image" alt="Sisterlocks Installation">
-                <div class="card-overlay"> 
-                  <h3 class="card-title font-display">Sisterlocks Installation</h3>
-                  <p class="card-price">From KES 18,000</p>
-                  <span class="flip-indicator"> 
-                    Tap to learn more
-                    <svg class="flip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2" />
-                    </svg>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <!-- Back -->
-            <div class="flip-card-back">
-              <div class="back-content">
-                <h3 class="back-title font-display">Sisterlocks Installation</h3>
-                <p class="back-description">
-                  Transform your natural hair journey with our expert Sisterlocks installation. Our certified technique
-                  ensures precision and beautiful, long-lasting results.
-                </p>
-                <h4 class="back-features-title">What's Included:</h4>
-                <ul class="back-features-list">
-                  <li>Consultation & hair assessment</li>
-                  <li>Precision grid mapping</li>
-                  <li>Complete installation (6-12 hours)</li>
-                  <li>Aftercare instructions & starter kit</li>
-                </ul>
-              </div>
-              <div class="back-cta">
-                <a href="https://wa.me/254721530120?text=I'm interested in Sisterlocks Installation"
-                  class="back-cta-button" onclick="event.stopPropagation()">
-                  Book Now
-                </a>
-                <span class="flip-back-indicator">Tap again to flip back</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 2: Retightening & Maintenance -->
-        <div class="flip-card" onclick="flipCard(this)">
-          <div class="flip-card-inner">
-            <!-- Front -->
-            <div class="flip-card-front">
-              <div class="card-image-container">
-                <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200951/client_image_2_ksrlew.jpg"
-                  class="card-image" alt="Retightening & Maintenance">
-                <div class="card-overlay">
-                  <h3 class="card-title font-display">Retightening & Maintenance</h3>
-                  <p class="card-price">From KES 1,500</p>
-                  <span class="flip-indicator">
-                    Tap to learn more
-                    <svg class="flip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2" />
-                    </svg>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <!-- Back -->
-            <div class="flip-card-back">
-              <div class="back-content">
-                <h3 class="back-title font-display">Retightening & Maintenance</h3>
-                <p class="back-description">
-                  Keep your Sisterlocks fresh and healthy with our expert maintenance services. Our gentle technique
-                  preserves lock integrity.
-                </p>
-                <h4 class="back-features-title">Service Options:</h4>
-                <ul class="back-features-list">
-                  <li>Full head retightening</li>
-                  <li>Partial maintenance sessions</li>
-                  <li>Deep conditioning treatments</li>
-                  <li>Lock repair & reinforcement</li>
-                </ul>
-              </div>
-              <div class="back-cta">
-                <a href="https://wa.me/254721530120?text=I need Retightening/Maintenance service"
-                  class="back-cta-button" onclick="event.stopPropagation()">
-                  Schedule Service
-                </a>
-                <span class="flip-back-indicator">Tap again to flip back</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3: Nails & Beauty -->
-        <div class="flip-card" onclick="flipCard(this)">
-          <div class="flip-card-inner">
-            <!-- Front -->
-            <div class="flip-card-front">
-              <div class="card-image-container">
-                <img
-                  src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761213862/service_skelletos_e6jcfs.jpg"
-                  class="card-image" alt="Nails & Beauty">
-                <div class="card-overlay">
-                  <h3 class="card-title font-display">Nails & Beauty</h3>
-                  <p class="card-price">From KES 800</p>
-                  <span class="flip-indicator">
-                    Tap to learn more
-                    <svg class="flip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2" />
-                    </svg>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <!-- Back -->
-            <div class="flip-card-back">
-              <div class="back-content">
-                <h3 class="back-title font-display">Nails & Beauty</h3>
-                <p class="back-description">
-                  Complete nail care services for a polished look. From classic elegance to creative designs with
-                  premium products.
-                </p>
-                <h4 class="back-features-title">Available Services:</h4>
-                <ul class="back-features-list">
-                  <li>Gel nails (French, colors, ombré)</li>
-                  <li>Acrylic extensions & overlays</li>
-                  <li>Luxury manicure & pedicure</li>
-                  <li>Custom nail art & designs</li>
-                </ul>
-              </div>
-              <div class="back-cta">
-                <a href="https://wa.me/254721530120?text=I'm interested in Nail services" class="back-cta-button"
-                  onclick="event.stopPropagation()">
-                  Book Appointment
-                </a>
-                <span class="flip-back-indicator">Tap again to flip back</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 4: Other Hair Services -->
-        <div class="flip-card" onclick="flipCard(this)">
-          <div class="flip-card-inner">
-            <!-- Front -->
-            <div class="flip-card-front">
-              <div class="card-image-container">
-                <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761213885/service_lemonade_ba0l6h.jpg"
-                  class="card-image" alt="Other Hair Services">
-                <div class="card-overlay">
-                  <h3 class="card-title font-display">Other Hair Services</h3>
-                  <p class="card-price">From KES 1,500</p>
-                  <span class="flip-indicator">
-                    Tap to learn more
-                    <svg class="flip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2" />
-                    </svg>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <!-- Back -->
-            <div class="flip-card-back">
-              <div class="back-content">
-                <h3 class="back-title font-display">Other Hair Services</h3>
-                <p class="back-description">
-                  We offer a wide range of professional hair styling services to suit any occasion or preference.
-                </p>
-                <h4 class="back-features-title">Including:</h4>
-                <ul class="back-features-list">
-                  <li>Dreadlocks Installation & Retwist</li>
-                  <li>Braiding (Box, Lemonade, etc.)</li>
-                  <li>Twists (Senegalese, Marley)</li>
-                  <li>Hair Straightening & Silk Press</li>
-                </ul>
-              </div>
-              <div class="back-cta">
-                <a href="https://wa.me/254721530120?text=I'm interested in your other hair services" class="back-cta-button"
-                  onclick="event.stopPropagation()">
-                  Inquire Now
-                </a>
-                <span class="flip-back-indicator">Tap again to flip back</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 5: Hair Dying -->
-        <div class="flip-card" onclick="flipCard(this)">
-          <div class="flip-card-inner">
-            <!-- Front -->
-            <div class="flip-card-front">
-              <div class="card-image-container">
-                <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761214158/3f79f1d7-9809-446b-9e1d-fa95ea5709e8_wojwfo.jpg"
-                  class="card-image" alt="Hair Dying">
-                <div class="card-overlay">
-                  <h3 class="card-title font-display">Hair Dying</h3>
-                  <p class="card-price">From KES 2,500</p>
-                  <span class="flip-indicator">
-                    Tap to learn more
-                    <svg class="flip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2" />
-                    </svg>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <!-- Back -->
-            <div class="flip-card-back">
-              <div class="back-content">
-                <h3 class="back-title font-display">Hair Dying</h3>
-                <p class="back-description">
-                  Refresh your look with our professional hair coloring services. We use high-quality products to achieve vibrant, long-lasting color while protecting your hair's health.
-                </p>
-                <h4 class="back-features-title">Color Services:</h4>
-                <ul class="back-features-list">
-                  <li>Full-head color</li>
-                  <li>Highlights & Lowlights</li>
-                  <li>Balayage & Ombré</li>
-                  <li>Color correction</li>
-                </ul>
-              </div>
-              <div class="back-cta">
-                <a href="https://wa.me/254721530120?text=I'm interested in your hair dying services" class="back-cta-button" onclick="event.stopPropagation()">Book a Color Session</a>
-                <span class="flip-back-indicator">Tap again to flip back</span>
-              </div>
-            </div>
-          </div>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold font-playfair text-gray-900">Sisterlocks Installation</h3>
+          <p class="text-gray-700 mt-2">Precision and expertise for beautiful, long-lasting results.</p>
+          <p class="font-semibold text-gray-800 mt-4">From KES 18,000</p>
+          <a href="https://wa.me/254721530120?text=I'm interested in Sisterlocks Installation" target="_blank" class="cta-button-primary mt-4 w-full">Book Now</a>
         </div>
       </div>
+
+      <!-- Service Card: Retightening & Maintenance -->
+      <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+        <div class="relative carousel-container">
+          <div class="carousel-track flex overflow-hidden">
+            <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200951/client_image_2_ksrlew.jpg" alt="Retightening 1" class="w-full h-64 object-cover flex-shrink-0">
+            <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200952/flo_image_2_v4ndle.jpg" alt="Retightening 2" class="w-full h-64 object-cover flex-shrink-0">
+          </div>
+          <button class="carousel-btn prev absolute top-1/2 left-2 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full opacity-0 transition-opacity"><i class="fas fa-chevron-left"></i></button>
+          <button class="carousel-btn next absolute top-1/2 right-2 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full opacity-0 transition-opacity"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold font-playfair text-gray-900">Retightening & Maintenance</h3>
+          <p class="text-gray-700 mt-2">Keep your locks fresh and healthy with our expert maintenance.</p>
+          <p class="font-semibold text-gray-800 mt-4">From KES 1,500</p>
+          <a href="https://wa.me/254721530120?text=I need a Retightening/Maintenance service" target="_blank" class="cta-button-primary mt-4 w-full">Schedule Service</a>
+        </div>
+      </div>
+
+      <!-- Service Card: Nails & Beauty -->
+      <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+        <div class="relative carousel-container">
+          <div class="carousel-track flex overflow-hidden">
+            <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761213862/service_skelletos_e6jcfs.jpg" alt="Nails 1" class="w-full h-64 object-cover flex-shrink-0">
+            <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200951/Black_don_t_crack_%EF%B8%8F_xvkuqu.jpg" alt="Nails 2" class="w-full h-64 object-cover flex-shrink-0">
+          </div>
+          <button class="carousel-btn prev absolute top-1/2 left-2 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full opacity-0 transition-opacity"><i class="fas fa-chevron-left"></i></button>
+          <button class="carousel-btn next absolute top-1/2 right-2 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full opacity-0 transition-opacity"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold font-playfair text-gray-900">Nails & Beauty</h3>
+          <p class="text-gray-700 mt-2">Complete nail care services for a polished, elegant look.</p>
+          <p class="font-semibold text-gray-800 mt-4">From KES 800</p>
+          <a href="https://wa.me/254721530120?text=I'm interested in Nail services" target="_blank" class="cta-button-primary mt-4 w-full">Book Appointment</a>
+        </div>
+      </div>
+
+      <!-- Service Card: Braiding & Styling -->
+      <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up">
+        <div class="relative carousel-container">
+          <div class="carousel-track flex overflow-hidden">
+            <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761213885/service_lemonade_ba0l6h.jpg" alt="Braiding 1" class="w-full h-64 object-cover flex-shrink-0">
+            <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761213900/service_dreadlock_crtgta.jpg" alt="Braiding 2" class="w-full h-64 object-cover flex-shrink-0">
+          </div>
+          <button class="carousel-btn prev absolute top-1/2 left-2 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full opacity-0 transition-opacity"><i class="fas fa-chevron-left"></i></button>
+          <button class="carousel-btn next absolute top-1/2 right-2 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full opacity-0 transition-opacity"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold font-playfair text-gray-900">Braiding & Styling</h3>
+          <p class="text-gray-700 mt-2">Creative braiding, twists, and natural hair styling.</p>
+          <p class="font-semibold text-gray-800 mt-4">From KES 1,500</p>
+          <a href="https://wa.me/254721530120?text=I'm interested in Braiding services" target="_blank" class="cta-button-primary mt-4 w-full">Inquire Now</a>
+        </div>
+      </div>
+
+      <!-- Service Card: Hair Dying -->
+      <div class="service-card bg-white rounded-lg shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+        <div class="relative carousel-container">
+          <div class="carousel-track flex overflow-hidden">
+            <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761214158/3f79f1d7-9809-446b-9e1d-fa95ea5709e8_wojwfo.jpg" alt="Hair Dying 1" class="w-full h-64 object-cover flex-shrink-0">
+          </div>
+          <button class="carousel-btn prev absolute top-1/2 left-2 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full opacity-0 transition-opacity"><i class="fas fa-chevron-left"></i></button>
+          <button class="carousel-btn next absolute top-1/2 right-2 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full opacity-0 transition-opacity"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold font-playfair text-gray-900">Hair Dying</h3>
+          <p class="text-gray-700 mt-2">Vibrant, long-lasting color while protecting your hair's health.</p>
+          <p class="font-semibold text-gray-800 mt-4">From KES 2,500</p>
+          <a href="https://wa.me/254721530120?text=I'm interested in Hair Dying services" target="_blank" class="cta-button-primary mt-4 w-full">Book Color Session</a>
+        </div>
+      </div>
+
     </div>
-
-    <!-- Pagination Bullets -->
-    <div class="service-pagination"></div>
-
-    <!-- More Services Button -->
-    <div class="more-services-section">
-      <a href="contact.html" class="more-services-button">
-        Book a Consultation
-        <svg class="arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="2">
-          <path d="M5 12h14M12 5l7 7-7 7" />
-        </svg>
-      </a>
-    </div>
-
   </div>
 </section>
 
@@ -467,11 +262,44 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init({duration:600, once:true});
-
-  function flipCard(card) {
-    card.classList.toggle('flipped');
-  }
 </script>
 <script src="main.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const carousels = document.querySelectorAll('.service-card');
+
+    carousels.forEach(carousel => {
+      const track = carousel.querySelector('.carousel-track');
+      const prevBtn = carousel.querySelector('.carousel-btn.prev');
+      const nextBtn = carousel.querySelector('.carousel-btn.next');
+      const images = Array.from(track.children);
+      const imageWidth = images[0].getBoundingClientRect().width;
+      let currentIndex = 0;
+
+      function updateCarousel() {
+        track.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
+        track.style.transition = 'transform 0.5s ease-in-out';
+      }
+
+      if (prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', () => {
+          currentIndex = (currentIndex - 1 + images.length) % images.length;
+          updateCarousel();
+        });
+
+        nextBtn.addEventListener('click', () => {
+          currentIndex = (currentIndex + 1) % images.length;
+          updateCarousel();
+        });
+      }
+
+      // Hide buttons if only one image
+      if (images.length <= 1) {
+        if(prevBtn) prevBtn.style.display = 'none';
+        if(nextBtn) nextBtn.style.display = 'none';
+      }
+    });
+  });
+</script>
 </body>
 </html>
