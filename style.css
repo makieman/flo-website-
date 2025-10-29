@@ -13,8 +13,6 @@
   --brand-amber: #f59e0b; /* primary */
   --brand-amber-hover: #fbbf24; /* hover */
   --brand-amber-contrast: #0f172a; /* text on amber */
-  --cta-primary-bg: var(--brand-amber);
-  --cta-primary-text: var(--brand-amber-contrast);
   --cta-secondary-border: #111827;
   --cta-secondary-hover-bg: #111827;
   --cta-secondary-hover-text: #ffffff;
@@ -1382,7 +1380,7 @@ a[aria-label="Scroll to services"] svg {
 .mission-quote {
   margin-top: 2.5rem;
   padding-left: 1.5rem;
-  border-left: 3px solid var(--amber-400);
+  border-left: 3px solid var(--pink-500);
   font-size: 1.75rem;
   font-style: italic;
   color: var(--text-muted-color);
@@ -1393,8 +1391,8 @@ a[aria-label="Scroll to services"] svg {
   display: block;
   margin-top: 1rem;
   font-family: 'Great Vibes', cursive;
-  font-size: 2rem;
-  color: var(--amber-400);
+  font-size: 2rem; 
+  color: var(--pink-500);
   text-align: right;
 }
 
