@@ -349,31 +349,49 @@ section[aria-labelledby="hero-heading"] p {
   max-width: 52ch;
 }
 
-/* Primary CTA Button */
+/* Primary CTA stronger and more visible on video */
 .cta-button-primary {
-  background-color: #0A0A0A; /* Deep black */
-  color: #ffffff; /* White text */
+  background: linear-gradient(90deg, #f59e0b 0%, #fbbf24 100%);
+  color: #0f172a; /* slate-900 */
   padding: 0.9rem 1.4rem;
   border-radius: 12px;
-  font-weight: 700;
-  transition: all 300ms ease-in-out;
+  box-shadow: 0 12px 30px rgba(245,158,11,0.22);
+  transition: transform 200ms ease, box-shadow 200ms ease, opacity 180ms ease;
   border: none;
 }
 .cta-button-primary:hover,
 .cta-button-primary:focus {
-  background-color: #1A1A1A; /* Lighter charcoal */
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 22px 48px rgba(245,158,11,0.30);
   outline: none;
 }
+.cta-button-primary:focus-visible {
+  box-shadow: 0 0 0 6px rgba(245,158,11,0.12);
+}
 
-/* Secondary CTA Button */
+/* Secondary CTA more visible as a ghost-on-video */
 .cta-button-secondary {
-  background: #ffffff; /* White background */
-  color: #0A0A0A; /* Black text */
-  border: 1px solid #E5E7EB; /* Light gray border */
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 0.8rem 1.3rem;
   border-radius: 12px;
-  font-weight: 600;
-  transition: all 300ms ease-in-out;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+  transition: background 180ms ease, transform 180ms ease, color 180ms ease;
+}
+.cta-button-secondary:hover,
+.cta-button-secondary:focus {
+  background: #ffffff;
+  color: #0f172a;
+  transform: translateY(-3px);
+}
+
+/* Services section heading and card titles */
+#services .section-title h2,
+.card-title,
+.back-title {
+  color: #ffffff;
+  text-shadow: 0 6px 18px rgba(0,0,0,0.45);
 }
 
 /* Card front overlay ensure text contrast */
@@ -453,6 +471,50 @@ section.bg-gray-100 .text-gray-300 { color: #cbd5e1; }
   animation-delay: 0.2s;
 }
 
+/* Buttons: unified across site */
+.cta-button-primary {
+  background: linear-gradient(90deg, var(--brand-amber) 0%, var(--brand-amber-hover) 100%);
+  color: var(--brand-amber-contrast);
+  padding: 0.9rem 1.4rem;
+  border-radius: 12px;
+  font-weight: 700;
+  border: none;
+  box-shadow: 0 12px 30px rgba(245,158,11,0.22);
+  transition: transform 200ms ease, box-shadow 200ms ease, opacity 180ms ease, background 180ms ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.cta-button-primary:hover,
+.cta-button-primary:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 48px rgba(245,158,11,0.30);
+  outline: none;
+}
+.cta-button-primary:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+.cta-button-secondary {
+  background: transparent;
+  color: #111827;
+  border: 1px solid var(--cta-secondary-border);
+  padding: 0.8rem 1.3rem;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.cta-button-secondary:hover,
+.cta-button-secondary:focus {
+  background: var(--cta-secondary-hover-bg);
+  color: var(--cta-secondary-hover-text);
+  transform: translateY(-2px);
+}
+
 /* Tertiary CTA: subtle outline for less prominent actions */
 .cta-button-tertiary {
   background: transparent;
@@ -481,6 +543,13 @@ section.bg-gray-100 .text-gray-300 { color: #cbd5e1; }
   border-radius: 1rem;
   box-shadow: 0 12px 50px rgba(0,0,0,0.6);
   border: 1px solid var(--panel-border);
+}
+
+/* Improve CTA styles with subtle elevation and hover */
+.cta-button-primary:hover,
+.cta-button-primary:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.5);
 }
 
 /* small micro-animations for icons and links */
@@ -572,6 +641,11 @@ section.bg-gray-100 .text-gray-300 { color: #cbd5e1; }
 
 /* Smooth scroll support for browsers that support CSS smooth scrolling */
 html { scroll-behavior: smooth; }
+
+.cta-button-secondary:hover,
+.cta-button-secondary:focus {
+  transform: translateY(-2px);
+}
 
 /* Focus styles for accessibility */
 .cta-button-primary:focus-visible,
