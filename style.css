@@ -1,7 +1,7 @@
 :root {
   --bg-color: #000;
   --text-color: #fff;
-  --text-muted-color: #9ca3af; /* gray-400 */
+  --text-muted-color: #6b7280; /* gray-500, improved contrast */
   --header-bg: rgba(0, 0, 0, 0.7);
   --card-bg: rgba(255, 255, 255, 0.03);
   --accent-pink: #E1306C;
