@@ -318,23 +318,27 @@ function initStatsAnimation() {
     const decimalCounters = document.querySelectorAll('.stat-number-decimal');
     const speed = 200; // The lower the faster
 
-    counters.forEach(counter => {
+    // Animate integer counters
+    document.querySelectorAll('.stat-number').forEach(counter => {
       const updateCount = () => {
         const target = +counter.getAttribute('data-target');
         const count = +counter.innerText;
+        const suffix = counter.getAttribute('data-suffix') || '';
         const inc = Math.max(Math.ceil(target / speed), 1);
 
         if (count < target) {
           counter.innerText = Math.min(count + inc, target);
           setTimeout(updateCount, 10);
         } else {
-          counter.innerText = target + '+';
+          // When animation is done, set the final text with suffix
+          counter.innerText = target + suffix;
         }
       };
       updateCount();
     });
 
-    decimalCounters.forEach(counter => {
+    // Animate decimal counters
+    document.querySelectorAll('.stat-number-decimal').forEach(counter => {
       const updateCount = () => {
         const target = +counter.getAttribute('data-target');
         const count = +counter.innerText;
@@ -344,7 +348,7 @@ function initStatsAnimation() {
           counter.innerText = (count + inc).toFixed(1);
           setTimeout(updateCount, 15);
         } else {
-          counter.innerText = target;
+          counter.innerText = target.toFixed(1);
         }
       };
       updateCount();

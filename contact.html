@@ -311,6 +311,14 @@
         window.open(whatsappUrl, '_blank');
       });
     }
+
+    // Disable AOS on anchor link clicks to prevent jarring animations
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => { // Selects links that point to a section on the same page
+      anchor.addEventListener('click', function() {
+        // Use a small timeout to allow the browser to jump to the anchor first
+        setTimeout(() => { AOS.refresh(); }, 50);
+      }); 
+    });
   </script>
 </body>
 </html>
