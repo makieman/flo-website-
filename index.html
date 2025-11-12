@@ -5,7 +5,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Flo Sisterlocks</title>
-  <link rel="icon" href="https://res.cloudinary.com/dh5hssddg/image/upload/v1762597416/Gemini_Generated_Image_fsop2ofsop2ofsop_i1h006.png">
+  <!-- Favicon -->
+  <link rel="icon" href="assets/images/logo.jpg">
+  <link rel="apple-touch-icon" href="assets/images/logo.jpg">
+  <meta name="theme-color" content="#000000">
   <meta name="google-site-verification" content="SivXqBm3imxJKFmxNtct6d91vczleIXfOrB12CfOdEs" />
   <meta name="description" content="Flo Sisterlocks Eldoret - Specialist Sisterlocks studio in Eldoret, Kenya. Installation, retie, maintenance, nails & styling.">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -45,6 +48,29 @@
   <!-- GSAP for animations -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  
+  <!-- Structured Data (JSON-LD) for Organization and Logo -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "url": "https://flo-website-phi.vercel.app/",
+    "name": "Flo Sisterlocks",
+    "logo": "https://res.cloudinary.com/dh5hssddg/image/upload/v1762928561/floo_v6rxe1.png",
+    "description": "Certified Sisterlocks installation, maintenance, and beauty services in Eldoret, Kenya",
+    "contact": {
+      "@type": "ContactPoint",
+      "telephone": "+254-721-530120",
+      "contactType": "Customer Service"
+    },
+    "sameAs": [
+      "https://instagram.com/sisterlocksbyflo",
+      "https://facebook.com/Sisterlocksbyflo",
+      "https://tiktok.com/@Sisterlocksbyflo"
+    ]
+  }
+  </script>
+
   <style>
     /* Mobile Viewport Overflow Fixes */
     @media (max-width: 767px) {
@@ -181,7 +207,7 @@
 
   <!-- ============================================ -->
   <!-- SERVICES SECTION CODE - HORIZONTAL SCROLL WITH FLIP CARDS --> 
-  <section id="services" class="bg-amber-50 text-gray-800 transition-colors duration-300">
+  <section id="services" class="bg-white text-gray-800 transition-colors duration-300"> 
     <div class="services-container">
       <div class="section-title">
         <h2 class="font-display">Our Services</h2>
@@ -373,7 +399,7 @@
   <!-- ============================================ -->
   <!-- ABOUT SECTION -->
   <!-- ============================================ -->
-  <section id="about" class="bg-amber-50">
+  <section id="about" class="bg-white"> 
     <div class="container mx-auto text-center">
 
       <!-- Section Header -->
@@ -464,7 +490,7 @@
 
 
   <!-- Testimonials -->
-  <section id="testimonials" class="bg-amber-50 py-16">
+  <section id="testimonials" class="bg-white py-16"> 
     <div class="container mx-auto">
       <!-- Section Header -->
         <div class="text-center mb-12" data-aos="fade-up">
@@ -510,6 +536,7 @@
         </div>
     </div>
   </section>
+  </main>
 </main>
 
 <!-- Reviews Section -->

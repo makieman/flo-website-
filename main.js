@@ -1,8 +1,40 @@
-// Initialize theme toggle functionality
+// --- DOM Element Caching ---
+// Cache frequently accessed elements to avoid repeated DOM queries.
+const DOM = {
+  header: document.getElementById('main-header'),
+  menuBtn: document.getElementById('menu-btn'),
+  mobileMenu: document.getElementById('mobile-menu'),
+  hamburgerIcon: document.getElementById('hamburger-icon'),
+  closeIcon: document.getElementById('close-icon'),
+  mobileMenuCloseBtn: document.getElementById('mobile-menu-close-btn'),
+  openBookingBtn: document.getElementById('open-booking'),
+  bookingModal: document.getElementById('booking-modal'),
+  servicesSection: document.getElementById('services'),
+  testimonialsCarousel: document.querySelector('#testimonials'),
+  statsSection: document.getElementById('stats-section'),
+  theme: {
+    toggleBtn: document.getElementById('theme-toggle'),
+    darkIcon: document.getElementById('theme-toggle-dark-icon'),
+    lightIcon: document.getElementById('theme-toggle-light-icon'),
+  }
+};
+
+/**
+ * A simple debounce function to limit the rate at which a function can fire.
+ * @param {Function} func The function to debounce.
+ * @param {number} delay The delay in milliseconds.
+ * @returns {Function} The debounced function.
+ */
+function debounce(func, delay = 20) {
+  let timeoutId;
+  return (...args) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => func.apply(this, args), delay);
+  };
+}
+
 function initThemeToggle() {
-  const themeToggleBtn = document.getElementById('theme-toggle');
-  const darkIcon = document.getElementById('theme-toggle-dark-icon');
-  const lightIcon = document.getElementById('theme-toggle-light-icon');
+  const { toggleBtn, darkIcon, lightIcon } = DOM.theme;
 
   // Apply saved theme on load
   if (localStorage.getItem('color-theme') === 'dark' ||
@@ -14,8 +46,8 @@ function initThemeToggle() {
   }
 
   // Toggle theme event listener
-  if (themeToggleBtn) {
-    themeToggleBtn.addEventListener('click', () => {
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
       if(darkIcon) darkIcon.classList.toggle('hidden');
       if(lightIcon) lightIcon.classList.toggle('hidden');
       
@@ -30,14 +62,8 @@ function initThemeToggle() {
   }
 }
 
-// Initialize mobile menu functionality
 function initMobileMenu() {
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const hamburgerIcon = document.getElementById('hamburger-icon');
-  const closeIcon = document.getElementById('close-icon');
-  const mobileMenuCloseBtn = document.getElementById('mobile-menu-close-btn');
-
+  const { menuBtn, mobileMenu, hamburgerIcon, closeIcon, mobileMenuCloseBtn } = DOM;
   const openMobileMenu = () => {
     document.body.classList.add('menu-open');
     if (hamburgerIcon) hamburgerIcon.classList.add('hidden');
@@ -71,14 +97,13 @@ function initMobileMenu() {
 
     // Close menu when clicking outside on the overlay
     document.body.addEventListener('click', (e) => {
-      if (document.body.classList.contains('menu-open') && !mobileMenu.contains(e.target)) {
+      if (document.body.classList.contains('menu-open') && !mobileMenu.contains(e.target) && e.target !== menuBtn) {
         closeMobileMenu();
       }
     });
   }
 }
 
-// Initialize smooth-scroll functionality
 function initSmoothScroll() {
   document.querySelectorAll('a[data-smooth-scroll]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -93,13 +118,10 @@ function initSmoothScroll() {
   });
 }
 
-// Initialize booking modal functionality
 function initBookingModal() {
-  const openBookingBtn = document.getElementById('open-booking');
-  const bookingModal = document.getElementById('booking-modal');
-  const closeBookingBtn = document.getElementById('close-booking');
-
+  const { openBookingBtn, bookingModal } = DOM;
   if (openBookingBtn && bookingModal) {
+    const closeBookingBtn = bookingModal.querySelector('#close-booking');
     const showModal = () => {
       bookingModal.classList.remove('hidden');
       // trap focus minimally by focusing close button
@@ -130,11 +152,9 @@ function initBookingModal() {
   }
 }
 
-// Initialize flip card and pagination functionality
 function initServicesSection() {
-  const servicesSection = document.getElementById('services');
-  if (servicesSection) {
-    const scrollWrapper = servicesSection.querySelector('.services-scroll-wrapper');
+  if (DOM.servicesSection) {
+    const scrollWrapper = DOM.servicesSection.querySelector('.services-scroll-wrapper');
     const cards = servicesSection.querySelectorAll('.flip-card');
     const paginationContainer = servicesSection.querySelector('.service-pagination');
 
@@ -190,13 +210,11 @@ function initServicesSection() {
   }
 }
 
-// Initialize testimonial carousel functionality
 function initTestimonialCarousel() {
-  const testimonialCarousel = document.querySelector('#testimonials');
-  if (testimonialCarousel) {
-    const wrapper = testimonialCarousel.querySelector('.testimonial-carousel-wrapper');
-    const track = testimonialCarousel.querySelector('.testimonial-carousel-track');
-    const paginationContainer = testimonialCarousel.querySelector('.testimonial-pagination');
+  if (DOM.testimonialsCarousel) {
+    const wrapper = DOM.testimonialsCarousel.querySelector('.testimonial-carousel-wrapper');
+    const track = DOM.testimonialsCarousel.querySelector('.testimonial-carousel-track');
+    const paginationContainer = DOM.testimonialsCarousel.querySelector('.testimonial-pagination');
 
     if (wrapper && track && paginationContainer) {
       // Clone cards for seamless looping
@@ -292,10 +310,8 @@ function initTestimonialCarousel() {
   }
 }
 
-// Initialize stats counter animation
 function initStatsAnimation() {
-  const statsSection = document.getElementById('stats-section');
-  if (!statsSection) return;
+  if (!DOM.statsSection) return;
 
   const animateCounters = () => {
     const counters = document.querySelectorAll('.stat-number');
@@ -342,28 +358,33 @@ function initStatsAnimation() {
     }
   }, { threshold: 0.5 });
 
-  if (statsSection) {
-    observer.observe(statsSection);
+  observer.observe(DOM.statsSection);
+}
+
+function initHeaderScroll() {
+  if (DOM.header) {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        DOM.header.classList.add('scrolled');
+      } else {
+        DOM.header.classList.remove('scrolled');
+      }
+    };
+    // Debounce the scroll event to improve performance
+    window.addEventListener('scroll', debounce(handleScroll, 15));
   }
 }
 
-// Initialize header scroll effect
-function initHeaderScroll() {
-  const header = document.getElementById('main-header');
-  if (header) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 10) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize AOS scroll animations if the library is present
+  if (window.AOS) {
+    AOS.init({
+      duration: 800, // A good default duration
+      once: true      // Animate elements only once
     });
   }
-}
 
-// Main initialization function to call all the above functions on DOMContentLoaded
-function initializeAll() {
-  document.addEventListener('DOMContentLoaded', () => {
+  // Initialize all custom scripts
     initThemeToggle();
     initMobileMenu();
     initSmoothScroll();
@@ -372,8 +393,4 @@ function initializeAll() {
     initServicesSection();
     initTestimonialCarousel();
     initStatsAnimation();
-  });
-}
-
-// Call the initialization function when the script loads
-initializeAll();
+});

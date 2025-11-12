@@ -620,7 +620,16 @@ section.bg-gray-100 .text-gray-300 { color: #cbd5e1; }
   transform: translateY(-2px);
 }
 
-/* More services button used in the hero/sections */
+/* Override for secondary buttons on light backgrounds (e.g., services page cards) */
+.service-card .cta-button-secondary {
+  color: #1f2937 !important; /* gray-800 */
+  border-color: #d1d5db !important; /* gray-300 */
+}
+.service-card .cta-button-secondary:hover {
+  background: #f3f4f6 !important; /* gray-100 */
+  color: #111827 !important; /* gray-900 */
+}
+Why Choose Flo Sisterlocks?/* More services button used in the hero/sections */
 .more-services-button {
   background: #000 !important;
   color: #fff !important;
@@ -826,7 +835,7 @@ a[aria-label="Scroll to services"] svg {
 
 .services-pattern {
   position: relative;
-  overflow: hidden; /* ensure the pseudo element doesn't overflow */
+  /* overflow: hidden; */ /* This was causing the container to be cut. Removing it. */
   border-radius: 0; /* Remove border-radius */
 }
 
@@ -853,6 +862,12 @@ a[aria-label="Scroll to services"] svg {
   margin-bottom: 1rem;
   letter-spacing: 2px;
   animation: fadeInDown 0.8s ease-out;
+}
+
+/* Ensure subtitles are visible on white backgrounds */
+#about .section-subtitle,
+#testimonials .section-subtitle {
+  color: #6b7280; /* gray-500 */
 }
 
 .section-subtitle {
