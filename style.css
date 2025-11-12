@@ -593,47 +593,123 @@ section.bg-gray-100 .text-gray-300 { color: #cbd5e1; }
 .btn-dark,
 .cta-button-primary,
 .cta-btn {
-  background: #000 !important;
+  background: linear-gradient(135deg, #000 0%, #1a1a1a 100%) !important;
   color: #fff !important;
-  border: 1px solid rgba(255,255,255,0.06) !important;
-  box-shadow: 0 12px 32px rgba(2,6,23,0.5) !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.1) !important;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
+
+.btn::before,
+.btn-dark::before,
+.cta-button-primary::before,
+.cta-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transition: left 0.5s;
+}
+
+.btn:hover::before,
+.btn-dark:hover::before,
+.cta-button-primary:hover::before,
+.cta-btn:hover::before {
+  left: 100%;
+}
+
 .btn:hover,
 .btn-dark:hover,
 .cta-button-primary:hover,
 .cta-btn:hover {
-  transform: translateY(-3px) scale(1.01);
-  box-shadow: 0 22px 48px rgba(2,6,23,0.6) !important;
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.15) !important;
+  background: linear-gradient(135deg, #1a1a1a 0%, #000 100%) !important;
+}
+
+.btn:active,
+.btn-dark:active,
+.cta-button-primary:active,
+.cta-btn:active {
+  transform: translateY(-2px) scale(0.98);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35) !important;
 }
 
 /* Secondary/ghost buttons should show white text on dark backgrounds and a soft white hover */
 .cta-button-secondary,
 .btn-ghost {
-  background: transparent !important;
+  background: rgba(255, 255, 255, 0.08) !important;
   color: #fff !important;
-  border: 1px solid rgba(255,255,255,0.12) !important;
+  border: 1px solid rgba(255,255,255,0.20) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
+
 .cta-button-secondary:hover,
 .btn-ghost:hover {
-  background: rgba(255,255,255,0.06) !important;
+  background: rgba(255, 255, 255, 0.15) !important;
   color: #fff !important;
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.01);
+  border-color: rgba(255,255,255,0.30) !important;
+  box-shadow: 0 12px 30px rgba(255,255,255,0.15) !important;
 }
 
 /* Override for secondary buttons on light backgrounds (e.g., services page cards) */
 .service-card .cta-button-secondary {
   color: #1f2937 !important; /* gray-800 */
   border-color: #d1d5db !important; /* gray-300 */
+  background: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
+
 .service-card .cta-button-secondary:hover {
   background: #f3f4f6 !important; /* gray-100 */
   color: #111827 !important; /* gray-900 */
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12) !important;
+  border-color: #9ca3af !important; /* gray-400 */
 }
-Why Choose Flo Sisterlocks?/* More services button used in the hero/sections */
-.more-services-button {
-  background: #000 !important;
+
+.service-card .cta-button-primary {
+  background: linear-gradient(135deg, #000 0%, #1a1a1a 100%) !important;
   color: #fff !important;
-  border: 1px solid rgba(255,255,255,0.06) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.service-card .cta-button-primary:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* More services button used in the hero/sections */
+.more-services-button {
+  background: linear-gradient(135deg, #000 0%, #1a1a1a 100%) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.1) !important;
+  position: relative;
+  overflow: hidden;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.more-services-button:hover {
+  transform: translateY(-4px) scale(1.02) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.15) !important;
+  background: linear-gradient(135deg, #1a1a1a 0%, #000 100%) !important;
 }
 
 /* Ensure footer quick links (tertiary) keep a subtle look but are readable */
@@ -782,7 +858,23 @@ html { scroll-behavior: smooth; }
 .cta-button-secondary:focus-visible,
 .btn:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 4px rgba(245,158,11,0.12);
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.2), 0 0 0 8px rgba(255,255,255,0.3) !important;
+}
+
+.btn-dark:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.2), 0 0 0 8px rgba(255,255,255,0.3) !important;
+}
+
+/* Smooth transitions and animations for all buttons */
+.btn,
+.btn-dark,
+.cta-button-primary,
+.cta-button-secondary,
+.cta-btn,
+.btn-ghost,
+.more-services-button {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 
 /* Scroll arrow tweak */
