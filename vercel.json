@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "flo-website-phi.vercel.app" 
+        }
+      ],
+      "destination": "https://flosisterlock.co.ke/$1",
+      "permanent": true
+    }
+  ]
+}
