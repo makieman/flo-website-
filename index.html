@@ -15,7 +15,7 @@
   <meta name="google-site-verification" content="SivXqBm3imxJKFmxNtct6d91vczleIXfOrB12CfOdEs" />
 
   <!-- Description -->
-  <meta name="description" content="Flo Sisterlocks Kenya offers certified Sisterlocks installation, retightening, and maintenance in Eldoret. Book your appointment with a professional Sisterlocks consultant today!">
+  <meta name="description" content="Get professional Sisterlocks installation &amp; maintenance in Eldoret from KES 10,000. Certified consultant. Book your consultation today! ✆ 0721 530120">
 
   <!-- Keywords -->
   <meta name="keywords" content="Sisterlocks Eldoret, Sisterlocks Kenya, Sisterlocks consultant Eldoret, natural hair salon Kenya, hair retightening Kenya, Flo Sisterlocks Eldoret, Sisterlocks installation Kenya">
@@ -25,7 +25,7 @@
 
   <!-- Open Graph / Social Sharing -->
   <meta property="og:title" content="Flo Sisterlocks Eldoret – Certified Sisterlocks & Natural Hair Studio">
-  <meta property="og:description" content="Get beautiful, healthy Sisterlocks with certified consultants in Eldoret, Kenya. View our work, book appointments, and join our growing Sisterlocks community.">
+  <meta property="og:description" content="Get professional Sisterlocks installation &amp; maintenance in Eldoret from KES 10,000. Certified consultant. Book your consultation today! ✆ 0721 530120">
   <meta property="og:image" content="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200951/client_image_5_erwabh.jpg">
   <meta property="og:url" content="https://flosisterlock.co.ke/">
   <meta property="og:type" content="website">
@@ -153,6 +153,81 @@
       /* Ensure flip cards don't exceed the viewport width on small screens */
       .flip-card { max-width: 90vw; }
     }
+
+    /* Compact FAQ container */
+    .faq-container {
+      max-width: 700px;      /* reduce width */
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* FAQ card */
+    .faq-item {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 8px 12px;      /* smaller padding */
+      background: #fff;
+      transition: 0.2s ease;
+    }
+
+    .faq-item:hover {
+      background: #fafafa;
+    }
+
+    /* Question row */
+    .faq-question {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      background: none;
+      color: inherit;
+      padding: 6px 0;        /* smaller */
+    }
+
+    /* Title text */
+    .faq-question h3 {
+      font-size: 1rem;       /* smaller question text */
+      line-height: 1.4;
+    }
+
+    /* Answer container - for animation */
+    .faq-answer {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.3s ease-out;
+      margin-top: 0; /* Will be added when open */
+    }
+
+    /* Styles for when the FAQ is open */
+    .faq-item.open .faq-answer {
+      margin-top: 6px; /* Add space when open */
+    }
+
+    .faq-answer p {
+      font-size: 0.95rem;    /* compact paragraph */
+      line-height: 1.5;
+      padding-left: 4px; /* Indent answer slightly */
+    }
+
+    .faq-icon { transition: transform 0.3s ease; }
+
+    /* Reduce space between FAQ items */
+    .faq-item + .faq-item {
+      margin-top: 10px;
+    }
+
+    /* Two-column layout for desktop */
+    @media (min-width: 768px) {
+      .faq-container {
+        max-width: 1100px; /* Widen container for two columns */
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px; /* Consistent spacing between items */
+      }
+      .faq-item + .faq-item {
+        margin-top: 0; /* Use grid gap for spacing instead */
+      }
+    }
   </style>
 </head>
 <body class="antialiased leading-relaxed overflow-x-hidden pt-16 bg-white text-gray-800">
@@ -170,6 +245,7 @@
     <nav id="desktop-menu" class="hidden md:flex gap-6 items-center">
       <a href="index.html" class="hover:underline">Home</a>
       <a href="services.html" class="hover:underline">Services</a>
+      <a href="pricing.html" class="hover:underline">Pricing</a>
       <a href="gallery.html" class="hover:underline">Gallery</a>
       <a href="eldoret.html" class="hover:underline">Eldoret</a>
       <a href="contact.html" class="hover:underline">Contact</a>
@@ -202,6 +278,7 @@
     </div>
     <a href="index.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Home</a>
     <a href="services.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Services</a>
+    <a href="pricing.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Pricing</a>
     <a href="gallery.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Gallery</a>
     <a href="eldoret.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Eldoret</a>
     <a href="contact.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Contact</a>
@@ -213,7 +290,7 @@
 
 <main>
   <!-- Hero -->
-<section id="hero-section" class="relative h-screen flex items-center justify-center overflow-hidden text-center" aria-labelledby="hero-heading">
+<section id="hero-section" class="relative w-full h-screen flex flex-col items-center justify-center overflow-hidden text-center" aria-labelledby="hero-heading">
   <!-- Background Video with optimizations -->
   <video autoplay muted loop playsinline poster="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200952/flo_image_2_v4ndle.jpg" class="absolute inset-0 w-full h-full object-cover z-0" aria-hidden="true">
     <!-- The `f_auto` and `q_auto` parameters tell Cloudinary to automatically select the best format and quality for the user's browser -->
@@ -225,11 +302,10 @@
   <div class="absolute inset-0 z-10 bg-black/40 transition-colors duration-300" aria-hidden="true"></div>
 
   <!-- Content: glass panel -->
-  <div class="relative z-20 px-6 w-full max-w-4xl text-center">
-  <h1 id="hero-heading" class="text-5xl md:text-7xl font-extrabold font-playfair text-gray-900 mb-6 leading-tight">Flo Sisterlocks Eldoret</h1>
-  <p id="hero-subtext" class="font-body text-lg md:text-2xl max-w-2xl mx-auto text-gray-700 overflow-hidden">
-      <span class="inline-block">Eldoret's specialist Sisterlocks studio — precision installations, expert maintenance, and beautiful styling.</span>
-    </p>
+  <div class="relative z-20 px-6 w-full max-w-4xl text-center flex flex-col items-center justify-center">
+  <h1 id="hero-heading" class="text-5xl md:text-6xl font-extrabold font-playfair text-white mb-6 leading-tight">Flo Sisterlocks</h1>
+  <p id="hero-subtext" class="font-body text-lg md:text-2xl max-w-3xl mx-auto text-gray-100">
+      Specialist Sisterlocks studio — precision installations, expert maintenance, and beautiful styling.</p>
 
     <div class="mt-8 flex flex-wrap justify-center gap-4">
       <button id="open-booking" type="button" class="cta-button-primary animate-fadeInDelay1 focus-visible:ring focus-visible:ring-amber-400/40">
@@ -291,8 +367,8 @@
               <!-- Front -->
               <div class="flip-card-front">
                 <div class="card-image-container">
-                  <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200951/client_image_5_erwabh.jpg"
-                    class="card-image" alt="Sisterlocks Installation">
+                  <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200951/client_image_5_erwabh.jpg" class="card-image"
+                    alt="Professional Sisterlocks installation in Eldoret, Kenya">
                   <div class="card-overlay">
                     <h3 class="card-title font-display">Sisterlocks Installation</h3>
                     <p class="card-price">From KES 10,000</p>
@@ -342,8 +418,8 @@
               <!-- Front -->
               <div class="flip-card-front">
                 <div class="card-image-container">
-                  <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200951/client_image_2_ksrlew.jpg"
-                    class="card-image" alt="Retightening & Maintenance">
+                  <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200951/client_image_2_ksrlew.jpg" class="card-image"
+                    alt="Sisterlocks maintenance and retightening service in Eldoret">
                   <div class="card-overlay">
                     <h3 class="card-title font-display">Retightening & Maintenance</h3>
                     <p class="card-price">From KES 2,000</p>
@@ -394,8 +470,8 @@
               <div class="flip-card-front">
                 <div class="card-image-container">
                   <img
-                    src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200951/Black_don_t_crack_%EF%B8%8F_xvkuqu.jpg"
-                    class="card-image" alt="Nails & Beauty">
+                    src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200951/Black_don_t_crack_%EF%B8%8F_xvkuqu.jpg" class="card-image"
+                    alt="Nail and beauty services at a natural hair salon in Eldoret">
                   <div class="card-overlay">
                     <h3 class="card-title font-display">Nails & Beauty</h3>
                     <p class="card-price">From KES 1000</p>
@@ -474,7 +550,7 @@
       <div class="flex flex-col lg:flex-row items-center gap-12 mb-20">
         <!-- Image -->
         <div class="lg:w-2/5" data-aos="fade-right" data-aos-duration="800">
-            <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200952/flo_image_2_v4ndle.jpg" alt="Florence, Founder of Flo Sisterlocks" class="rounded-2xl shadow-2xl w-full h-auto object-cover aspect-square">
+            <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200952/flo_image_2_v4ndle.jpg" alt="Florence, a certified Sisterlocks consultant in Kenya" class="rounded-2xl shadow-2xl w-full h-auto object-cover aspect-square">
           </div>
           <!-- Text -->
           <div class="lg:w-3/5 text-center lg:text-left" data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
@@ -482,15 +558,16 @@
             <div class="space-y-6 text-gray-700">
               <div class="">
                 <h3 class="font-semibold text-xl mb-2 font-playfair">Who I Am</h3>
-                <p class="text-lg leading-relaxed">A passionate, <strong class="font-semibold text-gray-900">Certified Sisterlocks Consultant</strong> dedicated to the art of natural hair and empowering my clients through meticulous care.</p>
+                <p class="text-lg leading-relaxed">A passionate, <strong class="font-semibold text-gray-900">Certified Sisterlocks Consultant in Kenya</strong>, dedicated to the art of natural hair. I empower my clients by providing the best Sisterlocks in Eldoret through meticulous, professional care.</p>
               </div>
               <div class="">
                 <h3 class="font-semibold text-xl mb-2 font-playfair">My Journey</h3>
-                <p class="text-lg leading-relaxed">My love for Sisterlocks began with my own transformation. This personal experience inspired me to pursue official training in 2020 to share that same confidence with you.</p>
+                <p class="text-lg leading-relaxed">My love for this unique loc system began with my own transformation. This personal experience inspired me to become a professional Sisterlocks consultant in Eldoret, sharing that same confidence with women looking for "Sisterlocks near me".</p>
               </div>
               <div class="">
                 <h3 class="font-semibold text-xl mb-2 font-playfair">My Promise</h3>
                 <p class="text-lg leading-relaxed">I promise a personalized, supportive experience. We'll work together to achieve your hair goals in a comfortable and professional space.</p>
+                <p class="text-lg leading-relaxed mt-4">Discover our complete range of <a href="services.html" class="text-amber-600 underline hover:text-amber-700">Sisterlocks services</a> including installation, maintenance, and styling.</p>
               </div>
             </div>
             <!-- Mission Quote -->
@@ -508,22 +585,22 @@
             <div class="feature-card">
               <i data-lucide="award" class="w-10 h-10 mx-auto text-amber-400 mb-4"></i>
               <h4 class="font-semibold text-xl text-gray-900">Certified Excellence</h4>
-              <p class="text-gray-600 mt-2">As an officially certified Sisterlocks consultant, Florence brings a high level of expertise and precision to every appointment.</p>
+              <p class="text-gray-600 mt-2">As an officially <strong class="font-semibold">certified Sisterlocks consultant in Kenya</strong>, Florence brings a high level of expertise and precision to every appointment, ensuring you get the best Sisterlocks in Eldoret.</p>
             </div>
             <div class="feature-card">
               <i data-lucide="shield-check" class="w-10 h-10 mx-auto text-amber-400 mb-4"></i>
               <h4 class="font-semibold text-xl text-gray-900 dark:text-white">Quality Guaranteed</h4>
-              <p class="text-gray-600 dark:text-gray-400 mt-2">We use only premium, approved products and proven techniques to ensure the health and longevity of your locks.</p>
+              <p class="text-gray-600 dark:text-gray-400 mt-2">We use only premium, approved products and proven techniques for every <strong class="font-semibold">locs installation in Eldoret</strong>, ensuring the health and longevity of your hair.</p>
             </div>
             <div class="feature-card">
               <i data-lucide="heart-handshake" class="w-10 h-10 mx-auto text-amber-400 mb-4"></i>
               <h4 class="font-semibold text-xl text-gray-900 dark:text-white">Personalized Care</h4>
-              <p class="text-gray-600 dark:text-gray-400 mt-2">Your hair is unique. We provide one-on-one attention and tailor our services to fit your specific needs and hair type.</p>
+              <p class="text-gray-600 dark:text-gray-400 mt-2">Your hair is unique. As a leading <strong class="font-semibold">natural hair salon in Eldoret</strong>, we provide one-on-one attention and tailor our services to fit your specific needs and hair type.</p>
             </div>
             <div class="feature-card">
               <i data-lucide="sparkles" class="w-10 h-10 mx-auto text-amber-400 mb-4"></i>
               <h4 class="font-semibold text-xl text-gray-900 dark:text-white">Comfortable Space</h4>
-              <p class="text-gray-600 dark:text-gray-400 mt-2">Our salon is a clean, calm, and welcoming environment where you can relax and enjoy a premium service experience.</p>
+              <p class="text-gray-600 dark:text-gray-400 mt-2">Searching for "Sisterlocks near me"? Our salon is a clean, calm, and welcoming environment where you can relax and enjoy a premium service experience.</p>
             </div>
           </div>
       </div>
@@ -601,6 +678,192 @@
   </main>
 </main>
 
+<!-- ============================================ -->
+<!-- FAQ Section -->
+<!-- ============================================ -->
+<div class="faq-container" itemscope itemtype="https://schema.org/FAQPage">
+
+  <!-- FAQ 1 -->
+  <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <button class="faq-question items-center">
+      <h3 itemprop="name" class="text-lg font-semibold text-left">
+        What is the cost of Sisterlocks installation in Kenya?
+      </h3>
+      <i data-lucide="chevron-down" class="faq-icon"></i>
+    </button>
+    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text" class="prose max-w-none">
+        <p>
+          At Flo Sisterlocks in Eldoret, Sisterlocks installation starts from 
+          <strong>KES 10,000</strong>. The exact price depends on your hair length, density, and 
+          texture. As a certified Sisterlocks™ consultant, we ensure a precise grid, 
+          professional installation, and detailed aftercare guidance. For an exact quote, 
+          please book a consultation.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ 2 -->
+  <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <button class="faq-question items-center">
+      <h3 itemprop="name" class="text-lg font-semibold text-left">
+        How long does Sisterlocks installation take?
+      </h3>
+      <i data-lucide="chevron-down" class="faq-icon"></i>
+    </button>
+    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text" class="prose max-w-none">
+        <p>
+          Sisterlocks installation typically takes <strong>8–18 hours</strong> depending on your 
+          hair’s length, volume, and texture. Installations may be completed in one day or 
+          split into two sessions for comfort. We always prepare clients in advance during 
+          the consultation.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ 3 -->
+  <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <button class="faq-question items-center">
+      <h3 itemprop="name" class="text-lg font-semibold text-left">
+        Do you offer Sisterlocks retightening in Eldoret?
+      </h3>
+      <i data-lucide="chevron-down" class="faq-icon"></i>
+    </button>
+    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text" class="prose max-w-none">
+        <p>
+          Yes! We offer professional Sisterlocks retightening in Eldoret. Retightening is 
+          recommended every <strong>4–6 weeks</strong> to maintain healthy roots and prevent 
+          matting. Our retightening service starts from <strong>KES 2,000</strong>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ 4 -->
+  <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <button class="faq-question items-center">
+      <h3 itemprop="name" class="text-lg font-semibold text-left">
+        Are you a certified Sisterlocks consultant?
+      </h3>
+      <i data-lucide="chevron-down" class="faq-icon"></i>
+    </button>
+    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text" class="prose max-w-none">
+        <p>
+          Yes, Flo Sisterlocks is run by a <strong>certified Sisterlocks™ consultant</strong>. 
+          This ensures that your installation follows the official Sisterlocks method, 
+          correct grid patterns, and professional standards for long-term hair health.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ 5 -->
+  <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <button class="faq-question items-center">
+      <h3 itemprop="name" class="text-lg font-semibold text-left">
+        Do you install Sisterlocks for 4C hair?
+      </h3>
+      <i data-lucide="chevron-down" class="faq-icon"></i>
+    </button>
+    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text" class="prose max-w-none">
+        <p>
+          Absolutely! Sisterlocks work beautifully on <strong>4C hair</strong>. In fact, tightly 
+          coiled textures like 4C hair hold Sisterlocks extremely well, offering great 
+          volume and versatility. A consultation helps us assess your hair and plan your 
+          installation.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ 6 -->
+  <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <button class="faq-question items-center">
+      <h3 itemprop="name" class="text-lg font-semibold text-left">
+        Can I start Sisterlocks with short hair?
+      </h3>
+      <i data-lucide="chevron-down" class="faq-icon"></i>
+    </button>
+    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text" class="prose max-w-none">
+        <p>
+          Yes, you can start Sisterlocks with as little as <strong>1.5–2 inches</strong> of natural 
+          hair. During your consultation, we assess hair readiness and advise on the best 
+          timeline for installation.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ 7 -->
+  <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <button class="faq-question items-center">
+      <h3 itemprop="name" class="text-lg font-semibold text-left">
+        Do you offer microlocs installation?
+      </h3>
+      <i data-lucide="chevron-down" class="faq-icon"></i>
+    </button>
+    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text" class="prose max-w-none">
+        <p>
+          Yes, besides the official Sisterlocks™ method, we also offer microlocs installation 
+          for clients who want small locs but prefer a more flexible or budget-friendly 
+          alternative. We help you choose the best option based on your goals and hair 
+          texture.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ 8 -->
+  <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <button class="faq-question items-center">
+      <h3 itemprop="name" class="text-lg font-semibold text-left">
+        What towns around Eldoret do you serve?
+      </h3>
+      <i data-lucide="chevron-down" class="faq-icon"></i>
+    </button>
+    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text" class="prose max-w-none">
+        <p>
+          We serve clients from all across Eldoret and surrounding towns, including 
+          <strong>Kapsaret, Kesses, Burnt Forest, Iten, Turbo, Moi’s Bridge, Ziwa, and the 
+          outskirts of Kitale</strong>. Many clients searching for “sisterlocks near me” visit 
+          us from nearby areas.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ 9 -->
+  <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <button class="faq-question items-center">
+      <h3 itemprop="name" class="text-lg font-semibold text-left">
+        How often do I need Sisterlocks retightening?
+      </h3>
+      <i data-lucide="chevron-down" class="faq-icon"></i>
+    </button>
+    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text" class="prose max-w-none">
+        <p>
+          Retightening is recommended every <strong>4–6 weeks</strong>. Regular maintenance 
+          keeps your roots healthy, prevents slippage, and helps your Sisterlocks mature 
+          properly. We provide professional retightening services for Sisterlocks clients 
+          across Eldoret and nearby towns.
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
 <!-- Reviews Section -->
 <section class="bg-pink-50 py-12 text-center" aria-labelledby="reviews-heading">
   <h2 id="reviews-heading" class="text-2xl font-bold text-gray-800 mb-3">
@@ -665,6 +928,7 @@
         <div class="flex flex-wrap gap-3">
           <a href="index.html" class="cta-button-tertiary animate-float">Home</a>
           <a href="services.html" class="cta-button-tertiary animate-float delay-100">Services</a>
+        <a href="pricing.html" class="cta-button-tertiary animate-float delay-150">Pricing</a>
           <a href="gallery.html" class="cta-button-tertiary animate-float delay-200">Gallery</a>
           <a href="contact.html" class="cta-button-tertiary animate-float delay-300">Contact</a>
         </div>
@@ -692,6 +956,9 @@
   <!-- Copyright -->
   <div class="text-center text-sm py-5 border-t border-white/10 text-gray-200/90">
     © Flo Sisterlocks Eldoret — All rights reserved.
+  </div>
+  <div class="text-center text-xs py-4 text-gray-400/70">
+    Serving Eldoret, Burnt Forest, Kapsaret, Iten, Kesses, Moi's Bridge, Turbo, Ziwa &amp; nearby areas.
   </div>
 </section>
 
@@ -809,6 +1076,27 @@
       }
     });
   });
+
+  // FAQ Accordion
+  document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+      const faqItem = button.parentElement;
+      const answer = button.nextElementSibling;
+      const icon = button.querySelector('.faq-icon');
+
+      faqItem.classList.toggle('open');
+
+      answer.style.maxHeight = faqItem.classList.contains('open') ? answer.scrollHeight + "px" : null;
+      icon.style.transform = faqItem.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+    });
+  });
 </script>
+
+<div class="floating-buttons-container">
+  <a href="https://www.google.com/search?q=Flo+Sisterlocks,+Eldoret+Reviews#lrd=0x17810135d93c5cd7:0x24851e618b8551d2,3" target="_blank" class="fab fab-rate" aria-label="Rate us on Google">
+    <i class="fas fa-star"></i>
+  </a> 
+</div>
+
 </body>
 </html>
