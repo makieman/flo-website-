@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://flo-website-phi.vercel.app/sitemap.xml
+Sitemap: https://flosisterlock.co.ke/sitemap.xml
