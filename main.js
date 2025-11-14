@@ -121,16 +121,21 @@ function initSmoothScroll() {
 function initBookingModal() {
   const { openBookingBtn, bookingModal } = DOM;
   if (openBookingBtn && bookingModal) {
-    const closeBookingBtn = bookingModal.querySelector('#close-booking');
+    const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+    const firstFocusableElement = bookingModal.querySelectorAll(focusableElements)[0];
+    const focusableContent = bookingModal.querySelectorAll(focusableElements);
+    const lastFocusableElement = focusableContent[focusableContent.length - 1];
+
     const showModal = () => {
       bookingModal.classList.remove('hidden');
-      // trap focus minimally by focusing close button
-      const closeBtn = bookingModal.querySelector('#close-booking');
-      if (closeBtn) closeBtn.focus();
+      document.body.style.overflow = 'hidden'; // Prevent background scroll
+      // Focus the first focusable element in the modal
+      if (firstFocusableElement) firstFocusableElement.focus();
     };
 
     const hideModal = () => {
       bookingModal.classList.add('hidden');
+      document.body.style.overflow = ''; // Restore background scroll
       openBookingBtn.focus();
     };
 
@@ -138,15 +143,31 @@ function initBookingModal() {
 
     if (closeBookingBtn) closeBookingBtn.addEventListener('click', hideModal);
 
-    // Close when clicking overlay
-    bookingModal.querySelectorAll('[data-close-modal]').forEach(el => {
-      el.addEventListener('click', hideModal);
+    // Event delegation for closing modal
+    bookingModal.addEventListener('click', (e) => {
+      if (e.target.hasAttribute('data-close-modal')) {
+        hideModal();
+      }
     });
 
-    // Close on Esc
+    // Close on Esc and trap focus
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !bookingModal.classList.contains('hidden')) {
-        hideModal();
+      if (bookingModal.classList.contains('hidden')) return;
+
+      if (e.key === 'Escape') hideModal();
+
+      if (e.key === 'Tab') {
+        if (e.shiftKey) { // if shift + tab
+          if (document.activeElement === firstFocusableElement) {
+            lastFocusableElement.focus();
+            e.preventDefault();
+          }
+        } else { // if tab
+          if (document.activeElement === lastFocusableElement) {
+            firstFocusableElement.focus();
+            e.preventDefault();
+          }
+        }
       }
     });
   }
@@ -249,63 +270,67 @@ function initTestimonialCarousel() {
 
       // 3. Update active dot on scroll
       let scrollTimeout;
-      wrapper.addEventListener('scroll', () => {
+      const updateActiveDot = () => {
         clearTimeout(scrollTimeout);
         scrollTimeout = setTimeout(() => {
-          const cardWidth = cards[0].offsetWidth;
+          const cardWidth = originalCards[0].offsetWidth;
           const gap = parseInt(window.getComputedStyle(track).gap, 10) || 32;
           const scrollLeft = wrapper.scrollLeft;
           const activeIndex = Math.round(scrollLeft / (cardWidth + gap));
 
           dots.forEach((dot, index) => dot.classList.toggle('active', index === activeIndex));
         }, 100);
-      });
+      };
+      wrapper.addEventListener('scroll', updateActiveDot);
 
       // --- JavaScript-driven Carousel Logic ---
       let isInteracting = false;
       let autoplay;
 
       const startAutoplay = () => {
-        if (isInteracting) return;
+        stopAutoplay(); // Clear any existing interval
         autoplay = setInterval(() => {
-          let currentScroll = wrapper.scrollLeft;
-          let totalScrollWidth = track.scrollWidth - wrapper.clientWidth;
+          if (isInteracting) return;
+          
+          const cardWidth = originalCards[0].offsetWidth;
+          const gap = parseInt(window.getComputedStyle(track).gap, 10) || 32;
+          const itemWidth = cardWidth + gap;
 
-          // If at the end, jump back to the start without animation
-          if (currentScroll >= totalScrollWidth - 1) {
-            wrapper.scrollTo({ left: 0, behavior: 'auto' });
-          } else {
-            // Otherwise, scroll smoothly to the next card
-            const cardWidth = originalCards[0].offsetWidth;
-            const gap = parseInt(window.getComputedStyle(track).gap, 10) || 32;
-            const nextScroll = Math.floor(currentScroll / (cardWidth + gap)) * (cardWidth + gap) + (cardWidth + gap);
-            wrapper.scrollTo({ left: nextScroll, behavior: 'smooth' });
-          }
+          // Scroll to the next item
+          wrapper.scrollLeft += itemWidth;
         }, 4000); // Change slide every 4 seconds
       };
 
       const stopAutoplay = () => {
         clearInterval(autoplay);
+        autoplay = null;
       };
+
+      // Infinite loop logic
+      wrapper.addEventListener('scroll', () => {
+        const cardWidth = originalCards[0].offsetWidth;
+        const gap = parseInt(window.getComputedStyle(track).gap, 10) || 32;
+        const itemWidth = cardWidth + gap;
+        const scrollEnd = track.scrollWidth - wrapper.clientWidth;
+
+        // When it reaches the cloned part, silently jump back to the beginning
+        if (wrapper.scrollLeft >= scrollEnd - itemWidth) {
+          wrapper.scrollTo({ left: wrapper.scrollLeft - (originalCards.length * itemWidth), behavior: 'auto' });
+        }
+      }, { passive: true });
 
       // Pause on interaction
       ['touchstart', 'mouseenter', 'focusin'].forEach(event => {
-        wrapper.addEventListener(event, () => {
-          isInteracting = true;
-          stopAutoplay();
-        }, { passive: true });
+        wrapper.addEventListener(event, () => { isInteracting = true; stopAutoplay(); }, { passive: true });
       });
 
       // Resume when interaction ends
       ['touchend', 'mouseleave', 'focusout'].forEach(event => {
-        wrapper.addEventListener(event, () => {
-          isInteracting = false;
-          startAutoplay();
-        }, { passive: true });
+        wrapper.addEventListener(event, () => { isInteracting = false; startAutoplay(); }, { passive: true });
       });
 
       // Start the carousel
-      startAutoplay();
+      window.addEventListener('load', startAutoplay); // Start after all resources are loaded
     }
   }
 }
@@ -313,51 +338,36 @@ function initTestimonialCarousel() {
 function initStatsAnimation() {
   if (!DOM.statsSection) return;
 
-  const animateCounters = () => {
-    const counters = document.querySelectorAll('.stat-number');
-    const decimalCounters = document.querySelectorAll('.stat-number-decimal');
-    const speed = 200; // The lower the faster
+  const animateCounter = (counter) => {
+    const target = +counter.getAttribute('data-target');
+    const suffix = counter.getAttribute('data-suffix') || '';
+    const duration = 2000; // 2 seconds
+    const isDecimal = target % 1 !== 0;
+    let startTimestamp = null;
 
-    // Animate integer counters
-    document.querySelectorAll('.stat-number').forEach(counter => {
-      const updateCount = () => {
-        const target = +counter.getAttribute('data-target');
-        const count = +counter.innerText;
-        const suffix = counter.getAttribute('data-suffix') || '';
-        const inc = Math.max(Math.ceil(target / speed), 1);
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      const currentValue = progress * target;
 
-        if (count < target) {
-          counter.innerText = Math.min(count + inc, target);
-          setTimeout(updateCount, 10);
-        } else {
-          // When animation is done, set the final text with suffix
-          counter.innerText = target + suffix;
-        }
-      };
-      updateCount();
-    });
+      if (isDecimal) {
+        counter.innerText = currentValue.toFixed(1);
+      } else {
+        counter.innerText = Math.floor(currentValue);
+      }
 
-    // Animate decimal counters
-    document.querySelectorAll('.stat-number-decimal').forEach(counter => {
-      const updateCount = () => {
-        const target = +counter.getAttribute('data-target');
-        const count = +counter.innerText;
-        const inc = target / speed;
-
-        if (count < target) {
-          counter.innerText = (count + inc).toFixed(1);
-          setTimeout(updateCount, 15);
-        } else {
-          counter.innerText = target.toFixed(1);
-        }
-      };
-      updateCount();
-    });
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      } else {
+        counter.innerText = (isDecimal ? target.toFixed(1) : target) + suffix;
+      }
+    };
+    window.requestAnimationFrame(step);
   };
 
   const observer = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting) {
-      animateCounters();
+      document.querySelectorAll('[data-target]').forEach(animateCounter);
       observer.disconnect(); // Animate only once
     }
   }, { threshold: 0.5 });

@@ -228,6 +228,34 @@
         margin-top: 0; /* Use grid gap for spacing instead */
       }
     }
+
+    /* === iOS & Mobile Scrolling Fixes === */
+    
+    /* 1. General rule: Prevent horizontal scroll on the root elements. */
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+      box-sizing: border-box;
+    }
+
+    /* 2. Ensure all major sections and images respect boundaries. */
+    section, footer, img, video {
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* 3. Hero section: Re-enforce overflow is hidden. */
+    #hero-section {
+      width: 100%; /* Use 100% instead of 100vw to account for scrollbar */
+      overflow: hidden;
+    }
+
+    /* 4. Services & Testimonial Carousels: Enable smooth touch scrolling on iOS. */
+    .services-scroll-wrapper,
+    .testimonial-carousel-wrapper {
+      -webkit-overflow-scrolling: touch;
+      overflow-x: auto; /* Ensure horizontal scrolling is enabled for the content */
+    }
   </style>
 </head>
 <body class="antialiased leading-relaxed overflow-x-hidden pt-16 bg-white text-gray-800">
