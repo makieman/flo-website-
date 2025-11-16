@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog — Flo Sisterlocks Eldoret</title>
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="The official blog of Flo Sisterlocks Eldoret. Get tips, insights, and stories about Sisterlocks and natural hair care in Kenya.">
+  <meta name="google-site-verification" content="SivXqBm3imxJKFmxNtct6d91vczleIXfOrB12CfOdEs" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- SEO and Social Sharing Meta Tags -->
+  <meta name="keywords" content="Sisterlocks blog, natural hair blog Kenya, Sisterlocks tips, hair care advice, Flo Sisterlocks blog">
+  <link rel="canonical" href="https://flosisterlock.co.ke/blog.html" />
+  <meta property="og:title" content="Blog – Flo Sisterlocks Eldoret">
+  <meta property="og:description" content="The official blog of Flo Sisterlocks Eldoret. Get tips, insights, and stories about Sisterlocks and natural hair care in Kenya.">
+  <meta property="og:image" content="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200951/client_image_5_erwabh.jpg">
+  <meta property="og:url" content="https://flosisterlock.co.ke/blog.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <script>
+    tailwind.config = {      
+      theme: {
+        extend: {
+          colors: {
+            brand: '#d4af37', // gold
+            dark: '#0f0f0f',
+          },
+          fontFamily: {
+            playfair: ['"Playfair Display"', 'serif'],
+            roboto: ['"Roboto"', 'sans-serif'],
+            cursive: ['"Great Vibes"', 'cursive'],
+          },
+        },
+      },
+    }
+  </script>
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Fonts: Roboto for body, Playfair for hero display -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Playfair+Display:wght@600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="antialiased overflow-x-hidden pt-16 bg-white text-gray-800">
+
+  <!-- Header -->
+  <header id="main-header" class="fixed top-0 left-0 w-full z-50 text-white backdrop-blur-md transition-all duration-300">
+    <div class="container mx-auto px-6 py-3 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="assets/apple-touch-icon.png" alt="Flo Sisterlocks Logo" class="h-10 w-10 rounded-full object-cover border-white border">
+        <span class="font-bold text-xl">Flo Sisterlocks</span>
+      </a>
+
+      <!-- Desktop Menu -->
+      <nav id="desktop-menu" class="hidden md:flex gap-6 items-center">
+        <a href="index.html" class="hover:underline">Home</a>
+        <a href="services.html" class="hover:underline">Services</a>
+        <a href="pricing.html" class="hover:underline">Pricing</a>
+        <a href="gallery.html" class="hover:underline">Gallery</a>
+        <a href="blog.html" class="hover:underline font-semibold text-amber-600">Blog</a>
+        <a href="contact.html" class="hover:underline">Contact</a>
+        <a href="https://wa.me/254721530120" target="_blank" class="cta-button-primary">Book</a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button id="menu-btn" class="block md:hidden focus:outline-none">
+        <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg"
+             class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16m0 6H4" />
+        </svg>
+        <svg id="close-icon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <nav id="mobile-menu" class="md:hidden">
+      <div class="p-4 flex justify-end">
+        <button id="mobile-menu-close-btn" class="text-red-500 focus:outline-none" aria-label="Close menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <a href="index.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Home</a>
+      <a href="services.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Services</a>
+      <a href="pricing.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Pricing</a>
+      <a href="gallery.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Gallery</a>
+      <a href="blog.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Blog</a>
+      <a href="contact.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Contact</a>
+      <a href="https://wa.me/254721530120" target="_blank" class="py-3 hover:text-amber-400">Book on WhatsApp</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="relative bg-gray-900 text-white py-20 md:py-32 flex items-center justify-center text-center overflow-hidden">
+      <div class="absolute inset-0 z-0 bg-cover bg-center opacity-30" style="background-image: url('https://res.cloudinary.com/dh5hssddg/image/upload/v1761200951/client_image_1_mwb9o3.jpg');"></div>
+      <div class="relative z-10 container mx-auto px-6">
+        <h1 class="text-5xl md:text-7xl font-extrabold font-playfair mb-4 leading-tight" data-aos="fade-up">Our Blog</h1>
+        <p class="text-lg md:text-2xl max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+          Tips, Stories, and Insights on Natural Hair Care.
+        </p>
+      </div>
+    </section>
+
+    <!-- Coming Soon Section -->
+    <section id="coming-soon" class="bg-white py-20 text-gray-800">
+      <div class="container mx-auto px-6 text-center">
+        <div data-aos="fade-up">
+          <i data-lucide="pen-square" class="w-16 h-16 mx-auto text-amber-500 mb-6"></i>
+          <h2 class="text-4xl md:text-5xl font-bold font-playfair mb-6">Coming Soon!</h2>
+          <p class="text-xl text-gray-700 max-w-2xl mx-auto">
+            We are busy writing and preparing valuable content for you. Our blog will launch soon with expert advice on Sisterlocks maintenance, styling inspiration, and personal hair journeys. Stay tuned!
+          </p>
+          <a href="index.html" class="cta-button-primary mt-10">Return Home</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 mt-0">
+    <div class="container mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-10">
+      <!-- Address -->
+      <div>
+        <h3 class="font-semibold text-xl mb-2 font-playfair">Flo Sisterlocks Eldoret</h3>
+        <p class="text-gray-300 text-sm">E.T Centre, Ronald Ngala Street, opposite Hotel Comfy, Eldoret</p>
+        <p class="text-gray-300 text-sm mt-1">Phone: <a href="tel:+254721530120"
+            class="underline hover:text-amber-400 transition">0721 530120</a></p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="font-semibold text-lg mb-3 font-playfair">Quick Links</h4>
+        <div class="flex flex-wrap gap-3">
+          <a href="index.html" class="cta-button-tertiary">Home</a>
+          <a href="services.html" class="cta-button-tertiary">Services</a>
+          <a href="pricing.html" class="cta-button-tertiary">Pricing</a>
+          <a href="gallery.html" class="cta-button-tertiary">Gallery</a>
+          <a href="contact.html" class="cta-button-tertiary">Contact</a>
+        </div>
+      </div>
+
+      <!-- Social Media -->
+      <div class="text-center">
+        <h4 class="font-semibold text-lg mb-3 font-playfair">Follow Us</h4>
+        <div class="flex justify-center gap-10 text-4xl">
+          <a href="https://instagram.com/sisterlocksbyflo" target="_blank"
+            class="social-icon instagram-icon transform hover:scale-125 transition duration-300">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/flosisterlocks" target="_blank"
+            class="social-icon facebook-icon transform hover:scale-125 transition duration-300">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="https://www.tiktok.com/@flosisterlocks" target="_blank"
+            class="social-icon tiktok-icon transform hover:scale-125 transition duration-300">
+            <i class="fab fa-tiktok"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+    <div class="text-center text-xs py-4 border-t border-gray-700 text-gray-400">
+      © Flo Sisterlocks Eldoret — All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Scripts at the end of the body -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="main.js"></script>
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+    // Initialize AOS scroll animations
+    if (window.AOS) {
+      AOS.init({ duration: 700, once: true });
+    }
+  </script>
+
+</body>
+</html>
