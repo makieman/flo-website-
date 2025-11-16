@@ -544,22 +544,13 @@ section.bg-gray-100 .text-gray-300 { color: #cbd5e1; }
 }
 
 .cta-button-secondary {
-  background: transparent;
-  color: #111827;
-  border: 1px solid var(--cta-secondary-border);
-  padding: 0.8rem 1.3rem;
-  border-radius: 12px;
+  /* New simplified style for secondary buttons (e.g., 'Back to Blog') */
+  color: #b45309; /* amber-700 */
   font-weight: 600;
-  transition: background 180ms ease, color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  text-decoration: none;
 }
-.cta-button-secondary:hover,
-.cta-button-secondary:focus {
-  background: var(--cta-secondary-hover-bg);
-  color: var(--cta-secondary-hover-text);
-  transform: translateY(-2px);
+.cta-button-secondary:hover {
+  text-decoration: underline;
 }
 
 /* Tertiary CTA: subtle outline for less prominent actions */
@@ -598,27 +589,6 @@ section.bg-gray-100 .text-gray-300 { color: #cbd5e1; }
   box-shadow: 0 20px 50px rgba(2,6,23,0.55);
 }
 .btn-dark:active,
-.cta-button-primary:active {
-  transform: translateY(-1px);
-}
-.btn-dark:focus-visible,
-.cta-button-primary:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 6px rgba(0,0,0,0.12);
-}
-
-/* Pill / large variants */
-.btn-pill { border-radius: 9999px; padding: 0.9rem 1.8rem; }
-.btn-lg { padding: 1rem 2rem; font-size: 1.05rem; }
-
-/* Ghost / outline secondary */
-.btn-ghost,
-.cta-button-secondary {
-  background: transparent;
-  color: #0b1220;
-  border: 1px solid rgba(11,18,32,0.08);
-}
-.btn-ghost:hover,
 .cta-button-secondary:hover {
   background: rgba(0,0,0,0.06);
   color: #ffffff;
@@ -682,38 +652,6 @@ section.bg-gray-100 .text-gray-300 { color: #cbd5e1; }
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35) !important;
 }
 
-/* Secondary/ghost buttons should show white text on dark backgrounds and a soft white hover */
-.cta-button-secondary,
-.btn-ghost {
-  background: rgba(255, 255, 255, 0.08) !important;
-  color: #fff !important;
-  border: 1px solid rgba(255,255,255,0.20) !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
-.cta-button-secondary:hover,
-.btn-ghost:hover {
-  background: rgba(255, 255, 255, 0.15) !important;
-  color: #fff !important;
-  transform: translateY(-3px) scale(1.01);
-  border-color: rgba(255,255,255,0.30) !important;
-  box-shadow: 0 12px 30px rgba(255,255,255,0.15) !important;
-}
-
-/* Override for secondary buttons on light backgrounds (e.g., services page cards) */
-.service-card .cta-button-secondary {
-  color: #1f2937 !important; /* gray-800 */
-  border-color: #d1d5db !important; /* gray-300 */
-  background: #ffffff !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
-  font-weight: 600;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-}
-
 .service-card .cta-button-secondary:hover {
   background: #f3f4f6 !important; /* gray-100 */
   color: #111827 !important; /* gray-900 */
@@ -761,7 +699,6 @@ section.bg-gray-100 .text-gray-300 { color: #cbd5e1; }
 /* Apply base button layout to common button classes for consistency */
 .btn,
 .cta-button-primary,
-.cta-button-secondary,
 .cta-btn,
 .btn-footer {
   display: inline-flex;
@@ -888,11 +825,6 @@ section.bg-gray-100 .text-gray-300 { color: #cbd5e1; }
 /* Smooth scroll support for browsers that support CSS smooth scrolling */
 html { scroll-behavior: smooth; }
 
-.cta-button-secondary:hover,
-.cta-button-secondary:focus {
-  transform: translateY(-2px);
-}
-
 /* Focus styles for accessibility */
 .cta-button-primary:focus-visible,
 .cta-button-secondary:focus-visible,
@@ -910,7 +842,6 @@ html { scroll-behavior: smooth; }
 .btn,
 .btn-dark,
 .cta-button-primary,
-.cta-button-secondary,
 .cta-btn,
 .btn-ghost,
 .more-services-button {
