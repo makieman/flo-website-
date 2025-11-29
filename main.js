@@ -120,6 +120,7 @@ function initSmoothScroll() {
 
 function initBookingModal() {
   const { openBookingBtn, bookingModal } = DOM;
+  const closeBookingBtn = document.getElementById('close-booking');
   if (openBookingBtn && bookingModal) {
     const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
     const firstFocusableElement = bookingModal.querySelectorAll(focusableElements)[0];
@@ -379,13 +380,18 @@ function initHeaderScroll() {
   if (DOM.header) {
     const handleScroll = () => {
       if (window.scrollY > 10) {
-        DOM.header.classList.add('scrolled');
+        DOM.header.classList.add('backdrop-blur-sm');
+        DOM.header.classList.remove('bg-white/80', 'text-gray-900', 'shadow-md');
+        DOM.header.classList.add('text-white');
       } else {
-        DOM.header.classList.remove('scrolled');
+        DOM.header.classList.remove('backdrop-blur-sm');
+        DOM.header.classList.add('text-white');
       }
     };
     // Debounce the scroll event to improve performance
     window.addEventListener('scroll', debounce(handleScroll, 15));
+    // Initial check on page load
+    handleScroll();
   }
 }
 

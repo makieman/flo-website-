@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Sisterlocks &amp; Natural Hair Blog | Flo Sisterlocks Eldoret, Kenya</title>
   <!-- Favicon -->
   <link rel="icon" href="/assets/favicon.ico" sizes="any">
@@ -45,28 +45,32 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Playfair+Display:wght@600;700&family=Great+Vibes&display=swap" rel="stylesheet">
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    /* Recommended for instant smoothness on iOS */
+    html { -webkit-overflow-scrolling: touch; }
+  </style>
 </head>
 <body class="antialiased overflow-x-hidden pt-16 bg-white text-gray-800">
 
   <!-- Header -->
-  <header id="main-header" class="fixed top-0 left-0 w-full z-50 text-white backdrop-blur-md transition-all duration-300">
-    <div class="container mx-auto px-6 py-3 flex items-center justify-between">
+  <header id="main-header" class="fixed top-0 left-0 w-full z-50 text-white transition-all duration-300">
+    <div class="container mx-auto px-6 py-2 flex items-center justify-between">
       <!-- Logo -->
       <a href="index.html" class="flex items-center gap-3">
-        <img src="assets/apple-touch-icon.png" alt="Flo Sisterlocks Logo" class="h-10 w-10 rounded-full object-cover border-white border">
+        <img src="assets/apple-touch-icon.png" alt="Flo Sisterlocks Logo" class="h-8 w-8 rounded-full object-cover border-white border">
         <span class="font-bold text-xl">Flo Sisterlocks</span>
       </a>
 
       <!-- Desktop Menu -->
-      <nav id="desktop-menu" class="hidden md:flex gap-6 items-center">
+      <nav id="desktop-menu" class="hidden md:flex gap-6 items-center justify-center flex-1">
         <a href="index.html" class="hover:underline">Home</a>
         <a href="services.html" class="hover:underline">Services</a>
         <a href="pricing.html" class="hover:underline">Pricing</a>
         <a href="gallery.html" class="hover:underline">Gallery</a>
         <a href="blog.html" class="hover:underline font-semibold text-amber-600">Blog</a>
         <a href="contact.html" class="hover:underline">Contact</a>
-        <a href="https://wa.me/254721530120" target="_blank" class="cta-button-primary">Book</a>
       </nav>
+      <a href="https://wa.me/254721530120" target="_blank" class="btn btn-sm cta-button-primary hidden md:inline-flex">📅 Book Consultation</a>
 
       <!-- Mobile Menu Button -->
       <button id="menu-btn" class="block md:hidden focus:outline-none">
@@ -84,20 +88,13 @@
 
     <!-- Mobile Menu -->
     <nav id="mobile-menu" class="md:hidden">
-      <div class="p-4 flex justify-end">
-        <button id="mobile-menu-close-btn" class="text-red-500 focus:outline-none" aria-label="Close menu">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
       <a href="index.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Home</a>
       <a href="services.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Services</a>
       <a href="pricing.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Pricing</a>
       <a href="gallery.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Gallery</a>
       <a href="blog.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Blog</a>
       <a href="contact.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Contact</a>
-      <a href="https://wa.me/254721530120" target="_blank" class="py-3 hover:text-amber-400">Book on WhatsApp</a>
+      <a href="https://wa.me/254721530120" target="_blank" class="py-3 border-b border-gray-800 hover:text-amber-400">Book on WhatsApp</a>
     </nav>
   </header>
 
@@ -123,7 +120,7 @@
           <!-- Blog Post Card 1 (Placeholder) -->
           <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-2xl" data-aos="fade-up">
             <a href="blog-post-1.html" class="block">
-              <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200952/flo_image_2_v4ndle.jpg" alt="A woman with beautiful Sisterlocks smiling." class="w-full h-64 object-cover">
+              <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200952/flo_image_2_v4ndle.jpg" alt="A woman with beautiful Sisterlocks smiling." class="w-full h-64 object-cover" loading="lazy">
             </a>
             <div class="p-6">
               <p class="text-sm text-gray-500 mb-2">November 15, 2023</p>
@@ -138,7 +135,7 @@
           <!-- Blog Post Card 2 (Placeholder) -->
           <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="100">
             <a href="blog-post-2.html" class="block">
-              <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200951/client_image_2_ksrlew.jpg" alt="Close-up of well-maintained Sisterlocks." class="w-full h-64 object-cover">
+              <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200951/client_image_2_ksrlew.jpg" alt="Close-up of well-maintained Sisterlocks." class="w-full h-64 object-cover" loading="lazy">
             </a>
             <div class="p-6">
               <p class="text-sm text-gray-500 mb-2">December 5, 2023</p>
@@ -153,7 +150,7 @@
           <!-- Blog Post Card 3 (Placeholder) -->
           <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="200">
             <a href="blog-post-3.html" class="block">
-              <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761832888/IMG-20251030-WA0014_fsyqvl.jpg" alt="An elegant updo hairstyle with Sisterlocks." class="w-full h-64 object-cover">
+              <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761832888/IMG-20251030-WA0014_fsyqvl.jpg" alt="An elegant updo hairstyle with Sisterlocks." class="w-full h-64 object-cover" loading="lazy">
             </a>
             <div class="p-6">
               <p class="text-sm text-gray-500 mb-2">December 20, 2023</p>
@@ -230,6 +227,23 @@
     if (window.AOS) {
       AOS.init({ duration: 700, once: true });
     }
+
+    // Header scroll effect
+    document.addEventListener('scroll', () => {
+      const header = document.getElementById('main-header');
+      const scrollPosition = window.scrollY;
+
+      if (scrollPosition > 50) {
+        header.classList.add('bg-white', 'text-gray-900', 'shadow-md', 'backdrop-blur-md');
+        header.classList.remove('text-white');
+      } else {
+        header.classList.remove('bg-white', 'text-gray-900', 'shadow-md', 'backdrop-blur-md');
+        header.classList.add('text-white');
+      }
+    });
+
+    // Ensure header has correct initial state on load
+    window.dispatchEvent(new Event('scroll'));
   </script>
 
 </body>

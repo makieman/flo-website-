@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Sisterlocks Installation Eldoret, Kenya | Certified Consultant & Pricing</title>
 
   <!-- Favicon -->
@@ -174,28 +174,33 @@
     body { background-color: var(--bg-color); color: var(--text-color); }
     .backdrop-blur-md { backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
     .services-hero { padding: 8rem 1.5rem 4rem; text-align: center; }
+
+    /* Recommended for instant smoothness on iOS */
+    html { -webkit-overflow-scrolling: touch; }
+    .service-card { touch-action: manipulation; }
+
   </style>
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="antialiased overflow-x-hidden pt-16 bg-white text-gray-800">
 
-<header class="fixed top-0 left-0 w-full z-50 bg-white/80 text-gray-900 shadow-md dark:bg-black/70 dark:text-white backdrop-blur-md transition-colors duration-300">
+<header id="main-header" class="fixed top-0 left-0 w-full z-50 text-white transition-all duration-300">
   <div class="container mx-auto px-6 py-3 flex items-center justify-between">
-    <!-- Logo and Site Title -->
+    <!-- Logo and Site Title --> 
     <a href="index.html" class="flex items-center gap-3">
-      <img src="assets/apple-touch-icon.png" alt="Flo Sisterlocks Logo" class="h-10 w-10 rounded-full object-cover border-white border">
+      <img src="assets/apple-touch-icon.png" alt="Flo Sisterlocks Logo" class="h-8 w-8 rounded-full object-cover border-white border">
       <span class="font-bold text-xl">Flo Sisterlocks </span>
     </a>
 
     <!-- Desktop Nav -->
-    <nav id="desktop-menu" class="hidden md:flex gap-6 items-center">
+    <nav id="desktop-menu" class="hidden md:flex gap-6 items-center justify-center flex-1">
       <a href="index.html" class="hover:underline">Home</a>
       <a href="services.html" class="hover:underline">Services</a>
       <a href="pricing.html" class="hover:underline">Pricing</a>
       <a href="gallery.html" class="hover:underline">Gallery</a>
       <a href="contact.html" class="hover:underline">Contact</a>
-      <a href="https://wa.me/254721530120" target="_blank" class="cta-button-primary">Book</a>
     </nav>
+    <a href="https://wa.me/254721530120" target="_blank" class="btn btn-sm cta-button-primary hidden md:inline-flex">📅 Book Consultation</a>
 
     <!-- Hamburger Icon for Mobile -->
     <button id="menu-btn" class="block md:hidden focus:outline-none">
@@ -214,18 +219,11 @@
 
    <!-- Mobile Menu -->
   <nav id="mobile-menu" class="md:hidden">
-    <div class="p-4 flex justify-end">
-      <button id="mobile-menu-close-btn" class="text-red-500 focus:outline-none" aria-label="Close menu">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-    </div>
     <a href="index.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Home</a>
     <a href="services.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Services</a>
     <a href="pricing.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Pricing</a>
     <a href="gallery.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Gallery</a>
-    <a href="blog.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Blog</a></a>
+    <a href="blog.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Blog</a>
     <a href="https://wa.me/254721530120" target="_blank" class="py-3 hover:text-amber-400">Book on WhatsApp</a>
   </nav>
 </header>
@@ -238,6 +236,9 @@
       <h1 class="text-4xl md:text-5xl font-bold font-playfair text-gray-900">Our Sisterlocks & Natural Hair Services in Eldoret</h1>
       <p class="text-gray-600 mt-3 text-lg">Expert care for your hair and beauty needs.</p>
       <p class="text-gray-600 mt-3">See real results from our clients in our <a href="gallery.html" class="text-amber-600 underline hover:text-amber-700">before and after gallery</a>.</p>
+      <div class="mt-6">
+        <a href="https://wa.me/254721530120?text=I'd like to book a consultation" target="_blank" class="btn btn-sm cta-button-primary inline-block">📅 Book Consultation</a>
+      </div>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -247,7 +248,7 @@
              data-title="Sisterlocks Installation"
              data-description="Transform your natural hair journey with our expert Sisterlocks installation. Our certified technique ensures precision and beautiful, long-lasting results."
              data-features="Consultation & hair assessment|Precision grid mapping|Complete locs installation (6-12 hours)|Aftercare instructions & starter kit">
-          <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200951/client_image_1_mwb9o3.jpg" alt="Sisterlocks installation service in Eldoret" class="w-full h-64 object-cover">
+          <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200951/client_image_1_mwb9o3.jpg" alt="Sisterlocks installation service in Eldoret" class="w-full h-64 object-cover" loading="lazy">
         </div>
         <div class="p-6">
           <h3 class="text-2xl font-bold font-playfair text-gray-900">Sisterlocks Installation Eldoret</h3>
@@ -267,7 +268,7 @@
              data-description="Keep your Sisterlocks, interlocks, or microlocs fresh and healthy with our expert hair retightening services in Eldoret. Our gentle technique preserves lock integrity."
              data-features="Full head retightening|Partial maintenance sessions|Deep conditioning treatments|Lock repair & reinforcement"
         >
-          <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200951/client_image_2_ksrlew.jpg" alt="Sisterlocks maintenance Eldoret" class="w-full h-64 object-cover">
+          <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200951/client_image_2_ksrlew.jpg" alt="Sisterlocks maintenance Eldoret" class="w-full h-64 object-cover" loading="lazy">
         </div>
         <div class="p-6">
           <h3 class="text-2xl font-bold font-playfair text-gray-900">Sisterlocks Maintenance Eldoret</h3>
@@ -287,7 +288,7 @@
              data-description="Complete nail care services for a polished look. From classic elegance to creative designs, we use premium products for lasting results."
              data-features="Pedicure & Gel: KES 1,300|Tips & Builder: KES 1,500|Creative Tips (Simple Design): KES 1,800|Creative Tips (Complex Design): KES 2,000|Creative Gumgel Overlay: KES 2,500|Creative Acrylics: KES 3,000"
         >
-          <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761213862/service_skelletos_e6jcfs.jpg" alt="Nail services at a natural hair salon in Eldoret" class="w-full h-64 object-cover">
+          <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761213862/service_skelletos_e6jcfs.jpg" alt="Nail services at a natural hair salon in Eldoret" class="w-full h-64 object-cover" loading="lazy">
         </div>
         <div class="p-6">
           <h3 class="text-2xl font-bold font-playfair text-gray-900">Nails & Beauty</h3>
@@ -307,7 +308,7 @@
              data-description="We offer a wide range of professional hair styling services, from intricate braids to beautiful twists, to suit any occasion or preference."
              data-features="Passion/Natural Twist: KES 1,800|Boh Braids: KES 1,500|Spring Twist: KES 1,500|Knotless/Lines Braids: KES 1,200|Stitch Lines: KES 1,200|Lines: KES 1,100|Lines (Back to School): KES 500|Braid Undo: From KES 50"
         > 
-          <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1762982320/WhatsApp_Image_2025-11-13_at_00.16.42_5d004374_os4ony.jpg" alt="Starter locs and braiding in Eldoret" class="w-full h-64 object-cover">
+          <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1762982320/WhatsApp_Image_2025-11-13_at_00.16.42_5d004374_os4ony.jpg" alt="Starter locs and braiding in Eldoret" class="w-full h-64 object-cover" loading="lazy">
         </div>
         <div class="p-6">
           <h3 class="text-2xl font-bold font-playfair text-gray-900">Starter Locs & Braiding Eldoret</h3>
@@ -327,7 +328,7 @@
              data-description="Refresh your look with our professional hair coloring services. We use high-quality products to achieve vibrant, long-lasting color while protecting your hair's health."
              data-features="Full-head color|Highlights & Lowlights|Balayage & Ombré|Color correction"
         >
-          <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761214158/3f79f1d7-9809-446b-9e1d-fa95ea5709e8_wojwfo.jpg" alt="Hair dying for locs in Kenya" class="w-full h-64 object-cover">
+          <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761214158/3f79f1d7-9809-446b-9e1d-fa95ea5709e8_wojwfo.jpg" alt="Hair dying for locs in Kenya" class="w-full h-64 object-cover" loading="lazy">
         </div>
         <div class="p-6">
           <h3 class="text-2xl font-bold font-playfair text-gray-900">Hair Dying</h3>
@@ -347,7 +348,7 @@
              data-description="Add length and volume with our premium human hair extensions. We offer professional installation for a seamless, natural look."
              data-features="Tape-in Extensions|Micro-link Extensions|Sew-in Weaves|Custom Color Matching|Blending & Styling"
         >
-          <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761832764/IMG-20251030-WA0072_c4eofg.jpg" alt="Human hair extension services in Eldoret" class="w-full h-64 object-cover">
+          <img src="https://res.cloudinary.com/dh5hssddg/image/upload/v1761832764/IMG-20251030-WA0072_c4eofg.jpg" alt="Human hair extension services in Eldoret" class="w-full h-64 object-cover" loading="lazy">
         </div>
         <div class="p-6">
           <h3 class="text-2xl font-bold font-playfair text-gray-900">Human Hair Extensions</h3>
@@ -519,17 +520,24 @@
     closeModalBtn.addEventListener('click', closeModal);
     modalOverlay.addEventListener('click', closeModal);
   });
+
+  // Header scroll effect
+  document.addEventListener('scroll', () => {
+    const header = document.getElementById('main-header');
+    const scrollPosition = window.scrollY;
+
+    if (scrollPosition > 50) {
+      header.classList.add('bg-white/80', 'text-gray-900', 'shadow-md', 'backdrop-blur-md');
+      header.classList.remove('text-white');
+    } else {
+      header.classList.remove('bg-white/80', 'text-gray-900', 'shadow-md', 'backdrop-blur-md');
+      header.classList.add('text-white');
+    }
+  });
+
+  // Ensure header has correct initial state on load
+  window.dispatchEvent(new Event('scroll'));
 </script>
- 
-<div class="floating-buttons-container">
-  <a href="https://wa.me/254721530120" target="_blank" class="fab fab-whatsapp" aria-label="Chat on WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a> 
-
-
-
-
-</div>
 
 </body>
 </html>

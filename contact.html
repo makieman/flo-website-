@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Contact — Flo Sisterlocks Eldoret</title>
   <!-- Favicon -->
   <link rel="icon" href="/assets/favicon.ico" sizes="any">
@@ -13,11 +13,11 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- SEO and Social Sharing Meta Tags -->
   <meta name="keywords" content="Sisterlocks Eldoret, Sisterlocks Kenya, natural hair salon, hair retightening, hair maintenance, Sisterlocks consultant, Flo Sisterlocks">
-  <link rel="canonical" href="https://flosisterlock.co.ke/contact.html" />
+  <link rel="canonical" href="https://www.flosisterlock.co.ke/contact.html" />
   <meta property="og:title" content="Contact Us – Flo Sisterlocks Eldoret">
   <meta property="og:description" content="Get in touch with Flo Sisterlocks in Eldoret to book an appointment or make an inquiry. Find our location, phone number, and opening hours.">
   <meta property="og:image" content="https://res.cloudinary.com/dh5hssddg/image/upload/v1761200951/client_image_5_erwabh.jpg">
-  <meta property="og:url" content="https://flosisterlock.co.ke/contact.html">
+  <meta property="og:url" content="https://www.flosisterlock.co.ke/contact.html">
   <meta name="twitter:card" content="summary_large_image">
   <script>
     tailwind.config = {      
@@ -53,28 +53,31 @@
       h1, h2, h3 { overflow-wrap: break-word; }
     }
   </style>
+  <style>
+    html { -webkit-overflow-scrolling: touch; }
+  </style>
 </head>
 <body class="antialiased overflow-x-hidden pt-16 bg-white text-gray-800">
 
   <!-- Header -->
-  <header id="main-header" class="fixed top-0 left-0 w-full z-50 text-white backdrop-blur-md transition-all duration-300">
-    <div class="container mx-auto px-6 py-3 flex items-center justify-between">
+  <header id="main-header" class="fixed top-0 left-0 w-full z-50 text-white transition-all duration-300">
+    <div class="container mx-auto px-6 py-2 flex items-center justify-between">
       <!-- Logo -->
       <a href="index.html" class="flex items-center gap-3">
-        <img src="assets/apple-touch-icon.png" alt="Flo Sisterlocks Logo" class="h-10 w-10 rounded-full object-cover border-white border">
+        <img src="assets/apple-touch-icon.png" alt="Flo Sisterlocks Logo" class="h-8 w-8 rounded-full object-cover border-white border">
         <span class="font-bold text-xl">Flo Sisterlocks</span>
       </a>
 
       <!-- Desktop Menu -->
-      <nav id="desktop-menu" class="hidden md:flex gap-6 items-center">
+      <nav id="desktop-menu" class="hidden md:flex gap-6 items-center justify-center flex-1">
         <a href="index.html" class="hover:underline">Home</a>
         <a href="services.html" class="hover:underline">Services</a>
         <a href="pricing.html" class="hover:underline">Pricing</a>
         <a href="gallery.html" class="hover:underline">Gallery</a>
         <a href="blog.html" class="hover:underline">Blog</a>
         <a href="contact.html" class="hover:underline">Contact</a>
-        <a href="https://wa.me/254721530120" target="_blank" class="cta-button-primary">Book</a>
       </nav>
+      <a href="https://wa.me/254721530120" target="_blank" class="btn btn-sm cta-button-primary hidden md:inline-flex">📅 Book Consultation</a>
 
       <!-- Mobile Menu Button -->
       <button id="menu-btn" class="block md:hidden focus:outline-none">
@@ -92,20 +95,13 @@
 
     <!-- Mobile Menu -->
     <nav id="mobile-menu" class="md:hidden">
-      <div class="p-4 flex justify-end">
-        <button id="mobile-menu-close-btn" class="text-red-500 focus:outline-none" aria-label="Close menu">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-      </div>
       <a href="index.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Home</a>
       <a href="services.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Services</a>
       <a href="pricing.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Pricing</a>
       <a href="gallery.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Gallery</a>
       <a href="blog.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Blog</a>
       <a href="contact.html" class="py-3 border-b border-gray-800 hover:text-amber-400">Contact</a>
-      <a href="https://wa.me/254721530120" target="_blank" class="py-3 hover:text-amber-400">Book on WhatsApp</a>
+      <a href="https://wa.me/254721530120" target="_blank" class="py-3 border-b border-gray-800 hover:text-amber-400">Book on WhatsApp</a>
     </nav>
   </header>
 
@@ -119,6 +115,9 @@
         <p class="text-lg md:text-2xl max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
           We'd love to hear from you! Reach out for bookings, inquiries, or just to say hello.
         </p>
+        <div class="mt-6" data-aos="fade-up" data-aos-delay="200">
+          <a href="https://wa.me/254721530120?text=I'd like to book a consultation" target="_blank" class="btn btn-sm cta-button-primary inline-block">📅 Book Consultation</a>
+        </div>
       </div>
     </section>
 
@@ -168,7 +167,7 @@
             <div class="mt-10" data-aos="fade-up" data-aos-delay="200">
               <h3 class="font-semibold text-xl text-gray-900 mb-4 font-playfair">Our Location</h3>
               <div class="w-full h-64 md:h-96 rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-[1.02] duration-300">
-                <iframe
+                <iframe loading="lazy"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.6564625729015!2d35.277208500000015!3d0.5160946000000061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x17810135d93c5cd7%3A0x24851e618b8551d2!2sFlo%20Sisterlocks%2C%20Eldoret!5e0!3m2!1sen!2ske!4v1761207628771!5m2!1sen!2ske"
                   width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade" aria-label="Google Map to Flo Sisterlocks Eldoret"></iframe>
@@ -324,6 +323,23 @@
         setTimeout(() => { AOS.refresh(); }, 50);
       }); 
     });
+
+    // Header scroll effect
+    document.addEventListener('scroll', () => {
+      const header = document.getElementById('main-header');
+      const scrollPosition = window.scrollY;
+
+      if (scrollPosition > 50) {
+        header.classList.add('bg-white/80', 'text-gray-900', 'shadow-md', 'backdrop-blur-md');
+        header.classList.remove('text-white');
+      } else {
+        header.classList.remove('bg-white/80', 'text-gray-900', 'shadow-md', 'backdrop-blur-md');
+        header.classList.add('text-white');
+      }
+    });
+
+    // Ensure header has correct initial state on load
+    window.dispatchEvent(new Event('scroll'));
   </script>
 
 </body>
